@@ -1,0 +1,3 @@
+D:/competition/ROBOTCON/Clion/ITEMS/Frankenstein/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir
+D:/competition/ROBOTCON/Clion/ITEMS/Frankenstein/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/competition/ROBOTCON/Clion/ITEMS/Frankenstein/cmake-build-debug/CMakeFiles/rebuild_cache.dir
