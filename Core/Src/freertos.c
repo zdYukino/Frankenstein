@@ -27,11 +27,12 @@
 /* USER CODE BEGIN Includes */
 #include "vofa.h"
 #include "BMI088driver.h"
+#include "Attitude.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-float gyro[3], accel[3], temp;
+float gyro[3], accel[3], attitute[3], temp;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -141,6 +142,7 @@ void StartDefaultTask(void const * argument)
   for(;;)
   {
       HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
+
       osDelay(1000);
   }
   /* USER CODE END StartDefaultTask */
@@ -165,7 +167,10 @@ void StartVofaTask(void const * argument)
       tempFloat[3] = accel[0];
       tempFloat[4] = accel[1];
       tempFloat[5] = accel[2];
-      tempFloat[6] = temp;
+      tempFloat[6] = attitute[0];
+      tempFloat[7] = attitute[1];
+      tempFloat[8] = attitute[2];
+      tempFloat[9] = temp;
       Vofa_Uart_Transmit(&huart4,10);
       osDelay(2);
   }
@@ -182,11 +187,17 @@ void StartVofaTask(void const * argument)
 void StartMcuTask(void const * argument)
 {
   /* USER CODE BEGIN StartMcuTask */
+    while(BMI088_init())
+    {
+        BMI088_read(gyro, accel, &temp);
+    }
+    Attitude_Init(500, &accel[3]);
   /* Infinite loop */
   for(;;)
   {
       BMI088_read(gyro, accel, &temp);
-      osDelay(10);
+      Attitude_Calculate(gyro, accel, attitute);
+      osDelay(2);
   }
   /* USER CODE END StartMcuTask */
 }
