@@ -26,11 +26,12 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "vofa.h"
+#include "BMI088driver.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+float gyro[3], accel[3], temp;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -158,10 +159,13 @@ void StartVofaTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-      tempFloat[0] = 123;
-      tempFloat[1] = 456;
-      tempFloat[2] = 789;
-      tempFloat[3] = 123;
+      tempFloat[0] = gyro[0];
+      tempFloat[1] = gyro[1];
+      tempFloat[2] = gyro[2];
+      tempFloat[3] = accel[0];
+      tempFloat[4] = accel[1];
+      tempFloat[5] = accel[2];
+      tempFloat[6] = temp;
       Vofa_Uart_Transmit(&huart4,10);
       osDelay(2);
   }
@@ -181,14 +185,8 @@ void StartMcuTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-
-      osDelay(5000);
-      osDelay(5000);
-      osDelay(5000);
-      osDelay(5000);
-      osDelay(5000);
-      osDelay(5000);
-
+      BMI088_read(gyro, accel, &temp);
+      osDelay(10);
   }
   /* USER CODE END StartMcuTask */
 }
