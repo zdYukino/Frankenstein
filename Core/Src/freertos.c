@@ -139,7 +139,8 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-      osDelay(1);
+      HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
+      osDelay(1000);
   }
   /* USER CODE END StartDefaultTask */
 }
@@ -180,7 +181,14 @@ void StartMcuTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+
+      osDelay(5000);
+      osDelay(5000);
+      osDelay(5000);
+      osDelay(5000);
+      osDelay(5000);
+      osDelay(5000);
+
   }
   /* USER CODE END StartMcuTask */
 }

@@ -20,6 +20,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "dma.h"
+#include "spi.h"
 #include "tim.h"
 #include "usart.h"
 #include "usb_device.h"
@@ -28,6 +29,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "vofa.h"
+#include "music.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -93,9 +95,10 @@ int main(void)
   MX_DMA_Init();
   MX_TIM2_Init();
   MX_UART4_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);
-  __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_4, 0);    //修改比较值，修改占空比
+  init_music();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
