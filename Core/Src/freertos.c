@@ -28,11 +28,12 @@
 #include "vofa.h"
 #include "BMI088driver.h"
 #include "Attitude.h"
+#include "pid.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-float gyro[3], accel[3], attitute[3], temp;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -142,7 +143,6 @@ void StartDefaultTask(void const * argument)
   for(;;)
   {
       HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
-
       osDelay(1000);
   }
   /* USER CODE END StartDefaultTask */
@@ -161,17 +161,18 @@ void StartVofaTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-      tempFloat[0] = gyro[0];
-      tempFloat[1] = gyro[1];
-      tempFloat[2] = gyro[2];
-      tempFloat[3] = accel[0];
-      tempFloat[4] = accel[1];
-      tempFloat[5] = accel[2];
-      tempFloat[6] = attitute[0];
-      tempFloat[7] = attitute[1];
-      tempFloat[8] = attitute[2];
-      tempFloat[9] = temp;
-      Vofa_Uart_Transmit(&huart4,10);
+      tempFloat[0] = imu_data.attitude_raw[0];
+      tempFloat[1] = imu_data.attitude_raw[1];
+      tempFloat[2] = imu_data.attitude_raw[2];
+      tempFloat[3] = imu_data.attitude_correct[0];
+      tempFloat[4] = imu_data.attitude_correct[1];
+      tempFloat[5] = imu_data.attitude_correct[2];
+      tempFloat[6] = imu_data.temperature;
+      tempFloat[7] = 40;
+      tempFloat[8] = imu_data.imu_pid.out;
+      tempFloat[9] = imu_data.imu_pid.Iout;
+      tempFloat[10] = imu_data.imu_pid.Dout;
+      Vofa_Uart_Transmit(&huart4,11);
       osDelay(2);
   }
   /* USER CODE END StartVofaTask */
@@ -187,17 +188,22 @@ void StartVofaTask(void const * argument)
 void StartMcuTask(void const * argument)
 {
   /* USER CODE BEGIN StartMcuTask */
-    while(BMI088_init())
-    {
-        BMI088_read(gyro, accel, &temp);
-    }
-    Attitude_Init(500, &accel[3]);
+    while(BMI088_init()){}
+    BMI088_read(imu_data.gyro, imu_data.accel, &imu_data.temperature);                  //数据读取
+    Attitude_Init(500, &imu_data.accel[3]);                                       //姿态转换初始化
+
+    HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_2);                                         //恒温加热开启
+    const float imu_pid[3] = {IMU_PID_K, IMU_PID_I, IMU_PID_D};                       //PID参数初始化
+    PID_init(&imu_data.imu_pid, PID_DELTA, imu_pid, 4999, 800);//PID结构体初始化
   /* Infinite loop */
   for(;;)
   {
-      BMI088_read(gyro, accel, &temp);
-      Attitude_Calculate(gyro, accel, attitute);
-      osDelay(2);
+      BMI088_read(imu_data.gyro, imu_data.accel, &imu_data.temperature);
+      Attitude_Calculate(imu_data.gyro, imu_data.accel);
+      PID_calc(&imu_data.imu_pid, imu_data.temperature, CONSTANT_temperature);
+      if(imu_data.imu_pid.out<0) imu_data.imu_pid.out = 0;
+      __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, imu_data.imu_pid.out);
+      osDelay(1);
   }
   /* USER CODE END StartMcuTask */
 }

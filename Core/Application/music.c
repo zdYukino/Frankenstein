@@ -51,6 +51,7 @@ static void music_play(uint16_t feq, uint8_t delay, uint8_t empty)
   */
 void init_music(void)
 {
+    HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_4);
     __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_4, 20);
     music_play(1046, 4, 1);//11
     music_play(932, 4, 1);//#7

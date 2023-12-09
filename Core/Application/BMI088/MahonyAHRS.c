@@ -84,7 +84,7 @@ void MahonyAHRSinit(float ax, float ay, float az, float mx, float my, float mz)
 
     // Normalise quaternion
     recipNorm = Mahony_invSqrt(q0 * q0 + q1 * q1 + q2 * q2 + q3 * q3);
-    q0*= recipNorm;
+    q0 *= recipNorm;
     q1 *= recipNorm;
     q2 *= recipNorm;
     q3 *= recipNorm;
@@ -247,7 +247,7 @@ void MahonyAHRSupdateIMU(float gx, float gy, float gz, float ax, float ay, float
     }
 
     // Integrate rate of change of quaternion
-    gx *= (0.5f *   invSampleFreq);		// pre-multiply common factors
+    gx *= (0.5f  * invSampleFreq);		// pre-multiply common factors
     gy *= (0.5f  * invSampleFreq);
     gz *= (0.5f  * invSampleFreq);
     qa = q0;
