@@ -20,7 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="imu temperature control">
+    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="年后第一次修改&#10;更改了文件架构&#10;更改了FREERTOS架构&#10;完善了IMU偏移">
       <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c" afterDir="false" />
@@ -31,6 +31,14 @@
       <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/MahonyAHRS.h" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-ade75b10b261cbe89de4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-03-11T14-43-04-0761.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Frankenstein.elf-Debug-34a68c585d9404f27920.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
@@ -203,7 +211,7 @@
       <workItem from="1709736239996" duration="13000" />
       <workItem from="1709912402408" duration="824000" />
       <workItem from="1709996065910" duration="19000" />
-      <workItem from="1710159132755" duration="12319000" />
+      <workItem from="1710159132755" duration="12894000" />
     </task>
     <task id="LOCAL-00001" summary="代码修改">
       <created>1701602122232</created>
@@ -367,7 +375,9 @@
     <MESSAGE value="init BMI088" />
     <MESSAGE value="attitude calculation" />
     <MESSAGE value="imu temperature control" />
-    <option name="LAST_COMMIT_MESSAGE" value="imu temperature control" />
+    <MESSAGE value="年后第一次修改&#10;更改了文件架构" />
+    <MESSAGE value="年后第一次修改&#10;更改了文件架构&#10;更改了FREERTOS架构&#10;完善了IMU偏移" />
+    <option name="LAST_COMMIT_MESSAGE" value="年后第一次修改&#10;更改了文件架构&#10;更改了FREERTOS架构&#10;完善了IMU偏移" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
