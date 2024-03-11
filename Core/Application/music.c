@@ -16,11 +16,12 @@
 #include "main.h"
 #include "tim.h"
 #include "music.h"
+
 /**
   * @brief          播放音符
-  * @param[in]      频率输入
-  * @param[in]      延音时间
-  * @param[in]      空拍时间
+  * @param[in]      频率输入 Hz
+  * @param[in]      延音时间 1/4
+  * @param[in]      空拍时间 1/4
   * @retval         none
   */
 static void music_play(uint16_t feq, uint8_t delay, uint8_t empty)
@@ -46,7 +47,7 @@ static void music_play(uint16_t feq, uint8_t delay, uint8_t empty)
 }
 
 /**
-  * @brief          初始化音乐
+  * @brief          初始化音乐 <NEEDY GIRL OVERDOSE>
   * @retval         none
   */
 void init_music(void)

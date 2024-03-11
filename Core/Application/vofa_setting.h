@@ -1,10 +1,12 @@
 #ifndef _VOFA_SETTING_H_
 #define _VOFA_SETTING_H_
+
 /*
-定义是否启用USB虚拟串口
-修改VOFAClearTime选择超时清空的时间（根据定时调用的时间更改）
-修改VOFAClearLen选择超长丢弃的长度（一般不用改）
- 定义是否启用各项模块
+文件功能&使用方法：
+    定义是否启用USB虚拟串口
+    修改VOFAClearTime选择超时清空的时间（根据定时调用的时间更改）
+    修改VOFAClearLen选择超长丢弃的长度（一般不用改）
+    定义是否启用各项模块
 */
 
 extern float VofaData[16];//需要赋给控件的变量extern过来

@@ -20,15 +20,60 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="attitude calculation">
+    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="imu temperature control">
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088Middleware.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088driver.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088driver.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088reg.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/MahonyAHRS.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/Attitude.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/BMI088/Attitude.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/Attitude.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/BMI088/Attitude.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/MahonyAHRS.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/BMI088/MahonyAHRS.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists_template.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists_template.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/Attitude.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/Attitude.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088Middleware.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088Middleware.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088driver.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088driver.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088reg.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/MahonyAHRS.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/MahonyAHRS.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/UART_DMA.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/UART_DMA.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/music.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/music.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/vofa_setting.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa_setting.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/MahonyAHRS.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/MahonyAHRS.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frankenstein.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/Frankenstein.ioc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-533478e57df2fbf79ceb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-07T16-18-48-0350.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Frankenstein.elf-Debug-260c79d0cb9b5f184ed1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/Attitude.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/BMI088Middleware.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/BMI088driver.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/MahonyAHRS.c.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +147,11 @@
     <option name="rtosType" value="FreeRTOS" />
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.Frankenstein.elf">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Frankenstein.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Frankenstein" TARGET_NAME="Frankenstein.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Frankenstein" RUN_TARGET_NAME="Frankenstein.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -146,7 +196,14 @@
       <workItem from="1701860060958" duration="596000" />
       <workItem from="1701867523995" duration="7010000" />
       <workItem from="1701931959268" duration="16259000" />
-      <workItem from="1702142754593" duration="8905000" />
+      <workItem from="1702142754593" duration="11894000" />
+      <workItem from="1702205650576" duration="705000" />
+      <workItem from="1702379045439" duration="823000" />
+      <workItem from="1702632605215" duration="507000" />
+      <workItem from="1709736239996" duration="13000" />
+      <workItem from="1709912402408" duration="824000" />
+      <workItem from="1709996065910" duration="19000" />
+      <workItem from="1710159132755" duration="12319000" />
     </task>
     <task id="LOCAL-00001" summary="代码修改">
       <created>1701602122232</created>
@@ -230,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701967792080</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="imu temperature control">
+      <option name="closed" value="true" />
+      <created>1702152044565</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702152044565</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +366,8 @@
     <MESSAGE value="init music finish" />
     <MESSAGE value="init BMI088" />
     <MESSAGE value="attitude calculation" />
-    <option name="LAST_COMMIT_MESSAGE" value="attitude calculation" />
+    <MESSAGE value="imu temperature control" />
+    <option name="LAST_COMMIT_MESSAGE" value="imu temperature control" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

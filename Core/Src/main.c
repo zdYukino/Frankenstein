@@ -98,7 +98,6 @@ int main(void)
   MX_SPI2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  init_music();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

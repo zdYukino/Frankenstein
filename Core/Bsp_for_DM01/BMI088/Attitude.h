@@ -3,11 +3,12 @@
 
 #include "pid.h"
 
+#define MPU6500_TEMP_PWM_MAX 5000
 #define CONSTANT_temperature 40
 #define IMU_PID_K 0.2
 #define IMU_PID_I 0.01
 #define IMU_PID_D 0
-#define YAW_ERROR 0.00006f
+#define YAW_ERROR 0.00005568776666666667f
 
 typedef struct
 {

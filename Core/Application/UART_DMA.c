@@ -48,24 +48,6 @@ static void UART5_Receive_Serve(uint8_t *buffer, uint8_t length);
 static void UART6_Receive_Serve(uint8_t *buffer, uint8_t length);
 
 /**
-  * @brief          VL53-100激光测距解码
-  * @param[in]      buffer
-  * @param[in]      length
-  * @retval         u16_distance
-  */
-static uint16_t Vl53_100_receive(uint8_t *buffer, uint8_t length)
-{
-    uint16_t distance = 0;
-    if(buffer[26] == 0x64 && buffer[27] == 0x3A && buffer[28] == 0x20 && buffer[33] == 0x20)
-    {
-        for(uint8_t i=29;i<33;i++)
-            if(buffer[i]!=0x20)
-                distance = distance*10 + (buffer[i]-0x30);
-        return distance;
-    }
-    else return 0;
-}
-/**
   * @brief          初始化串口DMA接收
   * @param[in]      UART接口
   * @param[in]      缓存数组->推荐使用已定义数组

@@ -50,7 +50,8 @@ endif ()
 
 include_directories(${includes})
 include_directories(Core/Application)
-include_directories(Core/Application/BMI088)
+include_directories(Core/Bsp_for_DM01)
+include_directories(Core/Bsp_for_DM01/BMI088)
 
 add_definitions(${defines})
 

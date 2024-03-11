@@ -1,10 +1,37 @@
 #include "vofa.h"
 #include "vofa_setting.h"
 #include "string.h"
+#include "cmsis_os.h"
+#include "Attitude.h"
 
 float VofaData[16] = {0}; //定义控件变量
 float tempFloat[20] = {0};//定义发送变量（just float模式）
 VOFA_RxTypedef Vofa_RX;
+
+/**
+* @brief Function implementing the VofaOutputTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/**
+  * @brief Function FREERTOS VOFA发送调试信息
+  * @param argument: Not used
+  * @retval none
+  */
+void VofaOutputTask(void const * argument)
+{
+    /* Infinite loop */
+    for(;;)
+    {
+        tempFloat[0] = imu_data.attitude_correct[0];
+        tempFloat[1] = imu_data.attitude_correct[1];
+        tempFloat[2] = imu_data.attitude_correct[2];
+        tempFloat[3] = imu_data.temperature;
+        tempFloat[4] = 40;
+        Vofa_Uart_Transmit(&huart4,20);
+        osDelay(2);
+    }
+}
 
 /**
  * @brief  VOFA发送函数
