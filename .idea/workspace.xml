@@ -21,67 +21,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="年后第一次修改&#10;更改了文件架构&#10;更改了FREERTOS架构&#10;完善了IMU偏移">
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088Middleware.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088driver.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088driver.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/BMI088reg.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/MahonyAHRS.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-ade75b10b261cbe89de4.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-03-11T14-43-04-0761.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Frankenstein.elf-Debug-34a68c585d9404f27920.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists_template.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists_template.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/Attitude.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/Attitude.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088Middleware.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088Middleware.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088driver.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088driver.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/BMI088reg.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/MahonyAHRS.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/BMI088/MahonyAHRS.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/UART_DMA.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/UART_DMA.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/music.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/music.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/vofa_setting.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa_setting.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frankenstein.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/Frankenstein.ioc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-533478e57df2fbf79ceb.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-07T16-18-48-0350.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Frankenstein.elf-Debug-260c79d0cb9b5f184ed1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-03-11T14-43-04-0761.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/Attitude.c.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/BMI088Middleware.c.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/BMI088driver.c.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/BMI088/MahonyAHRS.c.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,12 +100,12 @@
     <option name="rtosType" value="FreeRTOS" />
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.Frankenstein.elf">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="Frankenstein.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Frankenstein" TARGET_NAME="Frankenstein.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Frankenstein" RUN_TARGET_NAME="Frankenstein.elf">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Frankenstein.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Frankenstein" TARGET_NAME="Frankenstein.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Frankenstein" RUN_TARGET_NAME="Frankenstein.elf">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>

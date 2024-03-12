@@ -76,7 +76,7 @@ void Temperature_Control(float t_set)
   * @param argument: Not used
   * @retval none
   */
-void StartMcuTask(void const * argument)
+void StartImuTask(void const * argument)
 {
     while(BMI088_init()){}                                                                        //BMI088初始化
     BMI088_read(imu_data.gyro, imu_data.accel, &imu_data.temperature);                  //数据读取
@@ -91,5 +91,5 @@ void StartMcuTask(void const * argument)
         DWT_DelayUS(1000);
         osDelay(1);
     }
-    /* USER CODE END StartMcuTask */
+    /* USER CODE END StartImuTask */
 }

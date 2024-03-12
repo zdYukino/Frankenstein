@@ -2053,9 +2053,9 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .text.Temperature_Control
                 0x08000aec       0x44 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
                 0x08000aec                Temperature_Control
- .text.StartMcuTask
+ .text.StartImuTask
                 0x08000b30       0x68 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
-                0x08000b30                StartMcuTask
+                0x08000b30                StartImuTask
  .text.BMI088_GPIO_init
                 0x08000b98        0x2 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
                 0x08000b98                BMI088_GPIO_init
@@ -3360,9 +3360,9 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .bss.defaultTaskHandle
                 0x20000a80        0x4 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
                 0x20000a80                defaultTaskHandle
- .bss.mcuTaskHandle
+ .bss.imuTaskHandle
                 0x20000a84        0x4 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
-                0x20000a84                mcuTaskHandle
+                0x20000a84                imuTaskHandle
  .bss.xIdleStack
                 0x20000a88      0x200 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
  .bss.xIdleTaskTCBBuffer

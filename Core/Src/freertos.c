@@ -51,7 +51,7 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 osThreadId initTaskHandle;
-osThreadId mcuTaskHandle;
+osThreadId imuTaskHandle;
 osThreadId vofaTaskHandle;
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
@@ -59,7 +59,7 @@ osThreadId defaultTaskHandle;
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 void InitBoardTask(void const * argument);
-void StartMcuTask(void const * argument);
+void StartImuTask(void const * argument);
 void VofaOutputTask(void const * argument);
 /* USER CODE END FunctionPrototypes */
 
@@ -118,13 +118,13 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   osThreadDef(initTask, InitBoardTask, osPriorityIdle, 0, 128);                 //INIT task start
-  mcuTaskHandle = osThreadCreate(osThread(initTask), NULL);
+  imuTaskHandle = osThreadCreate(osThread(initTask), NULL);
 
-  osThreadDef(mcuTask, StartMcuTask, osPriorityNormal, 0, 128);                 //MCU task start
-  mcuTaskHandle = osThreadCreate(osThread(mcuTask), NULL);
+  osThreadDef(imutask, StartImuTask, osPriorityNormal, 0, 128);                 //MCU task start
+  imuTaskHandle = osThreadCreate(osThread(imutask), NULL);
 
   osThreadDef(vofaTask, VofaOutputTask, osPriorityLow, 0, 128);                 //VOFA task start
-  mcuTaskHandle = osThreadCreate(osThread(vofaTask), NULL);
+  imuTaskHandle = osThreadCreate(osThread(vofaTask), NULL);
   /* USER CODE END RTOS_THREADS */
 
 }
