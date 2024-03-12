@@ -16,39 +16,78 @@
 #include "bsp_delay.h"
 #include "main.h"
 
-#define  DEM_CR      *(volatile uint32_t *)0xE000EDFC
-#define  DWT_CR      *(volatile uint32_t *)0xE0001000
-#define  DWT_CYCCNT  *(volatile uint32_t *)0xE0001004
-#define  DEM_CR_TRCENA                   (1 << 24)
-#define  DWT_CR_CYCCNTENA                (1 <<  0)
+static uint8_t fac_us = 0;
+static uint32_t fac_ms = 0;
 
-void DWT_Init()
+void delay_init(void)
 {
-    DEM_CR  |=  DEM_CR_TRCENA; /*对DEMCR寄存器的位24控制，写1使能DWT外设。*/
-    DWT_CYCCNT = 0;/*对于DWT的CYCCNT计数寄存器清0。*/
-    DWT_CR  |=  DWT_CR_CYCCNTENA;/*对DWT控制寄存器的位0控制，写1使能CYCCNT寄存器。*/
+    fac_us = SystemCoreClock / 1000000;
+    fac_ms = SystemCoreClock / 1000;
+
 }
 
-void DWT_DelayUS(uint32_t _ulDelayTime)
+void delay_us(uint16_t nus)
 {
-    uint32_t tCnt, tDelayCnt;
-    uint32_t tStart;
-
-    tStart = DWT_CYCCNT; /* 刚进入时的计数器值 */
-    tCnt = 0;
-    tDelayCnt = _ulDelayTime * (SystemCoreClock / 1000000);
-    /* 需要的节拍数 */    /*SystemCoreClock :系统时钟频率*/
-
-    while(tCnt < tDelayCnt)
+    uint32_t ticks = 0;
+    uint32_t told = 0;
+    uint32_t tnow = 0;
+    uint32_t tcnt = 0;
+    uint32_t reload = 0;
+    reload = SysTick->LOAD;
+    ticks = nus * fac_us;
+    told = SysTick->VAL;
+    while (1)
     {
-        tCnt = DWT_CYCCNT - tStart;
-        /* 求减过程中，如果发生第一次32位计数器重新计数，依然可以正确计算 */
+        tnow = SysTick->VAL;
+        if (tnow != told)
+        {
+            if (tnow < told)
+            {
+                tcnt += told - tnow;
+            }
+            else
+            {
+                tcnt += reload - tnow + told;
+            }
+            told = tnow;
+            if (tcnt >= ticks)
+            {
+                break;
+            }
+        }
     }
 }
 
-void DWT_DelayMS(uint32_t _ulDelayTime)
+void delay_ms(uint16_t nms)
 {
-    DWT_DelayUS(1000*_ulDelayTime);
+    uint32_t ticks = 0;
+    uint32_t told = 0;
+    uint32_t tnow = 0;
+    uint32_t tcnt = 0;
+    uint32_t reload = 0;
+    reload = SysTick->LOAD;
+    ticks = nms * fac_ms;
+    told = SysTick->VAL;
+    while (1)
+    {
+        tnow = SysTick->VAL;
+        if (tnow != told)
+        {
+            if (tnow < told)
+            {
+                tcnt += told - tnow;
+            }
+            else
+            {
+                tcnt += reload - tnow + told;
+            }
+            told = tnow;
+            if (tcnt >= ticks)
+            {
+                break;
+            }
+        }
+    }
 }
 
 

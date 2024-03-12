@@ -23,17 +23,23 @@ void VofaOutputTask(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-        tempFloat[0] = imu_data.attitude_raw[0];
-        tempFloat[1] = imu_data.attitude_raw[1];
-        tempFloat[2] = imu_data.attitude_raw[2];
-        tempFloat[3] = bmi088_real_data.temp;
+        tempFloat[0] = imu_data.attitude_correct[0];
+        tempFloat[1] = imu_data.attitude_correct[1];
+        tempFloat[2] = imu_data.attitude_correct[2];
+        tempFloat[3] = imu_data.temperature;
         tempFloat[4] = 40;
-//        tempFloat[5] = 40;
-//        tempFloat[6] = 40;
-        tempFloat[7] = bmi088_real_data.temp;
-        tempFloat[8] =  bmi088_real_data.accel[0];
-        tempFloat[9] =  bmi088_real_data.accel[1];
-        tempFloat[10] = bmi088_real_data.accel[2];
+        tempFloat[5] = imu_data.gyro[0];
+        tempFloat[6] = imu_data.gyro[1];
+        tempFloat[7] = imu_data.gyro[2];
+        tempFloat[8] =  imu_data.kalman_gyro[0].out;
+        tempFloat[9] =  imu_data.kalman_gyro[1].out;
+        tempFloat[10] = imu_data.kalman_gyro[2].out;
+        tempFloat[11] = imu_data.accel[0];
+        tempFloat[12] = imu_data.accel[1];
+        tempFloat[13] = imu_data.accel[2];
+        tempFloat[14] = imu_data.kalman_accel[0].out;
+        tempFloat[15] = imu_data.kalman_accel[1].out;
+        tempFloat[16] = imu_data.kalman_accel[2].out;
         Vofa_Uart_Transmit(&huart4,20);
         osDelay(2);
     }

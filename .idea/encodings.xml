@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/Core/Application/BMI088_task.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/UART_DMA.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/UART_DMA.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Application/kalman.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Application/kalman.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/music.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/music.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/pid.c" charset="GBK" />

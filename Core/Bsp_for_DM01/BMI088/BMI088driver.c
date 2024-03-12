@@ -252,44 +252,5 @@ static void BMI088_read_muli_reg(uint8_t reg, uint8_t *buf, uint8_t len)
     }
 }
 
-void BMI088_temperature_read_over(uint8_t *rx_buf, float *temperate)
-{
-    int16_t bmi088_raw_temp;
-    bmi088_raw_temp = (int16_t)((rx_buf[0] << 3) | (rx_buf[1] >> 5));
-
-    if (bmi088_raw_temp > 1023)
-    {
-        bmi088_raw_temp -= 2048;
-    }
-    *temperate = bmi088_raw_temp * BMI088_TEMP_FACTOR + BMI088_TEMP_OFFSET;
-
-}
-
-void BMI088_accel_read_over(uint8_t *rx_buf, float accel[3], float *time)
-{
-    int16_t bmi088_raw_temp;
-    uint32_t sensor_time;
-    bmi088_raw_temp = (int16_t)((rx_buf[1]) << 8) | rx_buf[0];
-    accel[0] = bmi088_raw_temp * BMI088_ACCEL_SEN;
-    bmi088_raw_temp = (int16_t)((rx_buf[3]) << 8) | rx_buf[2];
-    accel[1] = bmi088_raw_temp * BMI088_ACCEL_SEN;
-    bmi088_raw_temp = (int16_t)((rx_buf[5]) << 8) | rx_buf[4];
-    accel[2] = bmi088_raw_temp * BMI088_ACCEL_SEN;
-    sensor_time = (uint32_t)((rx_buf[8] << 16) | (rx_buf[7] << 8) | rx_buf[6]);
-    *time = sensor_time * 39.0625f;
-
-}
-
-void BMI088_gyro_read_over(uint8_t *rx_buf, float gyro[3])
-{
-    int16_t bmi088_raw_temp;
-    bmi088_raw_temp = (int16_t)((rx_buf[1]) << 8) | rx_buf[0];
-    gyro[0] = bmi088_raw_temp * BMI088_GYRO_SEN;
-    bmi088_raw_temp = (int16_t)((rx_buf[3]) << 8) | rx_buf[2];
-    gyro[1] = bmi088_raw_temp * BMI088_GYRO_SEN;
-    bmi088_raw_temp = (int16_t)((rx_buf[5]) << 8) | rx_buf[4];
-    gyro[2] = bmi088_raw_temp * BMI088_GYRO_SEN;
-}
-
 #elif defined(BMI088_USE_IIC)
 #endif
