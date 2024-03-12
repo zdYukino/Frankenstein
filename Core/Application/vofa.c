@@ -23,11 +23,17 @@ void VofaOutputTask(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-        tempFloat[0] = imu_data.attitude_correct[0];
-        tempFloat[1] = imu_data.attitude_correct[1];
-        tempFloat[2] = imu_data.attitude_correct[2];
-        tempFloat[3] = imu_data.temperature;
+        tempFloat[0] = imu_data.attitude_raw[0];
+        tempFloat[1] = imu_data.attitude_raw[1];
+        tempFloat[2] = imu_data.attitude_raw[2];
+        tempFloat[3] = bmi088_real_data.temp;
         tempFloat[4] = 40;
+//        tempFloat[5] = 40;
+//        tempFloat[6] = 40;
+        tempFloat[7] = bmi088_real_data.temp;
+        tempFloat[8] =  bmi088_real_data.accel[0];
+        tempFloat[9] =  bmi088_real_data.accel[1];
+        tempFloat[10] = bmi088_real_data.accel[2];
         Vofa_Uart_Transmit(&huart4,20);
         osDelay(2);
     }
