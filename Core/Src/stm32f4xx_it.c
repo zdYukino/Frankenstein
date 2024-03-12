@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f4xx_it.h"
+#include "Attitude.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -165,6 +166,34 @@ void DebugMon_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI line 2 interrupt.
+  */
+void EXTI2_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI2_IRQn 0 */
+
+  /* USER CODE END EXTI2_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(Gyro_ACCEL_Pin);
+  /* USER CODE BEGIN EXTI2_IRQn 1 */
+
+  /* USER CODE END EXTI2_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line 3 interrupt.
+  */
+void EXTI3_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI3_IRQn 0 */
+
+  /* USER CODE END EXTI3_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(Gryo_INT_Pin);
+  /* USER CODE BEGIN EXTI3_IRQn 1 */
+
+  /* USER CODE END EXTI3_IRQn 1 */
+}
+
+/**
   * @brief This function handles DMA1 stream2 global interrupt.
   */
 void DMA1_Stream2_IRQHandler(void)
@@ -184,11 +213,10 @@ void DMA1_Stream2_IRQHandler(void)
 void DMA1_Stream3_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Stream3_IRQn 0 */
-
+  DMA_Callback();
   /* USER CODE END DMA1_Stream3_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_spi2_rx);
   /* USER CODE BEGIN DMA1_Stream3_IRQn 1 */
-
   /* USER CODE END DMA1_Stream3_IRQn 1 */
 }
 

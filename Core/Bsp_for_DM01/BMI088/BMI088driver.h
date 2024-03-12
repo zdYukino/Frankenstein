@@ -85,16 +85,14 @@ enum
     BMI088_NO_SENSOR = 0xFF,
 };
 
-
-
-
-
 extern uint8_t BMI088_init(void);
 extern uint8_t bmi088_accel_init(void);
 extern uint8_t bmi088_gyro_init(void);
 
 extern void BMI088_read(float gyro[3], float accel[3], float *temperate);
 
-
+extern void BMI088_accel_read_over(uint8_t *rx_buf, float accel[3], float *time);
+extern void BMI088_gyro_read_over(uint8_t *rx_buf, float gyro[3]);
+extern void BMI088_temperature_read_over(uint8_t *rx_buf, float *temperate);
 
 #endif

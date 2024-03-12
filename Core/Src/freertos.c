@@ -26,9 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "vofa.h"
-#include "BMI088driver.h"
 #include "Attitude.h"
-#include "pid.h"
 #include "music.h"
 #include "bsp_delay.h"
 /* USER CODE END Includes */
@@ -51,7 +49,7 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 osThreadId initTaskHandle;
-osThreadId mcuTaskHandle;
+osThreadId imuTaskHandle;
 osThreadId vofaTaskHandle;
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
@@ -59,7 +57,7 @@ osThreadId defaultTaskHandle;
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 void InitBoardTask(void const * argument);
-void StartMcuTask(void const * argument);
+void StartImuTask(void const * argument);
 void VofaOutputTask(void const * argument);
 /* USER CODE END FunctionPrototypes */
 
@@ -118,13 +116,13 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   osThreadDef(initTask, InitBoardTask, osPriorityIdle, 0, 128);                 //INIT task start
-  mcuTaskHandle = osThreadCreate(osThread(initTask), NULL);
+  imuTaskHandle = osThreadCreate(osThread(initTask), NULL);
 
-  osThreadDef(mcuTask, StartMcuTask, osPriorityNormal, 0, 128);                 //MCU task start
-  mcuTaskHandle = osThreadCreate(osThread(mcuTask), NULL);
+  osThreadDef(imuTask, StartImuTask, osPriorityNormal, 0, 128);                 //MCU task start
+  imuTaskHandle = osThreadCreate(osThread(imuTask), NULL);
 
   osThreadDef(vofaTask, VofaOutputTask, osPriorityLow, 0, 128);                 //VOFA task start
-  mcuTaskHandle = osThreadCreate(osThread(vofaTask), NULL);
+  imuTaskHandle = osThreadCreate(osThread(vofaTask), NULL);
   /* USER CODE END RTOS_THREADS */
 
 }
@@ -145,12 +143,12 @@ void StartDefaultTask(void const * argument)
   for(;;)
   {
       osDelay(1000);
-      tempFloat[5] = imu_data.attitude_correct[2];
-      for(uint8_t  i=0;i<13;i++)
-      {
-          osDelay(60000);
-          tempFloat[6+i] = imu_data.attitude_correct[2];
-      }
+//      tempFloat[5] = imu_data.attitude_correct[2];
+//      for(uint8_t  i=0;i<13;i++)
+//      {
+//          osDelay(60000);
+//          tempFloat[6+i] = imu_data.attitude_correct[2];
+//      }
   }
   /* USER CODE END StartDefaultTask */
 }
@@ -163,14 +161,14 @@ void StartDefaultTask(void const * argument)
 * @retval None
 */
 /**
-  * @brief Function 初始化音乐
+  * @brief Function 初始化音�?
   * @param argument: Not used
   * @retval none
   */
 void InitBoardTask(void const * argument)
 {
-    DWT_Init();                                                //延时函数初始化
-    init_music();                                                //一阵强劲的音乐响起~~
+    DWT_Init();                                                //延时函数初始�?
+    init_music();                                                //�?阵强劲的音乐响起~~
     /* Infinite loop */
     for(;;)
     {
