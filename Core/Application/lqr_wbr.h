@@ -17,37 +17,47 @@
 #define LQR_WBR_H
 
 #include "lqr_wbr.h"
+#include "VMC.h"
+#include "Attitude.h"
+#include "CAN_receive_dm.h"
+
+#define CONTROL_LOOP_TIME    0.002f  //lqr计算周期  s
+
+#define WIGHT_GAIN 36   //机体重量前馈 N
+#define WHEEl_R    0.1  //轮子半径    M
 
 typedef struct
 {
-    /**输入参数 由传感器更新**/
-    float phi1;    //前大腿与L5夹角 水平为 pi/2  rad
-    float phi4;    //后大腿与L5夹角 水平为 0     rad
-    float d_phi1;   //前大腿角速度    rad/s
-    float d_phi4;   //后大腿角速度    rad/s
-    float F0;      //2x1matrix 输入五连杆机构末端推力 N
-    float Tp;      //2x1matrix 输入五连杆机构末端扭矩 N*M
-    /**中间参数 由函数计算更新**/
-    float YD;   //链接关节坐标
-    float YB;   //链接关节坐标
-    float XD;   //链接关节坐标
-    float XB;   //链接关节坐标
-    float LBD;  //sqrt{(XD-XB)^2+(YD-YB)^2}
-    float A0;   //2*L2(XD-XB)
-    float B0;   //2*L2(YD-YB)
-    float C0;   //L2^2+LBD^2-L3^2
-    float phi2; //链接关节角度
-    float phi3; //链接关节角度
-    float XC;   //直角坐标末端解算X值
-    float YC;   //直角坐标末端解算Y值
-    float L0;   //极坐标末端解算L值
-    float phi0; //极坐标末端解算phi值
-
-    float J[2][2];   //2x2matrix J矩阵
-    /**输出参数 由上两个矩阵相乘得到**/
-    float T[2];      //2x1matrix T1与T2髋关节力矩 N*M
-    /**输出参数 虚拟髋点角速度**/
-    float d_phi0;    //rad/s
+    /**LQR输入参数**/
+    float speed_det;                //期望速度
+    float length;                   //期望高度
+    /**LQR输入传感器参数**/
+    const imu_type_def *imu_data;   //imu数据指针传递
+    const DM_measure_t *joint_data; //点击数据指针传递
+    /**LQR需要控制的参数**/
+    float theta;    //轮杆夹角 rad
+    float d_theta;  //轮杆角速度 rad/s
+    float x;        //水平位移 m
+    float d_x;      //水平速度 m/s
+    float phi;      //机体与水平夹角 rad
+    float d_phi;    //机体与水平角速度 rad/s
+    /**LQR 通过VMC完成实际控制**/
+    vmc_data_t vmc_data;
+    /**LQR 中间过程参数**/
+    pid_type_def length_pid;
+    /**LQR GAIN MATRIX**/
+    float K11;
+    float K12;
+    float K13;
+    float K14;
+    float K15;
+    float K16;
+    float K21;
+    float K22;
+    float K23;
+    float K24;
+    float K25;
+    float K26;
 }lqr_data_t;
 
 

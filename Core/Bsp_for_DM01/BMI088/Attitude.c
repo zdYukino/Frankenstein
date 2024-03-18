@@ -65,10 +65,13 @@ void Temperature_Control(float t_set)
     __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, imu_data.imu_pid.out);
 }
 /**
-* @brief Function implementing the mcuTask thread.
-* @param argument: Not used
-* @retval None
-*/
+  * @brief          返回imu数据指针
+  * @retval         电机数据指针
+  */
+const imu_type_def *get_imu_measure_point(void)
+{
+    return &imu_data;
+}
 /**
   * @brief Function 开始MCU工作任务
   * @param argument: Not used

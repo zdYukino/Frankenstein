@@ -1,5 +1,9 @@
 Archive member included to satisfy reference by file (symbol)
 
+d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+                              CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj (__aeabi_dsub)
+d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+                              CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj (__aeabi_d2f)
 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
                               CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj (__aeabi_uldivmod)
 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
@@ -128,13 +132,20 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
  .data          0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
- .debug_info    0x00000000       0x80 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
- .debug_abbrev  0x00000000       0x26 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+ .text.lqr_data_init
+                0x00000000       0x14 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+ .text.lqr_data_update
+                0x00000000       0x8c CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+ .debug_info    0x00000000      0x6b6 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+ .debug_abbrev  0x00000000      0x11e CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+ .debug_loc     0x00000000       0x54 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
  .debug_aranges
-                0x00000000       0x18 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
- .debug_line    0x00000000       0x1d CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
- .debug_str     0x00000000      0x20b CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+                0x00000000       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+ .debug_ranges  0x00000000       0x18 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+ .debug_line    0x00000000      0x26b CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+ .debug_str     0x00000000      0x425 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
  .comment       0x00000000       0x4a CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
+ .debug_frame   0x00000000       0x58 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
  .ARM.attributes
                 0x00000000       0x34 CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj
  .text          0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj
@@ -167,6 +178,8 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
  .data          0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
+ .text.get_imu_measure_point
+                0x00000000        0x8 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
  .text          0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
  .data          0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
@@ -1774,6 +1787,18 @@ Discarded input sections
                 0x00000000       0x10 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
  .text.USBD_LL_FlushEP
                 0x00000000       0x10 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
+ .text          0x00000000      0x378 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .data          0x00000000        0x0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .bss           0x00000000        0x0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00000000       0xac d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x00000000       0x1e d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .text          0x00000000       0xa0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .data          0x00000000        0x0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .bss           0x00000000        0x0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .debug_frame   0x00000000       0x24 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .ARM.attributes
+                0x00000000       0x1e d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
  .data          0x00000000        0x0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
  .bss           0x00000000        0x0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
  .data          0x00000000        0x0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
@@ -3875,7 +3900,7 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
 LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000    0x33b10
+.debug_info     0x00000000    0x33b31
  .debug_info    0x00000000      0xf89 CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj
  .debug_info    0x00000f89      0x910 CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj
  .debug_info    0x00001899      0x788 CMakeFiles/Frankenstein.elf.dir/Core/Application/VMC.c.obj
@@ -3883,54 +3908,54 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .debug_info    0x00002187      0x953 CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj
  .debug_info    0x00002ada      0x27c CMakeFiles/Frankenstein.elf.dir/Core/Application/pid.c.obj
  .debug_info    0x00002d56      0xde3 CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj
- .debug_info    0x00003b39      0xd4e CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
- .debug_info    0x00004887      0x929 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
- .debug_info    0x000051b0      0x949 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
- .debug_info    0x00005af9      0xb74 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
- .debug_info    0x0000666d      0x275 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
- .debug_info    0x000068e2      0xd0b CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
- .debug_info    0x000075ed      0x5b3 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
- .debug_info    0x00007ba0     0x14a8 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
- .debug_info    0x00009048      0x7c1 CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
- .debug_info    0x00009809      0xc8b CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
- .debug_info    0x0000a494      0xae9 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
- .debug_info    0x0000af7d      0x54e CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_info    0x0000b4cb      0xcd5 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_info    0x0000c1a0     0x140d CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_info    0x0000d5ad      0x174 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
- .debug_info    0x0000d721      0x570 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_info    0x0000dc91      0xd6b CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
- .debug_info    0x0000e9fc      0xd2e CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
- .debug_info    0x0000f72a       0x22 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
- .debug_info    0x0000f74c      0xa46 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_info    0x00010192     0x12bb CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
- .debug_info    0x0001144d     0x10c9 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_info    0x00012516      0xb3f CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
- .debug_info    0x00013055      0x804 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_info    0x00013859     0x1c12 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_info    0x0001546b      0x82e CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
- .debug_info    0x00015c99      0xb48 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_info    0x000167e1      0xce3 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
- .debug_info    0x000174c4     0x1eb9 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_info    0x0001937d     0x3dc6 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_info    0x0001d143     0x1b03 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_info    0x0001ec46     0x418f CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_info    0x00022dd5     0x20a3 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_info    0x00024e78     0x1764 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
- .debug_info    0x000265dc     0x1231 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
- .debug_info    0x0002780d     0x142b CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
- .debug_info    0x00028c38      0x8d8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
- .debug_info    0x00029510     0x2ab3 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_info    0x0002bfc3      0x2e0 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_info    0x0002c2a3      0x587 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_info    0x0002c82a      0x5d9 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_info    0x0002ce03     0x3262 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_info    0x00030065      0x7ad CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
- .debug_info    0x00030812      0x9f4 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
- .debug_info    0x00031206      0x670 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
- .debug_info    0x00031876     0x229a CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
+ .debug_info    0x00003b39      0xd6f CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
+ .debug_info    0x000048a8      0x929 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
+ .debug_info    0x000051d1      0x949 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
+ .debug_info    0x00005b1a      0xb74 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
+ .debug_info    0x0000668e      0x275 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
+ .debug_info    0x00006903      0xd0b CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
+ .debug_info    0x0000760e      0x5b3 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
+ .debug_info    0x00007bc1     0x14a8 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
+ .debug_info    0x00009069      0x7c1 CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
+ .debug_info    0x0000982a      0xc8b CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
+ .debug_info    0x0000a4b5      0xae9 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
+ .debug_info    0x0000af9e      0x54e CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_info    0x0000b4ec      0xcd5 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_info    0x0000c1c1     0x140d CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_info    0x0000d5ce      0x174 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
+ .debug_info    0x0000d742      0x570 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_info    0x0000dcb2      0xd6b CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
+ .debug_info    0x0000ea1d      0xd2e CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
+ .debug_info    0x0000f74b       0x22 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
+ .debug_info    0x0000f76d      0xa46 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_info    0x000101b3     0x12bb CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
+ .debug_info    0x0001146e     0x10c9 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_info    0x00012537      0xb3f CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_info    0x00013076      0x804 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_info    0x0001387a     0x1c12 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_info    0x0001548c      0x82e CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
+ .debug_info    0x00015cba      0xb48 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_info    0x00016802      0xce3 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+ .debug_info    0x000174e5     0x1eb9 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_info    0x0001939e     0x3dc6 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_info    0x0001d164     0x1b03 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_info    0x0001ec67     0x418f CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_info    0x00022df6     0x20a3 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_info    0x00024e99     0x1764 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+ .debug_info    0x000265fd     0x1231 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+ .debug_info    0x0002782e     0x142b CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+ .debug_info    0x00028c59      0x8d8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+ .debug_info    0x00029531     0x2ab3 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_info    0x0002bfe4      0x2e0 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_info    0x0002c2c4      0x587 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_info    0x0002c84b      0x5d9 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_info    0x0002ce24     0x3262 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_info    0x00030086      0x7ad CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
+ .debug_info    0x00030833      0x9f4 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
+ .debug_info    0x00031227      0x670 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
+ .debug_info    0x00031897     0x229a CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
 
-.debug_abbrev   0x00000000     0x6f7e
+.debug_abbrev   0x00000000     0x6f9a
  .debug_abbrev  0x00000000      0x23f CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj
  .debug_abbrev  0x0000023f      0x25f CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj
  .debug_abbrev  0x0000049e      0x15c CMakeFiles/Frankenstein.elf.dir/Core/Application/VMC.c.obj
@@ -3938,52 +3963,52 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .debug_abbrev  0x000006db      0x1f5 CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj
  .debug_abbrev  0x000008d0      0x12e CMakeFiles/Frankenstein.elf.dir/Core/Application/pid.c.obj
  .debug_abbrev  0x000009fe      0x2d7 CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj
- .debug_abbrev  0x00000cd5      0x261 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
- .debug_abbrev  0x00000f36      0x208 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
- .debug_abbrev  0x0000113e      0x18b CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
- .debug_abbrev  0x000012c9      0x153 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
- .debug_abbrev  0x0000141c      0x109 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
- .debug_abbrev  0x00001525      0x1e5 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
- .debug_abbrev  0x0000170a      0x126 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
- .debug_abbrev  0x00001830      0x2e6 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
- .debug_abbrev  0x00001b16      0x16a CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
- .debug_abbrev  0x00001c80      0x20f CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
- .debug_abbrev  0x00001e8f      0x1db CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
- .debug_abbrev  0x0000206a      0x119 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_abbrev  0x00002183      0x1ff CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_abbrev  0x00002382      0x228 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_abbrev  0x000025aa       0xe7 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
- .debug_abbrev  0x00002691      0x119 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_abbrev  0x000027aa      0x200 CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
- .debug_abbrev  0x000029aa      0x1f6 CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
- .debug_abbrev  0x00002ba0       0x12 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
- .debug_abbrev  0x00002bb2      0x206 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_abbrev  0x00002db8      0x262 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
- .debug_abbrev  0x0000301a      0x36a CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_abbrev  0x00003384      0x2c2 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
- .debug_abbrev  0x00003646      0x1ef CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_abbrev  0x00003835      0x2bc CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_abbrev  0x00003af1      0x1e5 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
- .debug_abbrev  0x00003cd6      0x28a CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_abbrev  0x00003f60      0x21e CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
- .debug_abbrev  0x0000417e      0x25b CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_abbrev  0x000043d9      0x232 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_abbrev  0x0000460b      0x248 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_abbrev  0x00004853      0x2fd CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_abbrev  0x00004b50      0x2d2 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_abbrev  0x00004e22      0x317 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
- .debug_abbrev  0x00005139      0x2a8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
- .debug_abbrev  0x000053e1      0x32e CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
- .debug_abbrev  0x0000570f      0x184 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
- .debug_abbrev  0x00005893      0x435 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_abbrev  0x00005cc8      0x106 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_abbrev  0x00005dce      0x26b CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_abbrev  0x00006039      0x24b CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_abbrev  0x00006284      0x401 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_abbrev  0x00006685      0x196 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
- .debug_abbrev  0x0000681b      0x2a2 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
- .debug_abbrev  0x00006abd      0x1ca CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
- .debug_abbrev  0x00006c87      0x2f7 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
+ .debug_abbrev  0x00000cd5      0x27d CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
+ .debug_abbrev  0x00000f52      0x208 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
+ .debug_abbrev  0x0000115a      0x18b CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
+ .debug_abbrev  0x000012e5      0x153 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
+ .debug_abbrev  0x00001438      0x109 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
+ .debug_abbrev  0x00001541      0x1e5 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
+ .debug_abbrev  0x00001726      0x126 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
+ .debug_abbrev  0x0000184c      0x2e6 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
+ .debug_abbrev  0x00001b32      0x16a CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
+ .debug_abbrev  0x00001c9c      0x20f CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
+ .debug_abbrev  0x00001eab      0x1db CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
+ .debug_abbrev  0x00002086      0x119 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_abbrev  0x0000219f      0x1ff CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_abbrev  0x0000239e      0x228 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_abbrev  0x000025c6       0xe7 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
+ .debug_abbrev  0x000026ad      0x119 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_abbrev  0x000027c6      0x200 CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
+ .debug_abbrev  0x000029c6      0x1f6 CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
+ .debug_abbrev  0x00002bbc       0x12 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
+ .debug_abbrev  0x00002bce      0x206 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_abbrev  0x00002dd4      0x262 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
+ .debug_abbrev  0x00003036      0x36a CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_abbrev  0x000033a0      0x2c2 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_abbrev  0x00003662      0x1ef CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_abbrev  0x00003851      0x2bc CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_abbrev  0x00003b0d      0x1e5 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
+ .debug_abbrev  0x00003cf2      0x28a CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_abbrev  0x00003f7c      0x21e CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+ .debug_abbrev  0x0000419a      0x25b CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_abbrev  0x000043f5      0x232 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_abbrev  0x00004627      0x248 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_abbrev  0x0000486f      0x2fd CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_abbrev  0x00004b6c      0x2d2 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_abbrev  0x00004e3e      0x317 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+ .debug_abbrev  0x00005155      0x2a8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+ .debug_abbrev  0x000053fd      0x32e CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+ .debug_abbrev  0x0000572b      0x184 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+ .debug_abbrev  0x000058af      0x435 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_abbrev  0x00005ce4      0x106 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_abbrev  0x00005dea      0x26b CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_abbrev  0x00006055      0x24b CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_abbrev  0x000062a0      0x401 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_abbrev  0x000066a1      0x196 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
+ .debug_abbrev  0x00006837      0x2a2 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
+ .debug_abbrev  0x00006ad9      0x1ca CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
+ .debug_abbrev  0x00006ca3      0x2f7 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
 
 .debug_loc      0x00000000    0x1f14c
  .debug_loc     0x00000000      0x4c1 CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj
@@ -4034,7 +4059,7 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .debug_loc     0x0001e0e2      0x3b4 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
  .debug_loc     0x0001e496      0xcb6 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
 
-.debug_aranges  0x00000000     0x1fe8
+.debug_aranges  0x00000000     0x1ff0
  .debug_aranges
                 0x00000000       0x70 CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj
  .debug_aranges
@@ -4050,99 +4075,99 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .debug_aranges
                 0x00000158       0x60 CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj
  .debug_aranges
-                0x000001b8       0x40 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
+                0x000001b8       0x48 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
  .debug_aranges
-                0x000001f8       0x60 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
+                0x00000200       0x60 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
  .debug_aranges
-                0x00000258       0x50 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
+                0x00000260       0x50 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
  .debug_aranges
-                0x000002a8       0x60 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
+                0x000002b0       0x60 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
  .debug_aranges
-                0x00000308       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
+                0x00000310       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
  .debug_aranges
-                0x00000338       0x38 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
+                0x00000340       0x38 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
  .debug_aranges
-                0x00000370       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
+                0x00000378       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
  .debug_aranges
-                0x00000390       0x38 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
+                0x00000398       0x38 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
  .debug_aranges
-                0x000003c8       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
+                0x000003d0       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
  .debug_aranges
-                0x000003e8       0x38 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
+                0x000003f0       0x38 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
  .debug_aranges
-                0x00000420       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
+                0x00000428       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
  .debug_aranges
-                0x00000450       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x00000458       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
  .debug_aranges
-                0x00000470       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+                0x00000478       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
  .debug_aranges
-                0x000004a0       0x98 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x000004a8       0x98 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
  .debug_aranges
-                0x00000538       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
+                0x00000540       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
  .debug_aranges
-                0x00000558       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
+                0x00000560       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
  .debug_aranges
-                0x00000580       0x40 CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
+                0x00000588       0x40 CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
  .debug_aranges
-                0x000005c0       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
+                0x000005c8       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
  .debug_aranges
-                0x000005f0       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
+                0x000005f8       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
  .debug_aranges
-                0x00000618       0xf0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x00000620       0xf0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
  .debug_aranges
-                0x00000708      0x138 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
+                0x00000710      0x138 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
  .debug_aranges
-                0x00000840       0xb0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x00000848       0xb0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .debug_aranges
-                0x000008f0       0x90 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+                0x000008f8       0x90 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
  .debug_aranges
-                0x00000980       0x58 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+                0x00000988       0x58 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .debug_aranges
-                0x000009d8      0x148 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+                0x000009e0      0x148 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
  .debug_aranges
-                0x00000b20       0x48 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
+                0x00000b28       0x48 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
  .debug_aranges
-                0x00000b68       0x88 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x00000b70       0x88 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
  .debug_aranges
-                0x00000bf0       0x78 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+                0x00000bf8       0x78 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .debug_aranges
-                0x00000c68      0x1d0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+                0x00000c70      0x1d0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .debug_aranges
-                0x00000e38      0x3d0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x00000e40      0x3d0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
  .debug_aranges
-                0x00001208      0x168 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+                0x00001210      0x168 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
  .debug_aranges
-                0x00001370      0x208 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+                0x00001378      0x208 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
  .debug_aranges
-                0x00001578      0x1a0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x00001580      0x1a0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
  .debug_aranges
-                0x00001718       0x90 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+                0x00001720       0x90 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
  .debug_aranges
-                0x000017a8       0xd8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+                0x000017b0       0xd8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
  .debug_aranges
-                0x00001880       0x88 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+                0x00001888       0x88 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
  .debug_aranges
-                0x00001908       0x50 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+                0x00001910       0x50 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
  .debug_aranges
-                0x00001958      0x1d8 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+                0x00001960      0x1d8 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
  .debug_aranges
-                0x00001b30       0x40 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x00001b38       0x40 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
  .debug_aranges
-                0x00001b70       0x80 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x00001b78       0x80 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
  .debug_aranges
-                0x00001bf0       0x58 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x00001bf8       0x58 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .debug_aranges
-                0x00001c48      0x1b8 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x00001c50      0x1b8 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .debug_aranges
-                0x00001e00       0x20 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
+                0x00001e08       0x20 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
  .debug_aranges
-                0x00001e20       0x48 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
+                0x00001e28       0x48 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
  .debug_aranges
-                0x00001e68       0x68 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
+                0x00001e70       0x68 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
  .debug_aranges
-                0x00001ed0      0x118 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
+                0x00001ed8      0x118 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
 
-.debug_ranges   0x00000000     0x1ec8
+.debug_ranges   0x00000000     0x1ed0
  .debug_ranges  0x00000000       0x78 CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj
  .debug_ranges  0x00000078       0x40 CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj
  .debug_ranges  0x000000b8       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Application/VMC.c.obj
@@ -4150,54 +4175,54 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .debug_ranges  0x000000f0       0x18 CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj
  .debug_ranges  0x00000108       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Application/pid.c.obj
  .debug_ranges  0x00000128       0x68 CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj
- .debug_ranges  0x00000190       0x48 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
- .debug_ranges  0x000001d8       0x50 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
- .debug_ranges  0x00000228       0x40 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
- .debug_ranges  0x00000268       0x50 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
- .debug_ranges  0x000002b8       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
- .debug_ranges  0x000002d8       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
- .debug_ranges  0x00000300       0x10 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
- .debug_ranges  0x00000310       0x40 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
- .debug_ranges  0x00000350       0x10 CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
- .debug_ranges  0x00000360       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
- .debug_ranges  0x00000388       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
- .debug_ranges  0x000003a8       0x10 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_ranges  0x000003b8       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_ranges  0x000003d8       0x88 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_ranges  0x00000460       0x10 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
- .debug_ranges  0x00000470       0x18 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_ranges  0x00000488       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
- .debug_ranges  0x000004b8       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
- .debug_ranges  0x000004d8       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
- .debug_ranges  0x000004f8       0xe0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_ranges  0x000005d8      0x140 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
- .debug_ranges  0x00000718      0x100 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_ranges  0x00000818       0x80 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
- .debug_ranges  0x00000898       0x48 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_ranges  0x000008e0      0x138 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_ranges  0x00000a18       0x38 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
- .debug_ranges  0x00000a50       0x90 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_ranges  0x00000ae0       0x80 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
- .debug_ranges  0x00000b60      0x1c0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_ranges  0x00000d20      0x3c0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_ranges  0x000010e0      0x158 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_ranges  0x00001238      0x210 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_ranges  0x00001448      0x190 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_ranges  0x000015d8       0x80 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
- .debug_ranges  0x00001658       0xc8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
- .debug_ranges  0x00001720       0x78 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
- .debug_ranges  0x00001798       0x40 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
- .debug_ranges  0x000017d8      0x1c8 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_ranges  0x000019a0       0x30 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_ranges  0x000019d0       0x88 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_ranges  0x00001a58       0x48 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_ranges  0x00001aa0      0x280 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_ranges  0x00001d20       0x10 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
- .debug_ranges  0x00001d30       0x38 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
- .debug_ranges  0x00001d68       0x58 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
- .debug_ranges  0x00001dc0      0x108 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
+ .debug_ranges  0x00000190       0x50 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
+ .debug_ranges  0x000001e0       0x50 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
+ .debug_ranges  0x00000230       0x40 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
+ .debug_ranges  0x00000270       0x50 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
+ .debug_ranges  0x000002c0       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
+ .debug_ranges  0x000002e0       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
+ .debug_ranges  0x00000308       0x10 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
+ .debug_ranges  0x00000318       0x40 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
+ .debug_ranges  0x00000358       0x10 CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
+ .debug_ranges  0x00000368       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
+ .debug_ranges  0x00000390       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
+ .debug_ranges  0x000003b0       0x10 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_ranges  0x000003c0       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_ranges  0x000003e0       0x88 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_ranges  0x00000468       0x10 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
+ .debug_ranges  0x00000478       0x18 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_ranges  0x00000490       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
+ .debug_ranges  0x000004c0       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
+ .debug_ranges  0x000004e0       0x20 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
+ .debug_ranges  0x00000500       0xe0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_ranges  0x000005e0      0x140 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
+ .debug_ranges  0x00000720      0x100 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_ranges  0x00000820       0x80 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_ranges  0x000008a0       0x48 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_ranges  0x000008e8      0x138 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_ranges  0x00000a20       0x38 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
+ .debug_ranges  0x00000a58       0x90 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_ranges  0x00000ae8       0x80 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+ .debug_ranges  0x00000b68      0x1c0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_ranges  0x00000d28      0x3c0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_ranges  0x000010e8      0x158 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_ranges  0x00001240      0x210 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_ranges  0x00001450      0x190 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_ranges  0x000015e0       0x80 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+ .debug_ranges  0x00001660       0xc8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+ .debug_ranges  0x00001728       0x78 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+ .debug_ranges  0x000017a0       0x40 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+ .debug_ranges  0x000017e0      0x1c8 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_ranges  0x000019a8       0x30 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_ranges  0x000019d8       0x88 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_ranges  0x00001a60       0x48 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_ranges  0x00001aa8      0x280 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_ranges  0x00001d28       0x10 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
+ .debug_ranges  0x00001d38       0x38 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
+ .debug_ranges  0x00001d70       0x58 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
+ .debug_ranges  0x00001dc8      0x108 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
 
-.debug_line     0x00000000    0x25a82
+.debug_line     0x00000000    0x25a9b
  .debug_line    0x00000000      0x730 CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj
  .debug_line    0x00000730      0x388 CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj
  .debug_line    0x00000ab8      0x525 CMakeFiles/Frankenstein.elf.dir/Core/Application/VMC.c.obj
@@ -4205,54 +4230,54 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .debug_line    0x000010f3      0x35e CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj
  .debug_line    0x00001451      0x3b2 CMakeFiles/Frankenstein.elf.dir/Core/Application/pid.c.obj
  .debug_line    0x00001803      0x94b CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj
- .debug_line    0x0000214e      0x5ce CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
- .debug_line    0x0000271c      0x413 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
- .debug_line    0x00002b2f      0x4bd CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
- .debug_line    0x00002fec      0x968 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
- .debug_line    0x00003954      0x330 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
- .debug_line    0x00003c84      0x5a3 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
- .debug_line    0x00004227      0x22e CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
- .debug_line    0x00004455      0x65a CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
- .debug_line    0x00004aaf      0x2bc CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
- .debug_line    0x00004d6b      0x516 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
- .debug_line    0x00005281      0x481 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
- .debug_line    0x00005702      0x23e CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_line    0x00005940      0x377 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_line    0x00005cb7      0x48a CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_line    0x00006141      0x211 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
- .debug_line    0x00006352      0x2f7 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_line    0x00006649      0x51c CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
- .debug_line    0x00006b65      0x41f CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
- .debug_line    0x00006f84       0xb6 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
- .debug_line    0x0000703a      0x63d CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_line    0x00007677     0x11d6 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
- .debug_line    0x0000884d      0x869 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_line    0x000090b6      0xecc CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
- .debug_line    0x00009f82      0x77e CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_line    0x0000a700     0x162b CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_line    0x0000bd2b      0x3e0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
- .debug_line    0x0000c10b      0xbbd CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_line    0x0000ccc8     0x1434 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
- .debug_line    0x0000e0fc     0x2651 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_line    0x0001074d     0x4b80 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_line    0x000152cd     0x1d57 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_line    0x00017024     0x4393 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_line    0x0001b3b7     0x201f CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_line    0x0001d3d6      0xb32 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
- .debug_line    0x0001df08      0xa49 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
- .debug_line    0x0001e951      0xdee CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
- .debug_line    0x0001f73f      0x320 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
- .debug_line    0x0001fa5f     0x12f1 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_line    0x00020d50      0x400 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_line    0x00021150      0x7b1 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_line    0x00021901      0x7e3 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_line    0x000220e4     0x25f0 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_line    0x000246d4      0x2e5 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
- .debug_line    0x000249b9      0x30b CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
- .debug_line    0x00024cc4      0x3f8 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
- .debug_line    0x000250bc      0x9c6 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
+ .debug_line    0x0000214e      0x5e7 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
+ .debug_line    0x00002735      0x413 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
+ .debug_line    0x00002b48      0x4bd CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
+ .debug_line    0x00003005      0x968 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
+ .debug_line    0x0000396d      0x330 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
+ .debug_line    0x00003c9d      0x5a3 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
+ .debug_line    0x00004240      0x22e CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
+ .debug_line    0x0000446e      0x65a CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
+ .debug_line    0x00004ac8      0x2bc CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
+ .debug_line    0x00004d84      0x516 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
+ .debug_line    0x0000529a      0x481 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
+ .debug_line    0x0000571b      0x23e CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_line    0x00005959      0x377 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_line    0x00005cd0      0x48a CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_line    0x0000615a      0x211 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
+ .debug_line    0x0000636b      0x2f7 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_line    0x00006662      0x51c CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
+ .debug_line    0x00006b7e      0x41f CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
+ .debug_line    0x00006f9d       0xb6 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
+ .debug_line    0x00007053      0x63d CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_line    0x00007690     0x11d6 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
+ .debug_line    0x00008866      0x869 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_line    0x000090cf      0xecc CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_line    0x00009f9b      0x77e CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_line    0x0000a719     0x162b CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_line    0x0000bd44      0x3e0 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
+ .debug_line    0x0000c124      0xbbd CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_line    0x0000cce1     0x1434 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+ .debug_line    0x0000e115     0x2651 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_line    0x00010766     0x4b80 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_line    0x000152e6     0x1d57 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_line    0x0001703d     0x4393 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_line    0x0001b3d0     0x201f CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_line    0x0001d3ef      0xb32 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+ .debug_line    0x0001df21      0xa49 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+ .debug_line    0x0001e96a      0xdee CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+ .debug_line    0x0001f758      0x320 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+ .debug_line    0x0001fa78     0x12f1 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_line    0x00020d69      0x400 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_line    0x00021169      0x7b1 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_line    0x0002191a      0x7e3 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_line    0x000220fd     0x25f0 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_line    0x000246ed      0x2e5 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
+ .debug_line    0x000249d2      0x30b CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
+ .debug_line    0x00024cdd      0x3f8 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
+ .debug_line    0x000250d5      0x9c6 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
 
-.debug_str      0x00000000     0xa9f8
+.debug_str      0x00000000     0xaa0e
  .debug_str     0x00000000      0x7e7 CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj
                                 0x894 (size before relaxing)
  .debug_str     0x000007e7      0x575 CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj
@@ -4267,97 +4292,97 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
                                 0x286 (size before relaxing)
  .debug_str     0x00001364      0x21b CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj
                                 0x95a (size before relaxing)
- .debug_str     0x0000157f      0x12e CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
-                                0x97c (size before relaxing)
- .debug_str     0x000016ad      0x30f CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
+ .debug_str     0x0000157f      0x144 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
+                                0x992 (size before relaxing)
+ .debug_str     0x000016c3      0x30f CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
                                 0x7d0 (size before relaxing)
- .debug_str     0x000019bc      0x315 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
+ .debug_str     0x000019d2      0x315 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
                                 0x5ae (size before relaxing)
- .debug_str     0x00001cd1      0x1a6 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
+ .debug_str     0x00001ce7      0x1a6 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
                                 0x3dd (size before relaxing)
- .debug_str     0x00001e77       0x78 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
+ .debug_str     0x00001e8d       0x78 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
                                 0x2aa (size before relaxing)
- .debug_str     0x00001eef      0x75f CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
+ .debug_str     0x00001f05      0x75f CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
                                 0xc36 (size before relaxing)
- .debug_str     0x0000264e       0x4c CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
+ .debug_str     0x00002664       0x4c CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
                                 0x88c (size before relaxing)
- .debug_str     0x0000269a      0x726 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
+ .debug_str     0x000026b0      0x726 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
                                 0xcab (size before relaxing)
- .debug_str     0x00002dc0       0x4e CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
+ .debug_str     0x00002dd6       0x4e CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
                                 0x94b (size before relaxing)
- .debug_str     0x00002e0e      0x227 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
+ .debug_str     0x00002e24      0x227 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
                                 0xade (size before relaxing)
- .debug_str     0x00003035       0xaf CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
+ .debug_str     0x0000304b       0xaf CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
                                 0x8b3 (size before relaxing)
- .debug_str     0x000030e4       0x5a CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_str     0x000030fa       0x5a CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
                                 0x887 (size before relaxing)
- .debug_str     0x0000313e      0x137 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_str     0x00003154      0x137 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
                                 0xf1b (size before relaxing)
- .debug_str     0x00003275      0x5a6 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_str     0x0000328b      0x5a6 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
                                0x1154 (size before relaxing)
- .debug_str     0x0000381b       0xab CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
+ .debug_str     0x00003831       0xab CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
                                 0x288 (size before relaxing)
- .debug_str     0x000038c6       0xf9 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_str     0x000038dc       0xf9 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
                                 0x3fd (size before relaxing)
- .debug_str     0x000039bf      0x196 CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
+ .debug_str     0x000039d5      0x196 CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
                                 0xa96 (size before relaxing)
- .debug_str     0x00003b55       0x7f CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
+ .debug_str     0x00003b6b       0x7f CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
                                 0xe3b (size before relaxing)
- .debug_str     0x00003bd4       0x64 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
+ .debug_str     0x00003bea       0x64 CMakeFiles/Frankenstein.elf.dir/Core/Startup/startup_stm32f446rctx.s.obj
                                  0xa7 (size before relaxing)
- .debug_str     0x00003c38      0x2f9 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_str     0x00003c4e      0x2f9 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
                                 0xc23 (size before relaxing)
- .debug_str     0x00003f31      0x3ba CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
+ .debug_str     0x00003f47      0x3ba CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
                                 0xa98 (size before relaxing)
- .debug_str     0x000042eb      0x45c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_str     0x00004301      0x45c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
                                 0xce7 (size before relaxing)
- .debug_str     0x00004747      0x2fb CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_str     0x0000475d      0x2fb CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
                                 0x7d9 (size before relaxing)
- .debug_str     0x00004a42      0x138 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_str     0x00004a58      0x138 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
                                 0x568 (size before relaxing)
- .debug_str     0x00004b7a      0x837 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_str     0x00004b90      0x837 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
                                 0xe89 (size before relaxing)
- .debug_str     0x000053b1      0x196 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
+ .debug_str     0x000053c7      0x196 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
                                 0x810 (size before relaxing)
- .debug_str     0x00005547      0x188 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_str     0x0000555d      0x188 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
                                 0x793 (size before relaxing)
- .debug_str     0x000056cf      0x375 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+ .debug_str     0x000056e5      0x375 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
                                 0x87a (size before relaxing)
- .debug_str     0x00005a44      0x533 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_str     0x00005a5a      0x533 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
                                 0xc5d (size before relaxing)
- .debug_str     0x00005f77      0xe05 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_str     0x00005f8d      0xe05 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
                                0x172c (size before relaxing)
- .debug_str     0x00006d7c      0x552 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_str     0x00006d92      0x552 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
                                 0xf1d (size before relaxing)
- .debug_str     0x000072ce      0x5c7 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_str     0x000072e4      0x5c7 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
                                 0xdfe (size before relaxing)
- .debug_str     0x00007895      0x4f9 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_str     0x000078ab      0x4f9 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
                                 0xdca (size before relaxing)
- .debug_str     0x00007d8e      0x74d CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+ .debug_str     0x00007da4      0x74d CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
                                 0xe3b (size before relaxing)
- .debug_str     0x000084db      0x396 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+ .debug_str     0x000084f1      0x396 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
                                 0xa4b (size before relaxing)
- .debug_str     0x00008871      0x167 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+ .debug_str     0x00008887      0x167 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
                                 0x876 (size before relaxing)
- .debug_str     0x000089d8       0x7f CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+ .debug_str     0x000089ee       0x7f CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
                                 0x74b (size before relaxing)
- .debug_str     0x00008a57      0xbd4 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_str     0x00008a6d      0xbd4 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
                                0x1472 (size before relaxing)
- .debug_str     0x0000962b      0x167 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_str     0x00009641      0x167 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
                                 0x365 (size before relaxing)
- .debug_str     0x00009792      0x25b CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_str     0x000097a8      0x25b CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
                                 0x4e1 (size before relaxing)
- .debug_str     0x000099ed      0x300 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_str     0x00009a03      0x300 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
                                 0x573 (size before relaxing)
- .debug_str     0x00009ced      0x95d CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_str     0x00009d03      0x95d CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
                                0x1485 (size before relaxing)
- .debug_str     0x0000a64a       0x79 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
+ .debug_str     0x0000a660       0x79 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
                                 0x726 (size before relaxing)
- .debug_str     0x0000a6c3       0xb8 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
+ .debug_str     0x0000a6d9       0xb8 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
                                 0x807 (size before relaxing)
- .debug_str     0x0000a77b      0x1c8 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
+ .debug_str     0x0000a791      0x1c8 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
                                 0x4fc (size before relaxing)
- .debug_str     0x0000a943       0xb5 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
+ .debug_str     0x0000a959       0xb5 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
                                0x1920 (size before relaxing)
 
 .comment        0x00000000       0x49
@@ -4415,7 +4440,7 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .comment       0x00000049       0x4a CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
  .comment       0x00000049       0x4a CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
 
-.debug_frame    0x00000000     0x5918
+.debug_frame    0x00000000     0x5928
  .debug_frame   0x00000000      0x15c CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj
  .debug_frame   0x0000015c       0x78 CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj
  .debug_frame   0x000001d4       0xf0 CMakeFiles/Frankenstein.elf.dir/Core/Application/VMC.c.obj
@@ -4423,63 +4448,63 @@ LOAD d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc
  .debug_frame   0x000002f4       0x44 CMakeFiles/Frankenstein.elf.dir/Core/Application/music.c.obj
  .debug_frame   0x00000338       0x40 CMakeFiles/Frankenstein.elf.dir/Core/Application/pid.c.obj
  .debug_frame   0x00000378       0xec CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj
- .debug_frame   0x00000464       0xb4 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
- .debug_frame   0x00000518       0xe0 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
- .debug_frame   0x000005f8       0xe4 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
- .debug_frame   0x000006dc      0x1c8 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
- .debug_frame   0x000008a4       0x58 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
- .debug_frame   0x000008fc       0x78 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
- .debug_frame   0x00000974       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
- .debug_frame   0x000009a4       0x74 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
- .debug_frame   0x00000a18       0x34 CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
- .debug_frame   0x00000a4c       0x70 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
- .debug_frame   0x00000abc       0x64 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
- .debug_frame   0x00000b20       0x2c CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_frame   0x00000b4c       0x54 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_frame   0x00000ba0      0x160 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_frame   0x00000d00       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
- .debug_frame   0x00000d28       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_frame   0x00000d58       0x9c CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
- .debug_frame   0x00000df4       0x64 CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
- .debug_frame   0x00000e58      0x1ec CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_frame   0x00001044      0x2d8 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
- .debug_frame   0x0000131c      0x158 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_frame   0x00001474      0x188 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
- .debug_frame   0x000015fc       0xd8 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_frame   0x000016d4      0x388 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_frame   0x00001a5c       0x7c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
- .debug_frame   0x00001ad8      0x16c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_frame   0x00001c44      0x14c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
- .debug_frame   0x00001d90      0x5c8 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_frame   0x00002358      0xb10 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_frame   0x00002e68      0x40c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_frame   0x00003274      0x5e4 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_frame   0x00003858      0x4a4 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_frame   0x00003cfc      0x190 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
- .debug_frame   0x00003e8c      0x240 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
- .debug_frame   0x000040cc      0x180 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
- .debug_frame   0x0000424c       0xb8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
- .debug_frame   0x00004304      0x58c CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_frame   0x00004890       0x70 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_frame   0x00004900      0x110 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_frame   0x00004a10       0xd0 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_frame   0x00004ae0      0x58c CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_frame   0x0000506c       0x28 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
- .debug_frame   0x00005094       0x88 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
- .debug_frame   0x0000511c       0xf0 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
- .debug_frame   0x0000520c      0x2fc CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
- .debug_frame   0x00005508       0x2c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00005534       0x34 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x00005568       0x20 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-errno.o)
- .debug_frame   0x00005588       0x2c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-init.o)
- .debug_frame   0x000055b4       0x2c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-memset.o)
- .debug_frame   0x000055e0       0x64 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-reent.o)
- .debug_frame   0x00005644       0x68 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-__call_atexit.o)
- .debug_frame   0x000056ac       0x20 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-atexit.o)
- .debug_frame   0x000056cc       0x34 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-fini.o)
- .debug_frame   0x00005700       0x8c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-freer.o)
- .debug_frame   0x0000578c       0xb0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-lock.o)
- .debug_frame   0x0000583c       0x4c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-mallocr.o)
- .debug_frame   0x00005888       0x30 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-mlock.o)
- .debug_frame   0x000058b8       0x2c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-sbrkr.o)
- .debug_frame   0x000058e4       0x34 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-__atexit.o)
+ .debug_frame   0x00000464       0xc4 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj
+ .debug_frame   0x00000528       0xe0 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088Middleware.c.obj
+ .debug_frame   0x00000608       0xe4 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/BMI088driver.c.obj
+ .debug_frame   0x000006ec      0x1c8 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/MahonyAHRS.c.obj
+ .debug_frame   0x000008b4       0x58 CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/bsp_delay.c.obj
+ .debug_frame   0x0000090c       0x78 CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj
+ .debug_frame   0x00000984       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj
+ .debug_frame   0x000009b4       0x74 CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj
+ .debug_frame   0x00000a28       0x34 CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj
+ .debug_frame   0x00000a5c       0x70 CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj
+ .debug_frame   0x00000acc       0x64 CMakeFiles/Frankenstein.elf.dir/Core/Src/spi.c.obj
+ .debug_frame   0x00000b30       0x2c CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_frame   0x00000b5c       0x54 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_frame   0x00000bb0      0x160 CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_frame   0x00000d10       0x28 CMakeFiles/Frankenstein.elf.dir/Core/Src/sysmem.c.obj
+ .debug_frame   0x00000d38       0x30 CMakeFiles/Frankenstein.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_frame   0x00000d68       0x9c CMakeFiles/Frankenstein.elf.dir/Core/Src/tim.c.obj
+ .debug_frame   0x00000e04       0x64 CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj
+ .debug_frame   0x00000e68      0x1ec CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_frame   0x00001054      0x2d8 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c.obj
+ .debug_frame   0x0000132c      0x158 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_frame   0x00001484      0x188 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_frame   0x0000160c       0xd8 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_frame   0x000016e4      0x388 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_frame   0x00001a6c       0x7c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c.obj
+ .debug_frame   0x00001ae8      0x16c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_frame   0x00001c54      0x14c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+ .debug_frame   0x00001da0      0x5c8 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_frame   0x00002368      0xb10 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_frame   0x00002e78      0x40c CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_frame   0x00003284      0x5e4 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_frame   0x00003868      0x4a4 CMakeFiles/Frankenstein.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_frame   0x00003d0c      0x190 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+ .debug_frame   0x00003e9c      0x240 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+ .debug_frame   0x000040dc      0x180 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+ .debug_frame   0x0000425c       0xb8 CMakeFiles/Frankenstein.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+ .debug_frame   0x00004314      0x58c CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_frame   0x000048a0       0x70 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_frame   0x00004910      0x110 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_frame   0x00004a20       0xd0 CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_frame   0x00004af0      0x58c CMakeFiles/Frankenstein.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_frame   0x0000507c       0x28 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usb_device.c.obj
+ .debug_frame   0x000050a4       0x88 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_cdc_if.c.obj
+ .debug_frame   0x0000512c       0xf0 CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/App/usbd_desc.c.obj
+ .debug_frame   0x0000521c      0x2fc CMakeFiles/Frankenstein.elf.dir/USB_DEVICE/Target/usbd_conf.c.obj
+ .debug_frame   0x00005518       0x2c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00005544       0x34 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00005578       0x20 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-errno.o)
+ .debug_frame   0x00005598       0x2c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-init.o)
+ .debug_frame   0x000055c4       0x2c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-memset.o)
+ .debug_frame   0x000055f0       0x64 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-reent.o)
+ .debug_frame   0x00005654       0x68 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-__call_atexit.o)
+ .debug_frame   0x000056bc       0x20 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-atexit.o)
+ .debug_frame   0x000056dc       0x34 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-fini.o)
+ .debug_frame   0x00005710       0x8c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-freer.o)
+ .debug_frame   0x0000579c       0xb0 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-lock.o)
+ .debug_frame   0x0000584c       0x4c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-mallocr.o)
+ .debug_frame   0x00005898       0x30 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-mlock.o)
+ .debug_frame   0x000058c8       0x2c d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-sbrkr.o)
+ .debug_frame   0x000058f4       0x34 d:/competition/robotcon/clion/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg.a(lib_a-__atexit.o)

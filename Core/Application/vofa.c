@@ -36,12 +36,12 @@ void VofaOutputTask(void const * argument)
         tempFloat[8] =  imu_data.kalman_gyro[0].out;
         tempFloat[9] =  imu_data.kalman_gyro[1].out;
         tempFloat[10] = imu_data.kalman_gyro[2].out;
-        tempFloat[11] = imu_data.accel[0];
-        tempFloat[12] = imu_data.accel[1];
-        tempFloat[13] = imu_data.accel[2];
+        tempFloat[11] = imu_data.attitude_correct[0]; //ROLL
+        tempFloat[12] = imu_data.attitude_correct[1]; //PITCH -
+        tempFloat[13] = imu_data.attitude_correct[2]; //YAW
         tempFloat[14] = vmc_data[0].T[0];
         tempFloat[15] = vmc_data[0].T[1];
-        tempFloat[16] = (float)vmc_data[0].d_phi0;
+        tempFloat[16] = vmc_data[0].d_phi0;
         Vofa_Uart_Transmit(&huart4,20);
         osDelay(2);
     }

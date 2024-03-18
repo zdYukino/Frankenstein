@@ -33,9 +33,8 @@ typedef struct
 } imu_type_def;
 
 extern imu_type_def imu_data;
-extern bmi088_real_data_t bmi088_real_data;
 
-void Attitude_Init(float sample_rate,float acc[3]);//attitude init
-void Attitude_Calculate(float gyro[3],float acc[3]);
-extern void DMA_Callback(void);
+extern void Attitude_Init(float sample_rate,float acc[3]);//attitude init
+extern void Attitude_Calculate(float gyro[3],float acc[3]);
+extern const imu_type_def *get_imu_measure_point(void);
 #endif
