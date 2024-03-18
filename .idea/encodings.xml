@@ -3,8 +3,12 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Core/Application/BMI088_task.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/BMI088_task.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Application/CAN_receive_dm.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Application/CAN_receive_dm.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/UART_DMA.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/UART_DMA.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Application/VMC.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Application/VMC.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/kalman.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/kalman.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/music.c" charset="GBK" />
@@ -14,5 +18,6 @@
     <file url="file://$PROJECT_DIR$/Core/Bsp_for_DM01/bsp_spi.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Src/freertos.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Src/main.c" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
   </component>
 </project>

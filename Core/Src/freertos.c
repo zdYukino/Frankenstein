@@ -31,6 +31,9 @@
 #include "pid.h"
 #include "music.h"
 #include "bsp_delay.h"
+#include "CAN_receive_dm.h"
+#include "can.h"
+#include "VMC.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,6 +56,7 @@
 osThreadId initTaskHandle;
 osThreadId imuTaskHandle;
 osThreadId vofaTaskHandle;
+uint8_t board_init_flag = 0;
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 
@@ -157,20 +161,32 @@ void StartDefaultTask(void const * argument)
 * @retval None
 */
 /**
-  * @brief Function 鍒濆鍖栭煶涔?
+  * @brief Function 初始化
   * @param argument: Not used
   * @retval none
   */
 void InitBoardTask(void const * argument)
 {
-    delay_init();                                                //寤舵椂鍑芥暟鍒濆鍖?
-    init_music();                                                //涓?闃靛己鍔茬殑闊充箰鍝嶈捣~~
+    delay_init();                                                //延时函数初始化
+    CAN_Filter_Init(2);                              //CAN初始化
+    init_music();                                                //一阵强劲的音乐响起
+    for(uint8_t i=0;i<4;i++)
+    {
+        start_motor(&hcan1,i+1);
+        osDelay(2);
+    }
+    vmc_init(&vmc_data[0]);
+    board_init_flag = 1;                                         //初始化完成
+    vmc_calc(&vmc_data[0]);
     /* Infinite loop */
     for(;;)
     {
-        HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
-        //DWT_DelayMS(1000);
-        osDelay(1000);
+        //HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
+        for(uint8_t i=0;i<4;i++)
+        {
+            MIT_motor_CTRL(&hcan1,i+1, 0, 0, 0, 0, 0);
+            osDelay(1);
+        }
     }
 }
 /* USER CODE END Application */

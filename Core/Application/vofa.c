@@ -3,6 +3,8 @@
 #include "string.h"
 #include "cmsis_os.h"
 #include "Attitude.h"
+#include "CAN_receive_dm.h"
+#include "VMC.h"
 
 float VofaData[16] = {0}; //定义控件变量
 float tempFloat[20] = {0};//定义发送变量（just float模式）
@@ -23,23 +25,23 @@ void VofaOutputTask(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-        tempFloat[0] = imu_data.attitude_correct[0];
-        tempFloat[1] = imu_data.attitude_correct[1];
-        tempFloat[2] = imu_data.attitude_correct[2];
-        tempFloat[3] = imu_data.temperature;
-        tempFloat[4] = 40;
-        tempFloat[5] = imu_data.gyro[0];
-        tempFloat[6] = imu_data.gyro[1];
-        tempFloat[7] = imu_data.gyro[2];
+        tempFloat[0] = DM_Motor_measure[0].pos;
+        tempFloat[1] = DM_Motor_measure[1].pos;
+        tempFloat[2] = DM_Motor_measure[2].pos;
+        tempFloat[3] = DM_Motor_measure[3].pos;
+        tempFloat[4] = DM_Motor_measure[0].vel;
+        tempFloat[5] = DM_Motor_measure[1].vel;
+        tempFloat[6] = DM_Motor_measure[2].vel;
+        tempFloat[7] = DM_Motor_measure[3].vel;
         tempFloat[8] =  imu_data.kalman_gyro[0].out;
         tempFloat[9] =  imu_data.kalman_gyro[1].out;
         tempFloat[10] = imu_data.kalman_gyro[2].out;
         tempFloat[11] = imu_data.accel[0];
         tempFloat[12] = imu_data.accel[1];
         tempFloat[13] = imu_data.accel[2];
-        tempFloat[14] = imu_data.kalman_accel[0].out;
-        tempFloat[15] = imu_data.kalman_accel[1].out;
-        tempFloat[16] = imu_data.kalman_accel[2].out;
+        tempFloat[14] = vmc_data[0].T[0];
+        tempFloat[15] = vmc_data[0].T[1];
+        tempFloat[16] = (float)vmc_data[0].d_phi0;
         Vofa_Uart_Transmit(&huart4,20);
         osDelay(2);
     }
