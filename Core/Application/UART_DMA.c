@@ -80,7 +80,7 @@ void UART_DMA_Receive_IT(UART_HandleTypeDef *usart, DMA_HandleTypeDef *DMA, uint
 //     else if(usart == &huart3) UART3_Receive_Serve(buffer, real_length);//选择解码程序
 //     else
          if(usart == &huart4) UART4_Receive_Serve(buffer, real_length);//选择解码程序
-//     else if(usart == &huart5) UART5_Receive_Serve(buffer, real_length);//选择解码程序
+         else if(usart == &huart5) UART5_Receive_Serve(buffer, real_length);//选择解码程序
 //     else if(usart == &huart6) UART6_Receive_Serve(buffer, real_length);//选择解码程序
      memset(buffer,0,real_length);
 	 HAL_UART_Receive_DMA(usart, buffer, length);//重新打开DMA接收

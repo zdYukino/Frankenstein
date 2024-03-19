@@ -19,7 +19,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "vofa_setting.h"
-#include "usbd_cdc_if.h"
+//#include "usbd_cdc_if.h"
 
 union VOFA_DataConvertTypeDef
 {
@@ -33,13 +33,12 @@ typedef struct
   uint8_t cnt;
   uint8_t timeout;
   uint8_t Buff[VOFAClearLen];
-
 } VOFA_RxTypedef;
 
-void Vofa_UART_Receive(uint8_t *buf,uint8_t len);
+void Vofa_UART_Receive(const uint8_t *buffer, uint8_t len);
 void Vofa_FRAME_Handler(VOFA_RxTypedef uart);
 void Vofa_Timeout(void);
-void Vofa_Uart_Transmit(UART_HandleTypeDef *huart, uint8_t num);
+void Vofa_Uart_Transmit(UART_HandleTypeDef *huart);
 void Vofa_Slider_Handler(uint8_t Num);
 void Vofa_Button_Handler(uint8_t Num);
 void Vofa_Key_Handler(uint8_t Num);

@@ -13,7 +13,7 @@ extern float VofaData[16];//需要赋给控件的变量extern过来
 extern float tempFloat[20];
 
 
-#define USB_TRANSMIT     //USB虚拟串口模式 普通串口模式请注释
+//#define USB_TRANSMIT     //USB虚拟串口模式 普通串口模式请注释
 #define VOFAClearTime 50 //定义超时清空时间  = VOFAOutTime*一次中断时间(0~255)
 #define VOFAClearLen 20  //定义超长丢弃长度  (0~63)
 

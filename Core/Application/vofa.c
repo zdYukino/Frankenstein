@@ -6,10 +6,13 @@
 #include "CAN_receive_dm.h"
 #include "VMC.h"
 
-float VofaData[16] = {0}; //定义控件变量
-float tempFloat[20] = {0};//定义发送变量（just float模式）
-VOFA_RxTypedef Vofa_RX;
+float  VofaData[16] = {0}; //定义控件变量
 
+#define TX_LENGTH 20                //定义需要查看变量数量
+float  tempFloat[TX_LENGTH] = {0};  //定义发送变量（just float模式）
+uint8_t tempData[TX_LENGTH*4+4];    //DMA发送需为全局变量 大小为len=num*4+4
+
+VOFA_RxTypedef Vofa_RX;
 /**
 * @brief Function implementing the VofaOutputTask thread.
 * @param argument: Not used
@@ -42,7 +45,11 @@ void VofaOutputTask(void const * argument)
         tempFloat[14] = vmc_data[0].T[0];
         tempFloat[15] = vmc_data[0].T[1];
         tempFloat[16] = vmc_data[0].d_phi0;
-        Vofa_Uart_Transmit(&huart4,20);
+        tempFloat[16] = vmc_data[0].d_phi0;
+        tempFloat[17] = 123123;
+        tempFloat[18] = 123123;
+        tempFloat[19] = 123123;
+        Vofa_Uart_Transmit(&huart5);
         osDelay(2);
     }
 }
@@ -54,22 +61,19 @@ void VofaOutputTask(void const * argument)
  * @param  num：  要通过VOFA发送的数据个数
  * @retval *
  */
-void Vofa_Uart_Transmit(UART_HandleTypeDef *huart, uint8_t num)
+void Vofa_Uart_Transmit(UART_HandleTypeDef *huart)
 {
-    uint16_t len = num*4+4;
-    uint8_t  tempData[84];
-    memcpy(tempData, (uint8_t *)tempFloat, len);
+    uint16_t len = TX_LENGTH*4+4;
+    memcpy(tempData, (uint8_t *)tempFloat, len-4);
     tempData[len-4] = 0x00;
     tempData[len-3] = 0x00;
     tempData[len-2] = 0x80;
     tempData[len-1] = 0x7f;
-
     #ifdef USB_TRANSMIT
         CDC_Transmit_FS((uint8_t *)tempData, len);
     #else
-        HAL_UART_Transmit(huart, (uint8_t *)tempData, len,0xff);
+        HAL_UART_Transmit_DMA(huart, (uint8_t *)tempData, len);
     #endif
-
 }
 
 /**
@@ -135,11 +139,11 @@ void Vofa_FRAME_Handler(VOFA_RxTypedef uart)
  * @param  res：串口接收到的数据
  * @retval *
  */
-void Vofa_UART_Receive(uint8_t *buf,uint8_t len)
+void Vofa_UART_Receive(const uint8_t *buffer, uint8_t len)
 {
 	for(uint8_t i=0;i<len;i++)
     {
-        Vofa_RX.res = buf[i];
+        Vofa_RX.res = buffer[i];
         Vofa_RX.Buff[Vofa_RX.cnt++] = Vofa_RX.res;
         Vofa_RX.timeout = VOFAClearTime;
         if (Vofa_RX.lastres == 0xed && Vofa_RX.res == 0xde) //接收到尾帧0xed 0xde，进行帧处理
