@@ -32,10 +32,10 @@ void VofaOutputTask(void const * argument)
         tempFloat[1] = DM_Motor_measure[1].pos;
         tempFloat[2] = DM_Motor_measure[2].pos;
         tempFloat[3] = DM_Motor_measure[3].pos;
-        tempFloat[4] = DM_Motor_measure[0].vel;
-        tempFloat[5] = DM_Motor_measure[1].vel;
-        tempFloat[6] = DM_Motor_measure[2].vel;
-        tempFloat[7] = DM_Motor_measure[3].vel;
+        tempFloat[4] = DM_Motor_measure[0].T_coil;
+        tempFloat[5] = DM_Motor_measure[1].T_coil;
+        tempFloat[6] = DM_Motor_measure[2].T_coil;
+        tempFloat[7] = DM_Motor_measure[3].T_coil;
         tempFloat[8] =  imu_data.kalman_gyro[0].out;
         tempFloat[9] =  imu_data.kalman_gyro[1].out;
         tempFloat[10] = imu_data.kalman_gyro[2].out;

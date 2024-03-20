@@ -23,8 +23,8 @@
 
 #define CONTROL_LOOP_TIME    0.002f  //lqr计算周期  s
 
-#define WIGHT_GAIN 36   //机体重量前馈 N
-#define WHEEl_R    0.1  //轮子半径    M
+#define WIGHT_GAIN 36.0f   //机体重量前馈 N
+#define WHEEl_R    0.1f  //轮子半径    M
 
 typedef struct
 {
@@ -33,7 +33,6 @@ typedef struct
     float length;                   //期望高度
     /**LQR输入传感器参数**/
     const imu_type_def *imu_data;   //imu数据指针传递
-    const DM_measure_t *joint_data; //点击数据指针传递
     /**LQR需要控制的参数**/
     float theta;    //轮杆夹角 rad
     float d_theta;  //轮杆角速度 rad/s
@@ -60,6 +59,9 @@ typedef struct
     float K26;
 }lqr_data_t;
 
+extern lqr_data_t lqr_data_L;
+extern lqr_data_t lqr_data_R;
 
+extern void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R);
 #endif
 

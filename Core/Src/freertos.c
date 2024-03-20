@@ -25,15 +25,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "vofa.h"
-#include "BMI088driver.h"
-#include "Attitude.h"
-#include "pid.h"
 #include "music.h"
 #include "bsp_delay.h"
 #include "CAN_receive_dm.h"
 #include "can.h"
-#include "VMC.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,6 +51,8 @@
 osThreadId initTaskHandle;
 osThreadId imuTaskHandle;
 osThreadId vofaTaskHandle;
+osThreadId lqrTaskHandle;
+
 uint8_t board_init_flag = 0;
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
@@ -65,6 +62,7 @@ osThreadId defaultTaskHandle;
 void InitBoardTask(void const * argument);
 void StartImuTask(void const * argument);
 void VofaOutputTask(void const * argument);
+void LqrControlTask(void const * argument);
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
@@ -121,13 +119,16 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   osThreadDef(initTask, InitBoardTask, osPriorityIdle, 0, 128);                 //INIT task start
-  imuTaskHandle = osThreadCreate(osThread(initTask), NULL);
-
-  osThreadDef(imuTask, StartImuTask, osPriorityNormal, 0, 128);                 //MCU task start
-  imuTaskHandle = osThreadCreate(osThread(imuTask), NULL);
+  initTaskHandle = osThreadCreate(osThread(initTask), NULL);
 
   osThreadDef(vofaTask, VofaOutputTask, osPriorityLow, 0, 128);                 //VOFA task start
-  imuTaskHandle = osThreadCreate(osThread(vofaTask), NULL);
+  vofaTaskHandle = osThreadCreate(osThread(vofaTask), NULL);
+
+  osThreadDef(imuTask, StartImuTask, osPriorityNormal, 0, 128);                 //IMU task start
+  imuTaskHandle = osThreadCreate(osThread(imuTask), NULL);
+
+  osThreadDef(lqrTask, LqrControlTask, osPriorityHigh, 0, 512);               //CONTROL task start
+  lqrTaskHandle = osThreadCreate(osThread(lqrTask), NULL);
   /* USER CODE END RTOS_THREADS */
 
 }
@@ -166,15 +167,18 @@ void InitBoardTask(void const * argument)
 {
     delay_init();                                                //延时函数初始化
     CAN_Filter_Init(2);                              //CAN初始化
-    init_music();                                                //一阵强劲的音乐响起
+
     for(uint8_t i=0;i<4;i++)
     {
-        start_motor(&hcan1,i+1);
+        while (DM_Motor_measure[i].T_coil == 0)
+        {
+            start_motor(&hcan1,i+1);
+            osDelay(2);
+        }
         osDelay(2);
     }
-    vmc_init(&vmc_data[0]);
     board_init_flag = 1;                                         //初始化完成
-    vmc_calc(&vmc_data[0]);
+    init_music();                                                //一阵强劲的音乐响起
     /* Infinite loop */
     for(;;)
     {

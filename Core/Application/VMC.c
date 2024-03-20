@@ -20,18 +20,72 @@
 vmc_data_t vmc_data[2]; //五连杆VMC数据定义
 
 float d_phi0_calc(float phi_1, float phi_4, float d_phi1, float d_phi4);
-
-void vmc_init(vmc_data_t *data)
+void vmc_calc(vmc_data_t *data);
+/**
+ * @brief  VMC数据初始化 right
+ * @param  data：input VMC结构体
+ * @param  side：input 选边初始化 0左侧 1右侧
+ * @retval none
+ */
+void vmc_init(vmc_data_t *data, uint8_t side)
 {
-    data->phi1 = M_PI;
-    data->phi4 = 0;
-
-    data->d_phi1 = 1.9f;
-    data->d_phi4 = 0.5f;
-
-    data->F0 = 50;
-    data->Tp = 6;
+    if(side == 0)
+    {
+        data->joint_l1_data = get_motor_measure_point(0);
+        data->joint_l4_data = get_motor_measure_point(1);
+        /**数据传递初始化**/
+        data->phi1 =  -data->joint_l1_data->pos + (float)M_PI;
+        data->phi4 =  -data->joint_l4_data->pos;
+        data->d_phi1 = -data->joint_l1_data->vel;
+        data->d_phi4 = -data->joint_l4_data->vel;
+    }
+    else
+    {
+        data->joint_l1_data = get_motor_measure_point(3);
+        data->joint_l4_data = get_motor_measure_point(2);
+        /**数据传递初始化**/
+        data->phi1 =   data->joint_l1_data->pos + (float)M_PI;
+        data->phi4 =   data->joint_l4_data->pos;
+        data->d_phi1 = data->joint_l1_data->vel;
+        data->d_phi4 = data->joint_l4_data->vel;
+    }
+    data->F0 = 0;
+    data->Tp = 0;
 }
+/**
+ * @brief  VMC数据初始化 right
+ * @param  data：input VMC结构体
+ * @param  side：input 选边初始化 0左侧 1右侧
+ * @retval none
+ */
+void vmc_feedback_update(vmc_data_t *data, uint8_t side, float get_F0, float get_Tp)
+{
+    if(side == 0)
+    {
+        /**数据传递**/
+        data->phi1 = -data->joint_l1_data->pos + (float)M_PI;
+        data->phi4 = -data->joint_l4_data->pos;
+        data->d_phi1 = -data->joint_l1_data->vel;
+        data->d_phi4 = -data->joint_l4_data->vel;
+    }
+    else
+    {
+        /**数据传递**/
+        data->phi1 = data->joint_l1_data->pos + (float)M_PI;
+        data->phi4 = data->joint_l4_data->pos;
+        data->d_phi1 = data->joint_l1_data->vel;
+        data->d_phi4 = data->joint_l4_data->vel;
+    }
+    /**计算参数赋值**/
+    data->F0 = get_F0;
+    data->Tp = get_Tp;
+    vmc_calc(data);
+}
+/**
+ * @brief  VMC数据计算
+ * @param  data：input VMC结构体
+ * @retval none
+ */
 void vmc_calc(vmc_data_t *data)
 {
     data->YD = L4*sinf(data->phi4);

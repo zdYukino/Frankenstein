@@ -17,6 +17,7 @@
 #define VMC_H
 
 #include "VMC.h"
+#include "CAN_receive_dm.h"
 
 #define L1 0.12f    //前大腿长 m
 #define L2 0.20f    //前小腿长 m
@@ -26,6 +27,9 @@
 
 typedef struct
 {
+    /**电机传参 由传感器更新**/
+    const DM_measure_t *joint_l1_data; //关节电机数据指针传递
+    const DM_measure_t *joint_l4_data; //关节电机数据指针传递
     /**输入参数 由传感器更新**/
     float phi1;    //前大腿与L5夹角 水平为 pi/2  rad
     float phi4;    //后大腿与L5夹角 水平为 0     rad
@@ -58,9 +62,7 @@ typedef struct
 
 extern vmc_data_t vmc_data[2];
 
-
-extern void vmc_init(vmc_data_t *data);
-extern void vmc_calc(vmc_data_t *data);
-
+extern void vmc_init(vmc_data_t *data, uint8_t side);
+extern void vmc_feedback_update(vmc_data_t *data, uint8_t side, float get_F0, float get_Tp);
 #endif
 
