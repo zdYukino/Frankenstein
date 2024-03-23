@@ -20,21 +20,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="complete uart dma transmit test tool">
+    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="continue lqr test code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/CAN_receive_dm.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/CAN_receive_dm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/UART_DMA.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/UART_DMA.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/VMC.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/VMC.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/VMC.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/VMC.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Inc/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/vofa_setting.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa_setting.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/stm32f4xx_it.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/stm32f4xx_it.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/VMC.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/VMC.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
@@ -114,11 +112,6 @@
     <option name="rtosType" value="FreeRTOS" />
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.Frankenstein.elf">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Frankenstein.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Frankenstein" TARGET_NAME="Frankenstein.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Frankenstein" RUN_TARGET_NAME="Frankenstein.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -179,7 +172,12 @@
       <workItem from="1710750154876" duration="403000" />
       <workItem from="1710750574365" duration="1162000" />
       <workItem from="1710774196034" duration="8734000" />
-      <workItem from="1710850167905" duration="16441000" />
+      <workItem from="1710850167905" duration="17846000" />
+      <workItem from="1710936016599" duration="4926000" />
+      <workItem from="1711003284237" duration="5488000" />
+      <workItem from="1711088888704" duration="10000" />
+      <workItem from="1711116072700" duration="13501000" />
+      <workItem from="1711182846476" duration="4030000" />
     </task>
     <task id="LOCAL-00001" summary="代码修改">
       <created>1701602122232</created>
@@ -319,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710859969549</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="continue lqr test code">
+      <option name="closed" value="true" />
+      <created>1710908260188</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1710908260188</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -401,18 +407,8 @@
     <MESSAGE value="finish VMC control and test pass&#10;ready to write lqr control" />
     <MESSAGE value="program lqr" />
     <MESSAGE value="complete uart dma transmit test tool" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete uart dma transmit test tool" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Core/Application/CAN_receive_dm.c</url>
-          <line>20</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="continue lqr test code" />
+    <option name="LAST_COMMIT_MESSAGE" value="continue lqr test code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

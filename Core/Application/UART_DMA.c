@@ -18,6 +18,7 @@
 #include "usart.h"
 #include "uart_dma.h"
 #include "string.h"
+#include "vofa.h"
 
 /*缓存数组预定义*/
 uint8_t buffer_receive_1[buffer_receive_1_length];
@@ -125,6 +126,7 @@ static void UART4_Receive_Serve(uint8_t *buffer, uint8_t length)
 //UART5中断接收函数
 static void UART5_Receive_Serve(uint8_t *buffer, uint8_t length)
 {
+    Vofa_UART_Receive(buffer,length);
 }
 //UART6中断接收函数
 static void UART6_Receive_Serve(uint8_t *buffer, uint8_t length)

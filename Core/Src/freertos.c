@@ -29,6 +29,8 @@
 #include "bsp_delay.h"
 #include "CAN_receive_dm.h"
 #include "can.h"
+#include "lqr_wbr.h"
+#include "vofa_setting.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -183,9 +185,26 @@ void InitBoardTask(void const * argument)
     for(;;)
     {
         //HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
-        for(uint8_t i=0;i<4;i++)
+        if(VofaData[1] == 1)
         {
-            MIT_motor_CTRL(&hcan1,i+1, 0, 0, 0, 0, 0);
+            MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, -lqr_data_L.Tj1);//lqr_data_L.Tj1
+            osDelay(1);
+            MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, -lqr_data_L.Tj2);//lqr_data_L.Tj2
+            osDelay(1);
+            MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0,  lqr_data_R.Tj2);
+            osDelay(1);
+            MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
+            osDelay(1);
+        }
+        else
+        {
+            MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, 0);
+            osDelay(1);
+            MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, 0);
+            osDelay(1);
+            MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0, 0);
+            osDelay(1);
+            MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0, 0);
             osDelay(1);
         }
     }

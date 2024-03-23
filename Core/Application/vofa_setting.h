@@ -17,7 +17,7 @@ extern float tempFloat[20];
 #define VOFAClearTime 50 //定义超时清空时间  = VOFAOutTime*一次中断时间(0~255)
 #define VOFAClearLen 20  //定义超长丢弃长度  (0~63)
 
-//#define UseVOFASlider1
+#define UseVOFASlider1
 //#define UseVOFASlider2
 //#define UseVOFASlider3
 //#define UseVOFASlider4
@@ -34,7 +34,7 @@ extern float tempFloat[20];
 //#define UseVOFAButton7
 //#define UseVOFAButton8
 
-//#define UseVOFAKey1
+#define UseVOFAKey1
 //#define UseVOFAKey2
 //#define UseVOFAKey3
 //#define UseVOFAKey4
@@ -43,7 +43,7 @@ extern float tempFloat[20];
 //#define UseVOFABar2
 
 #ifdef UseVOFASlider1
-#define Vofa_Slider1
+#define Vofa_Slider1 VofaData[0]
 #endif
 #ifdef UseVOFASlider2 
 #define Vofa_Slider2
@@ -90,7 +90,7 @@ extern float tempFloat[20];
 #endif
 
 #ifdef UseVOFAKey1
-#define Vofa_Key1
+#define Vofa_Key1 VofaData[1]
 #endif
 #ifdef UseVOFAKey2
 #define Vofa_Key2

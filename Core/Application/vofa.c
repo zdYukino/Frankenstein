@@ -5,6 +5,8 @@
 #include "Attitude.h"
 #include "CAN_receive_dm.h"
 #include "VMC.h"
+#include "lqr_wbr.h"
+#include "UART_DMA.h"
 
 float  VofaData[16] = {0}; //定义控件变量
 
@@ -25,30 +27,30 @@ VOFA_RxTypedef Vofa_RX;
   */
 void VofaOutputTask(void const * argument)
 {
+    UART_DMA_Receive_init(&huart5, buffer_receive_5, buffer_receive_5_length);
     /* Infinite loop */
     for(;;)
     {
-        tempFloat[0] = DM_Motor_measure[0].pos;
-        tempFloat[1] = DM_Motor_measure[1].pos;
-        tempFloat[2] = DM_Motor_measure[2].pos;
-        tempFloat[3] = DM_Motor_measure[3].pos;
-        tempFloat[4] = DM_Motor_measure[0].T_coil;
-        tempFloat[5] = DM_Motor_measure[1].T_coil;
-        tempFloat[6] = DM_Motor_measure[2].T_coil;
-        tempFloat[7] = DM_Motor_measure[3].T_coil;
-        tempFloat[8] =  imu_data.kalman_gyro[0].out;
-        tempFloat[9] =  imu_data.kalman_gyro[1].out;
-        tempFloat[10] = imu_data.kalman_gyro[2].out;
-        tempFloat[11] = imu_data.attitude_correct[0]; //ROLL
-        tempFloat[12] = imu_data.attitude_correct[1]; //PITCH -
-        tempFloat[13] = imu_data.attitude_correct[2]; //YAW
-        tempFloat[14] = vmc_data[0].T[0];
-        tempFloat[15] = vmc_data[0].T[1];
-        tempFloat[16] = vmc_data[0].d_phi0;
-        tempFloat[16] = vmc_data[0].d_phi0;
-        tempFloat[17] = 123123;
-        tempFloat[18] = 123123;
-        tempFloat[19] = 123123;
+        tempFloat[0] = imu_data.attitude_correct[0]; //ROLL
+        tempFloat[1] = imu_data.attitude_correct[1]; //PITCH -
+        tempFloat[2] = imu_data.attitude_correct[2]; //YAW
+        tempFloat[3] = lqr_data_L.vmc_data.phi1;
+        tempFloat[4] = lqr_data_L.vmc_data.phi4;
+        tempFloat[5] = lqr_data_R.vmc_data.phi1;
+        tempFloat[6] = lqr_data_R.vmc_data.phi4;
+        tempFloat[7] =  lqr_data_L.length_pid.out;
+        tempFloat[8] =  lqr_data_L.length_pid.Iout;
+        tempFloat[9] =  lqr_data_L.length_pid.Dout;
+        tempFloat[10] = lqr_data_L.vmc_data.L0;
+        tempFloat[11] = lqr_data_L.Tj1;
+        tempFloat[12] = lqr_data_L.Tj2;
+        tempFloat[13] = lqr_data_L.vmc_data.d_phi0;
+        tempFloat[14] = VofaData[0];
+        tempFloat[15] = DM_Motor_measure[0].pos;
+        tempFloat[16] = DM_Motor_measure[1].pos;
+        tempFloat[17] = DM_Motor_measure[2].pos;
+        tempFloat[18] = DM_Motor_measure[3].pos;
+        tempFloat[19] = VofaData[1];
         Vofa_Uart_Transmit(&huart5);
         osDelay(2);
     }

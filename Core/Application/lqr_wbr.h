@@ -23,14 +23,17 @@
 
 #define CONTROL_LOOP_TIME    0.002f  //lqr计算周期  s
 
-#define WIGHT_GAIN 36.0f   //机体重量前馈 N
+#define WIGHT_GAIN 10.0f   //机体重量/2 前馈 N
 #define WHEEl_R    0.1f  //轮子半径    M
 
+#define LENGTH_P    200.0f  //腿长控制PID参数
+#define LENGTH_I    0.0f    //腿长控制PID参数
+#define LENGTH_D    300.0f  //腿长控制PID参数
 typedef struct
 {
     /**LQR输入参数**/
-    float speed_det;                //期望速度
-    float length;                   //期望高度
+    float speed_set;                //期望速度
+    float length_set;               //期望高度
     /**LQR输入传感器参数**/
     const imu_type_def *imu_data;   //imu数据指针传递
     /**LQR需要控制的参数**/
@@ -44,6 +47,8 @@ typedef struct
     vmc_data_t vmc_data;
     /**LQR 中间过程参数**/
     pid_type_def length_pid;
+    float speed_now;                //当前速度
+    float length_now;               //当前高度
     /**LQR GAIN MATRIX**/
     float K11;
     float K12;
@@ -57,6 +62,11 @@ typedef struct
     float K24;
     float K25;
     float K26;
+    /**LQR 输出参数**/
+    float Tp;   //机体端扭矩
+    float T;    //足端扭矩
+    float Tj1;  //髋关节扭矩
+    float Tj2;  //髋关节扭矩
 }lqr_data_t;
 
 extern lqr_data_t lqr_data_L;
