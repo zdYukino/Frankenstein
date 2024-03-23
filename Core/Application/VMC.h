@@ -63,6 +63,8 @@ typedef struct
 extern vmc_data_t vmc_data[2];
 
 extern void vmc_init(vmc_data_t *data, uint8_t side);
-extern void vmc_feedback_update(vmc_data_t *data, uint8_t side, float get_F0, float get_Tp);
+extern void dk_calc (vmc_data_t *data);
+extern void vmc_calc(vmc_data_t *data);
+extern void dk_feedback_update(vmc_data_t *data, uint8_t side);
 #endif
 

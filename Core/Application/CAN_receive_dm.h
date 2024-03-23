@@ -27,8 +27,8 @@
 #define KP_MAX 500.0f
 #define KD_MIN 0.0f
 #define KD_MAX 5.0f
-#define T_MIN (-10.0f)
-#define T_MAX 10.0f
+#define T_MIN (-12.0f)
+#define T_MAX 12.0f
 /* CAN send and receive ID */
 /*接收到的DM电机的参数结构体*/
 /*
