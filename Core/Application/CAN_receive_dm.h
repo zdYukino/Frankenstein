@@ -1,14 +1,21 @@
 /**
-  ****************************(C) COPYRIGHT 2019 DJI****************************
+  ****************************(C)ZDYUKINO****************************
   * @file       can_receive.c/h
-  * @brief      there is CAN interrupt function  to receive motor data,
-  *             and CAN send function to send motor current to control motor.
+  * @brief
   *             这里是CAN中断接收函数，接收电机数据,CAN发送函数发送电机电流控制电机.
-
-
+  * @note
+  * @history
+  *  Version    Date            Author          Modification
+  *  V1.0.0     Dec-26-2018     RM              1. done
+  *  V2.0.0     ***-**-2022     ZDYUKINO        加入各类can通信函数 CAN1控制底盘与上层电机通信
+                                                CAN2控制sbus数据接收与miss电机通信
+                                                带码盘通信函数（未启用）
+  *
+  @verbatim
+  ==============================================================================
   ==============================================================================
   @endverbatim
-  ****************************(C) COPYRIGHT 2019 DJI****************************
+  ****************************(C)ZDYUKINO****************************
   */
 
 #ifndef CAN_RECEIVE_H
@@ -78,70 +85,11 @@ typedef enum
 
 /* CAN send and receive ID */
 
-/**
-  * @brief          float转int 带限幅
-  * @param[in]      x：输入值
-  * @param[in]      x_min:最小限幅
-  * @param[in]      x_max:最大限幅
-  * @param[in]      bits:位
-  * @retval         返回值
-  */
-int float_to_uint(float x, float x_min, float x_max, int bits);
-/**
-  * @brief          int转float 带限幅
-  * @param[in]      x_int：输入值
-  * @param[in]      x_min:最小限幅
-  * @param[in]      x_max:最大限幅
-  * @param[in]      bits:位
-  * @retval         返回值
-  */
-float uint_to_float(int x_int, float x_min, float x_max, int bits);
-/**
-  * @brief          CAN1和CAN2滤波器配置
-  * @param[in]      CAN_number：CAN接口数量
-  * @retval         None
-  */
-void CAN_Filter_Init(uint8_t CAN_number);
-/**
-  * @brief          MIT协议控制DM电机
-  * @param[in]      hcan    :CAN接口
-  * @param[in]      id      :DM电机ID
-  * @param[in]      _pos    :位置设置(rad)
-  * @param[in]      _vel    :速度设置(rad/s)
-  * @param[in]      _KP     :位置P
-  * @param[in]      _KD     :位置D
-  * @param[in]      _torq   :力矩
-  * @retval         none
-  */
-void MIT_motor_CTRL(CAN_HandleTypeDef *hcan,uint16_t id, float _pos, float _vel, float _KP, float _KD, float _torq);
-
-
-/**
-  * @brief          返回电机数据指针
-  * @param[in]      i: 电机编号,范围[0,3]
-  * @retval         电机数据指针
-  */
+extern void CAN_Filter_Init(uint8_t CAN_number);
+extern void MIT_motor_CTRL(CAN_HandleTypeDef *hcan,uint16_t id, float _pos, float _vel, float _KP, float _KD, float _torq);
 extern const DM_measure_t *get_motor_measure_point(uint8_t i);
-/**
-  * @brief          使能DM电机
-  * @param[in]      hcan: CAN接口
-  * @param[in]      id:  DM电机ID（通过上位机设置）
-  * @retval         none
-  */
-void start_motor(CAN_HandleTypeDef* hcan,uint16_t id);
-/**
-  * @brief          失能DM电机
-  * @param[in]      hcan: CAN接口
-  * @param[in]      id:  DM电机ID（通过上位机设置）
-  * @retval         none
-  */
-void lock_motor(CAN_HandleTypeDef* hcan,uint16_t id);
-/**
-  * @brief          设置电机零点
-  * @param[in]      hcan: CAN接口
-  * @param[in]      id:  DM电机ID（通过上位机设置）
-  * @retval         none
-  */
-void set_zero_motor(CAN_HandleTypeDef *hcan,uint16_t id);
+extern void start_motor(CAN_HandleTypeDef* hcan,uint16_t id);
+extern void lock_motor(CAN_HandleTypeDef* hcan,uint16_t id);
+extern void set_zero_motor(CAN_HandleTypeDef *hcan,uint16_t id);
 
 #endif

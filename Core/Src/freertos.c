@@ -31,11 +31,13 @@
 #include "can.h"
 #include "lqr_wbr.h"
 #include "vofa_setting.h"
+#include "usart.h"
+#include "ddt_m6_control.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+uint8_t tep[10];
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -184,17 +186,20 @@ void InitBoardTask(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-        //HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
+        HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
         if(VofaData[1] == 1)
         {
             MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, -lqr_data_L.Tj1);//lqr_data_L.Tj1
             osDelay(1);
             MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, -lqr_data_L.Tj2);//lqr_data_L.Tj2
             osDelay(1);
+            DDT_motor_toq_CTRL(&huart2, 0x01, 0);
+
             MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0,  lqr_data_R.Tj2);
             osDelay(1);
             MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
             osDelay(1);
+            DDT_motor_toq_CTRL(&huart2, 0x02, 0);
         }
         else
         {
@@ -202,11 +207,18 @@ void InitBoardTask(void const * argument)
             osDelay(1);
             MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, 0);
             osDelay(1);
+            DDT_motor_toq_CTRL(&huart2, 0x01, 0);
+
             MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0, 0);
             osDelay(1);
             MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0, 0);
             osDelay(1);
+            DDT_motor_toq_CTRL(&huart2, 0x02, 0);
         }
     }
 }
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
 /* USER CODE END Application */

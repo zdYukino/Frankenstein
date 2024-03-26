@@ -1,5 +1,5 @@
 /**
-  ****************************(C)SWJTU_ROBOTCON2022 R2****************************
+  ****************************(C)ZDYUKINO****************************
   * @file       can_receive.c/h
   * @brief      
   *             这里是CAN中断接收函数，接收电机数据,CAN发送函数发送电机电流控制电机.
@@ -15,7 +15,7 @@
   ==============================================================================
   ==============================================================================
   @endverbatim
-  ****************************(C)SWJTU_ROBOTCON2022 R2****************************
+  ****************************(C)ZDYUKINO****************************
   */
 
 #include "CAN_receive_dm.h"
@@ -31,7 +31,7 @@ DM_measure_t DM_Motor_measure[8];//电机数据结构体定义
   * @param[in]      bits:位
   * @retval         返回值
   */
-int float_to_uint(float x, float x_min, float x_max, int bits){
+static int float_to_uint(float x, float x_min, float x_max, int bits){
     /// Converts a float to an unsigned int, given range and number of bits ///
     float span = x_max - x_min;
     float offset = x_min;
@@ -45,7 +45,7 @@ int float_to_uint(float x, float x_min, float x_max, int bits){
   * @param[in]      bits:位
   * @retval         返回值
   */
-float uint_to_float(int x_int, float x_min, float x_max, int bits){
+static float uint_to_float(int x_int, float x_min, float x_max, int bits){
     /// converts unsigned int to float, given range and number of bits ///
     float span = x_max - x_min;
     float offset = x_min;
@@ -101,7 +101,7 @@ void CAN_Filter_Init(uint8_t CAN_number)
   * @param[in]      Data：数据指针
   * @retval         None
   */
-static void get_moto_measure(DM_measure_t *ptr, uint8_t *Data)
+static void get_dm_motor_measure(DM_measure_t *ptr, uint8_t *Data)
 {
     ptr->id = (Data[0])&0x0F;
     ptr->state = (Data[0])>>4;
@@ -128,7 +128,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     {
         static uint8_t i;
         i = (rx_data[0]) & 0x0F;
-        get_moto_measure(&DM_Motor_measure[i-1], rx_data);
+        get_dm_motor_measure(&DM_Motor_measure[i - 1], rx_data);
     }
 }
 /**

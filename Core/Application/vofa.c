@@ -4,9 +4,9 @@
 #include "cmsis_os.h"
 #include "Attitude.h"
 #include "CAN_receive_dm.h"
-#include "VMC.h"
 #include "lqr_wbr.h"
 #include "UART_DMA.h"
+#include "ddt_m6_control.h"
 
 float  VofaData[16] = {0}; //定义控件变量
 
@@ -16,18 +16,12 @@ uint8_t tempData[TX_LENGTH*4+4];    //DMA发送需为全局变量 大小为len=n
 
 VOFA_RxTypedef Vofa_RX;
 /**
-* @brief Function implementing the VofaOutputTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/**
   * @brief Function FREERTOS VOFA发送调试信息
   * @param argument: Not used
   * @retval none
   */
 void VofaOutputTask(void const * argument)
 {
-    UART_DMA_Receive_init(&huart1, buffer_receive_1, buffer_receive_1_length);
     UART_DMA_Receive_init(&huart2, buffer_receive_2, buffer_receive_2_length);
     UART_DMA_Receive_init(&huart5, buffer_receive_5, buffer_receive_5_length);
     /* Infinite loop */
@@ -44,17 +38,17 @@ void VofaOutputTask(void const * argument)
         tempFloat[8] =  lqr_data_L.length_pid.Iout;
         tempFloat[9] =  lqr_data_L.length_pid.Dout;
         tempFloat[10] = lqr_data_L.vmc_data.L0;
-        tempFloat[11] = lqr_data_L.Tj1;
-        tempFloat[12] = lqr_data_L.Tj2;
-        tempFloat[13] = lqr_data_L.vmc_data.d_phi0;
-        tempFloat[14] = VofaData[0];
-        tempFloat[15] = DM_Motor_measure[0].pos;
-        tempFloat[16] = DM_Motor_measure[1].pos;
-        tempFloat[17] = DM_Motor_measure[2].pos;
-        tempFloat[18] = DM_Motor_measure[3].pos;
+//        tempFloat[11] = 0;
+//        tempFloat[12] = 0;
+//        tempFloat[13] = 0;
+//        tempFloat[14] = 0;
+        tempFloat[15] = DDT_measure[0].int16_toq;
+        tempFloat[16] = DDT_measure[0].int16_rpm;
+        tempFloat[17] = DDT_measure[0].toq;
+        tempFloat[18] = DDT_measure[0].angle;
         tempFloat[19] = VofaData[1];
-        //Vofa_Uart_Transmit(&huart5);
-        osDelay(2);
+        Vofa_Uart_Transmit(&huart5);
+        osDelay(5);
     }
 }
 
