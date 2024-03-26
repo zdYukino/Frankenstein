@@ -35,6 +35,8 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R)
     /**指针传递初始化**/
     data_L->imu_data = get_imu_measure_point();//left
     data_R->imu_data = get_imu_measure_point();//right
+    data_L->wheel_motor_data = get_ddt_motor_measure_point(0);
+    data_R->wheel_motor_data = get_ddt_motor_measure_point(1);
     /**PID控制初始化**/
     float length_PID[3] = {LENGTH_P,LENGTH_I,LENGTH_D};
     PID_init(&data_L->length_pid,PID_POSITION,length_PID,150,0);   //腿长PID初始化
@@ -56,11 +58,11 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R)
     data_L->phi   = -data_L->imu_data->attitude_correct[1]*(float)M_PI/180.0f;     //机体与水平倾角
     data_R->d_phi = -data_R->imu_data->gyro_kalman[1];          //机体与水平倾角速度
     data_R->phi   = -data_R->imu_data->attitude_correct[1]*(float)M_PI/180.0f;     //机体与水平倾角
+    data_L->d_x =  0;// (float)data_L->wheel_motor_data->int16_rpm*WHEEl_D/60.0f;      //相对地速度
+    data_R->d_x =  0;//-(float)data_R->wheel_motor_data->int16_rpm*WHEEl_D/60.0f;      //相对地速度
     /**计算后得出数据**/
     data_L->x =     0;                                              //相对地位移
     data_R->x =     0;                                              //相对地位移
-    data_L->d_x =   0;                                              //相对地速度
-    data_R->d_x =   0;                                              //相对地速度
 
     data_L->theta = M_PI_2 - data_L->vmc_data.phi0 - data_L->phi;     //轮系与连杆倾角
     data_L->d_theta =      - data_L->vmc_data.d_phi0-data_L->d_phi;   //轮系与连杆倾角速度

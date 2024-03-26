@@ -20,15 +20,16 @@
 #include "VMC.h"
 #include "Attitude.h"
 #include "CAN_receive_dm.h"
+#include "ddt_m6_control.h"
 
 #define CONTROL_LOOP_TIME    0.002f  //lqr计算周期  s
 
 #define WIGHT_GAIN 10.0f   //机体重量/2 前馈 N
-#define WHEEl_R    0.1f  //轮子半径    M
+#define WHEEl_D    0.102f  //轮子直径       M
 
-#define LENGTH_P    200.0f  //腿长控制PID参数
+#define LENGTH_P    300.0f  //腿长控制PID参数
 #define LENGTH_I    0.0f    //腿长控制PID参数
-#define LENGTH_D    300.0f  //腿长控制PID参数
+#define LENGTH_D    200.0f  //腿长控制PID参数
 typedef struct
 {
     /**LQR输入参数**/
@@ -36,6 +37,7 @@ typedef struct
     float length_set;               //期望高度
     /**LQR输入传感器参数**/
     const imu_type_def *imu_data;   //imu数据指针传递
+    const DDT_measure_t *wheel_motor_data;   //驱动轮电机传参
     /**LQR需要控制的参数**/
     float theta;    //轮杆夹角 rad
     float d_theta;  //轮杆角速度 rad/s

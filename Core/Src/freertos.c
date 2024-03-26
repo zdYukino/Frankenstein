@@ -193,13 +193,13 @@ void InitBoardTask(void const * argument)
             osDelay(1);
             MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, -lqr_data_L.Tj2);//lqr_data_L.Tj2
             osDelay(1);
-            DDT_motor_toq_CTRL(&huart2, 0x01, 0);
+            DDT_motor_toq_CTRL(&huart2, 0x01,  -lqr_data_L.T*0.01f);
 
             MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0,  lqr_data_R.Tj2);
             osDelay(1);
             MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
             osDelay(1);
-            DDT_motor_toq_CTRL(&huart2, 0x02, 0);
+            DDT_motor_toq_CTRL(&huart2, 0x02, lqr_data_R.T*0.01f);
         }
         else
         {

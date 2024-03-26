@@ -52,4 +52,5 @@ extern uint8_t send_data[10];       //电机控制数据
 
 extern void get_ddt_motor_measure(uint8_t *Data, uint8_t length);
 extern void DDT_motor_toq_CTRL(UART_HandleTypeDef *huart, uint16_t id, float toq);
+extern const DDT_measure_t *get_ddt_motor_measure_point(uint8_t i);
 #endif
