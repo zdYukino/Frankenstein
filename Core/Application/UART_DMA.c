@@ -77,11 +77,10 @@ void UART_DMA_Receive_IT(UART_HandleTypeDef *usart, DMA_HandleTypeDef *DMA, uint
      uint8_t real_length = length - __HAL_DMA_GET_COUNTER(DMA);
 
 //     if(usart == &huart1)      UART1_Receive_Serve(buffer, real_length);//选择解码程序
-//     else if(usart == &huart2) UART2_Receive_Serve(buffer, real_length);//选择解码程序
+      if(usart == &huart2) UART2_Receive_Serve(buffer, real_length);//选择解码程序
 //     else if(usart == &huart3) UART3_Receive_Serve(buffer, real_length);//选择解码程序
-//     else
-         if(usart == &huart4) UART4_Receive_Serve(buffer, real_length);//选择解码程序
-         else if(usart == &huart5) UART5_Receive_Serve(buffer, real_length);//选择解码程序
+      else if(usart == &huart4) UART4_Receive_Serve(buffer, real_length);//选择解码程序
+      else if(usart == &huart5) UART5_Receive_Serve(buffer, real_length);//选择解码程序
 //     else if(usart == &huart6) UART6_Receive_Serve(buffer, real_length);//选择解码程序
      memset(buffer,0,real_length);
 	 HAL_UART_Receive_DMA(usart, buffer, length);//重新打开DMA接收
@@ -113,6 +112,7 @@ static void UART1_Receive_Serve(uint8_t *buffer, uint8_t length)
 //UART2中断接收函数
 static void UART2_Receive_Serve(uint8_t *buffer, uint8_t length)
 {
+    HAL_UART_Transmit(&huart5,buffer,length,0xff);
 }
 //UART3中断接收函数
 static void UART3_Receive_Serve(uint8_t *buffer, uint8_t length)
@@ -126,7 +126,8 @@ static void UART4_Receive_Serve(uint8_t *buffer, uint8_t length)
 //UART5中断接收函数
 static void UART5_Receive_Serve(uint8_t *buffer, uint8_t length)
 {
-    Vofa_UART_Receive(buffer,length);
+    HAL_UART_Transmit(&huart2,buffer,length,0xff);
+    //Vofa_UART_Receive(buffer,length);
 }
 //UART6中断接收函数
 static void UART6_Receive_Serve(uint8_t *buffer, uint8_t length)

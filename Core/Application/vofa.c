@@ -27,6 +27,7 @@ VOFA_RxTypedef Vofa_RX;
   */
 void VofaOutputTask(void const * argument)
 {
+    UART_DMA_Receive_init(&huart2, buffer_receive_2, buffer_receive_2_length);
     UART_DMA_Receive_init(&huart5, buffer_receive_5, buffer_receive_5_length);
     /* Infinite loop */
     for(;;)
