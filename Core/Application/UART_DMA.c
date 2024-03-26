@@ -76,12 +76,12 @@ void UART_DMA_Receive_IT(UART_HandleTypeDef *usart, DMA_HandleTypeDef *DMA, uint
      HAL_UART_DMAStop(usart);
      uint8_t real_length = length - __HAL_DMA_GET_COUNTER(DMA);
 
-//     if(usart == &huart1)      UART1_Receive_Serve(buffer, real_length);//选择解码程序
-      if(usart == &huart2) UART2_Receive_Serve(buffer, real_length);//选择解码程序
+     if(usart == &huart1)      UART1_Receive_Serve(buffer, real_length);//选择解码程序
+     else if(usart == &huart2) UART2_Receive_Serve(buffer, real_length);//选择解码程序
 //     else if(usart == &huart3) UART3_Receive_Serve(buffer, real_length);//选择解码程序
-      else if(usart == &huart4) UART4_Receive_Serve(buffer, real_length);//选择解码程序
-      else if(usart == &huart5) UART5_Receive_Serve(buffer, real_length);//选择解码程序
-//     else if(usart == &huart6) UART6_Receive_Serve(buffer, real_length);//选择解码程序
+     else if(usart == &huart4) UART4_Receive_Serve(buffer, real_length);//选择解码程序
+     else if(usart == &huart5) UART5_Receive_Serve(buffer, real_length);//选择解码程序
+//   else if(usart == &huart6) UART6_Receive_Serve(buffer, real_length);//选择解码程序
      memset(buffer,0,real_length);
 	 HAL_UART_Receive_DMA(usart, buffer, length);//重新打开DMA接收
  }
@@ -126,7 +126,12 @@ static void UART4_Receive_Serve(uint8_t *buffer, uint8_t length)
 //UART5中断接收函数
 static void UART5_Receive_Serve(uint8_t *buffer, uint8_t length)
 {
+    HAL_GPIO_WritePin(RS485_DIR2_GPIO_Port,RS485_DIR2_Pin,GPIO_PIN_SET);
     HAL_UART_Transmit(&huart2,buffer,length,0xff);
+    HAL_GPIO_WritePin(RS485_DIR2_GPIO_Port,RS485_DIR2_Pin,GPIO_PIN_RESET);
+    //    HAL_GPIO_WritePin(RS485_DIR1_GPIO_Port,RS485_DIR1_Pin,GPIO_PIN_SET);
+    //    HAL_UART_Transmit(&huart1,buffer,length,0xff);
+    //    HAL_GPIO_WritePin(RS485_DIR1_GPIO_Port,RS485_DIR1_Pin,GPIO_PIN_RESET);
     //Vofa_UART_Receive(buffer,length);
 }
 //UART6中断接收函数

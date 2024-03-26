@@ -27,6 +27,7 @@ VOFA_RxTypedef Vofa_RX;
   */
 void VofaOutputTask(void const * argument)
 {
+    UART_DMA_Receive_init(&huart1, buffer_receive_1, buffer_receive_1_length);
     UART_DMA_Receive_init(&huart2, buffer_receive_2, buffer_receive_2_length);
     UART_DMA_Receive_init(&huart5, buffer_receive_5, buffer_receive_5_length);
     /* Infinite loop */
@@ -52,7 +53,7 @@ void VofaOutputTask(void const * argument)
         tempFloat[17] = DM_Motor_measure[2].pos;
         tempFloat[18] = DM_Motor_measure[3].pos;
         tempFloat[19] = VofaData[1];
-        Vofa_Uart_Transmit(&huart5);
+        //Vofa_Uart_Transmit(&huart5);
         osDelay(2);
     }
 }

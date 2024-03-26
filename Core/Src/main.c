@@ -20,6 +20,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "can.h"
+#include "crc.h"
 #include "dma.h"
 #include "spi.h"
 #include "tim.h"
@@ -101,6 +102,8 @@ int main(void)
   MX_CAN2_Init();
   MX_UART5_Init();
   MX_USART2_UART_Init();
+  MX_CRC_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 

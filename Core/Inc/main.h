@@ -57,6 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define RS485_DIR1_Pin GPIO_PIN_15
+#define RS485_DIR1_GPIO_Port GPIOC
 #define LED_Pin GPIO_PIN_0
 #define LED_GPIO_Port GPIOC
 #define Gyro_ACCEL_Pin GPIO_PIN_2
@@ -69,6 +71,8 @@ void Error_Handler(void);
 #define SPI2_Gyro_CS_GPIO_Port GPIOB
 #define SPI2_Accel_CS_Pin GPIO_PIN_1
 #define SPI2_Accel_CS_GPIO_Port GPIOB
+#define RS485_DIR2_Pin GPIO_PIN_3
+#define RS485_DIR2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 /* USER CODE END Private defines */
