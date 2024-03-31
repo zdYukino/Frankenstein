@@ -99,8 +99,7 @@ void StartImuTask(void const * argument)
         }
         Attitude_Calculate(imu_data.gyro_kalman, imu_data.accel_kalman);                //BMI088欧拉角解算
         Temperature_Control(CONSTANT_temperature);                                          //IMU恒温计算
-        delay_us(1000);
-        osDelay(1);
+        osDelay(2);
     }
     /* USER CODE END StartImuTask */
 }

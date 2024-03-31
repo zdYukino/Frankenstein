@@ -37,7 +37,6 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-uint8_t tep[10];
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -171,49 +170,23 @@ void InitBoardTask(void const * argument)
 {
     delay_init();                                                //延时函数初始化
     CAN_Filter_Init(2);                              //CAN初始化
-
-    for(uint8_t i=0;i<4;i++)
-    {
-        while (DM_Motor_measure[i].T_coil == 0)
-        {
-            start_motor(&hcan1,i+1);
-            osDelay(2);
-        }
-        osDelay(2);
-    }
-    board_init_flag = 1;                                         //初始化完成
     init_music();                                                //一阵强劲的音乐响起
     /* Infinite loop */
     for(;;)
     {
-        HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
-        if(VofaData[1] == 1)
+        if(DM_Motor_measure[0].id == 1 && DM_Motor_measure[1].id == 2 && DM_Motor_measure[2].id == 3 && DM_Motor_measure[3].id == 4)
+            board_init_flag = 1;                                         //初始化完成
+        if(board_init_flag != 1)
         {
-            MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, -lqr_data_L.Tj1);//lqr_data_L.Tj1
-            osDelay(1);
-            MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, -lqr_data_L.Tj2);//lqr_data_L.Tj2
-            osDelay(1);
-            DDT_motor_toq_CTRL(&huart2, 0x01,  -lqr_data_L.T*0.01f);
-
-            MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0,  lqr_data_R.Tj2);
-            osDelay(1);
-            MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
-            osDelay(1);
-            DDT_motor_toq_CTRL(&huart2, 0x02, lqr_data_R.T*0.01f);
+            for(uint8_t i=0;i<4;i++)
+            {
+                start_motor(&hcan1,i+1);
+                osDelay(2);
+            }
         }
         else
         {
-            MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, 0);
-            osDelay(1);
-            MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, 0);
-            osDelay(1);
-            DDT_motor_toq_CTRL(&huart2, 0x01, 0);
-
-            MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0, 0);
-            osDelay(1);
-            MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0, 0);
-            osDelay(1);
-            DDT_motor_toq_CTRL(&huart2, 0x02, 0);
+            osDelay(4);
         }
     }
 }

@@ -27,26 +27,26 @@ void VofaOutputTask(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-        tempFloat[0] = imu_data.attitude_correct[0]; //ROLL
-        tempFloat[1] = imu_data.attitude_correct[1]; //PITCH -
-        tempFloat[2] = imu_data.attitude_correct[2]; //YAW
-        tempFloat[3] = lqr_data_L.vmc_data.phi1;
-        tempFloat[4] = lqr_data_L.vmc_data.phi4;
-        tempFloat[5] = lqr_data_R.vmc_data.phi1;
-        tempFloat[6] = lqr_data_R.vmc_data.phi4;
-        tempFloat[7] =  lqr_data_L.length_pid.out;
-        tempFloat[8] =  lqr_data_L.length_pid.Dout;
-        tempFloat[9] =  lqr_data_L.vmc_data.L0;
-        tempFloat[10] = lqr_data_R.vmc_data.L0;
-        tempFloat[11] = lqr_data_L.T;
-        tempFloat[12] = lqr_data_R.T;
-        tempFloat[13] = lqr_data_L.d_x;
-        tempFloat[14] = lqr_data_R.d_x;
-        tempFloat[15] = DDT_measure[0].int16_toq;
-        tempFloat[16] = DDT_measure[0].int16_rpm;
-        tempFloat[17] = DDT_measure[0].toq;
-        tempFloat[18] = DDT_measure[0].angle;
-        tempFloat[19] = VofaData[1];
+        tempFloat[0] =  lqr_data_L.leg_pid.out;
+        tempFloat[1] =  lqr_data_L.delta_theta;
+        tempFloat[2] =  lqr_data_L.yaw_pid.out;
+        tempFloat[3] =  lqr_data_L.yaw_pid.out;
+        tempFloat[4] =  imu_data.gyro_kalman[2];
+        tempFloat[5] =  lqr_data_L.d_theta;
+        tempFloat[6] =  lqr_data_L.x;
+        tempFloat[7] =  lqr_data_L.d_x;
+        tempFloat[8] =  lqr_data_L.phi;
+        tempFloat[9] =  lqr_data_L.d_phi;
+        tempFloat[10] = lqr_data_L.T;
+        tempFloat[11] = lqr_data_L.Tp;
+        tempFloat[12] = lqr_data_L.Tp;
+        tempFloat[13] = lqr_data_R.phi;
+        tempFloat[14] = lqr_data_R.d_phi;
+        tempFloat[15] = lqr_data_L.T_send;
+        tempFloat[16] = DDT_measure[0].int16_toq;
+        tempFloat[17] = DDT_measure[0].int16_rpm;
+        tempFloat[18] = DDT_measure[0].toq;
+//        tempFloat[19] = VofaData[1];
         Vofa_Uart_Transmit(&huart5);
         osDelay(5);
     }

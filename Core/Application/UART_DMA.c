@@ -113,7 +113,7 @@ static void UART1_Receive_Serve(uint8_t *buffer, uint8_t length)
 static void UART2_Receive_Serve(uint8_t *buffer, uint8_t length)
 {
     get_ddt_motor_measure(buffer, length);
-    //HAL_UART_Transmit(&huart5,buffer,length,0xff);
+//    HAL_UART_Transmit(&huart5,buffer,length,0xff);
 }
 //UART3中断接收函数
 static void UART3_Receive_Serve(uint8_t *buffer, uint8_t length)
@@ -127,9 +127,9 @@ static void UART4_Receive_Serve(uint8_t *buffer, uint8_t length)
 //UART5中断接收函数
 static void UART5_Receive_Serve(uint8_t *buffer, uint8_t length)
 {
-/*      HAL_GPIO_WritePin(RS485_DIR2_GPIO_Port,RS485_DIR2_Pin,GPIO_PIN_SET);
-      HAL_UART_Transmit(&huart2,buffer,length,0xff);
-      HAL_GPIO_WritePin(RS485_DIR2_GPIO_Port,RS485_DIR2_Pin,GPIO_PIN_RESET);*/
+//      HAL_GPIO_WritePin(RS485_DIR2_GPIO_Port,RS485_DIR2_Pin,GPIO_PIN_SET);
+//      HAL_UART_Transmit(&huart2,buffer,length,0xff);
+//      HAL_GPIO_WritePin(RS485_DIR2_GPIO_Port,RS485_DIR2_Pin,GPIO_PIN_RESET);
         Vofa_UART_Receive(buffer,length);
 }
 //UART6中断接收函数

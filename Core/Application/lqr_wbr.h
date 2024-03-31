@@ -24,12 +24,20 @@
 
 #define CONTROL_LOOP_TIME    0.002f  //lqr计算周期  s
 
-#define WIGHT_GAIN 10.0f   //机体重量/2 前馈 N
+#define WIGHT_GAIN 20.0f   //机体重量/2 前馈 N
 #define WHEEl_D    0.102f  //轮子直径       M
 
-#define LENGTH_P    300.0f  //腿长控制PID参数
+#define LENGTH_P    500.0f  //腿长控制PID参数
 #define LENGTH_I    0.0f    //腿长控制PID参数
 #define LENGTH_D    200.0f  //腿长控制PID参数
+
+#define LEG_P    1.0f     //腿长控制PID参数
+#define LEG_I    0.0f     //腿长控制PID参数
+#define LEG_D    2.0f     //腿长控制PID参数
+
+#define YAW_P    1.5f     //腿长控制PID参数
+#define YAW_I    0.0f     //腿长控制PID参数
+#define YAW_D    5.0f     //腿长控制PID参数
 typedef struct
 {
     /**LQR输入参数**/
@@ -49,8 +57,11 @@ typedef struct
     vmc_data_t vmc_data;
     /**LQR 中间过程参数**/
     pid_type_def length_pid;
+    pid_type_def leg_pid;
+    pid_type_def yaw_pid;
     float speed_now;                //当前速度
     float length_now;               //当前高度
+    float delta_theta;
     /**LQR GAIN MATRIX**/
     float K11;
     float K12;
@@ -69,6 +80,7 @@ typedef struct
     float T;    //足端扭矩
     float Tj1;  //髋关节扭矩
     float Tj2;  //髋关节扭矩
+    float T_send;  //髋关节扭矩
 }lqr_data_t;
 
 extern lqr_data_t lqr_data_L;

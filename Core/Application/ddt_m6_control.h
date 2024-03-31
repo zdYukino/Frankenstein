@@ -20,6 +20,9 @@
 #define TORQUE_CONSTANT 0.75f //转矩常数 NM/A
 #define DDT_T_MIN (-4.0f)
 #define DDT_T_MAX   4.0f
+
+#define DDT_V_MIN (-330)
+#define DDT_V_MAX   330
 /* CAN send and receive ID */
 /*接收到的DM电机的参数结构体*/
 /*
@@ -42,8 +45,12 @@ typedef struct{
     int16_t int16_toq;   //传感器发送信息
     int16_t int16_rpm;   //传感器发送信息
     uint16_t uint16_pos; //传感器发送信息
+
+    uint16_t uint16_pos_last;
+    int32_t  pos_total;
     float angle;          //转换值
     float toq;          //转换值
+    float x;            //里程计
 }DDT_measure_t;
 
 extern DDT_measure_t  DDT_measure[2];
@@ -52,5 +59,6 @@ extern uint8_t send_data[10];       //电机控制数据
 
 extern void get_ddt_motor_measure(uint8_t *Data, uint8_t length);
 extern void DDT_motor_toq_CTRL(UART_HandleTypeDef *huart, uint16_t id, float toq);
+extern void DDT_motor_vel_CTRL(UART_HandleTypeDef *huart, uint16_t id, float vel);
 extern const DDT_measure_t *get_ddt_motor_measure_point(uint8_t i);
 #endif
