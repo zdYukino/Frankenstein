@@ -186,15 +186,15 @@ void InitBoardTask(void const * argument)
             osDelay(5);
             DDT_motor_mode_CHANGE(&huart2,0x02,CURRENT_MODE);
             osDelay(5);
+            if(DM_Motor_measure[0].id == 1 && DM_Motor_measure[1].id == 2 && DM_Motor_measure[2].id == 3 && DM_Motor_measure[3].id == 4)
+            {
+                board_init_flag = 1;//初始化检查通过完成
+                HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_RESET);
+            }
         }
         else
         {
             osDelay(4);
-        }
-        if(DM_Motor_measure[0].id == 1 && DM_Motor_measure[1].id == 2 && DM_Motor_measure[2].id == 3 && DM_Motor_measure[3].id == 4)
-        {
-                board_init_flag = 1;//初始化检查通过完成
-                HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_RESET);
         }
     }
 }

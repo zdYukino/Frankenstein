@@ -9,6 +9,7 @@
     <file url="file://$PROJECT_DIR$/Core/Application/UART_DMA.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/VMC.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/VMC.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Application/ddt_m6_control.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/kalman.c" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/kalman.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Core/Application/lqr_wbr.c" charset="GBK" />

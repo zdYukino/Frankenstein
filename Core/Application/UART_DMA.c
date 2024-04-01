@@ -127,10 +127,7 @@ static void UART4_Receive_Serve(uint8_t *buffer, uint8_t length)
 //UART5中断接收函数
 static void UART5_Receive_Serve(uint8_t *buffer, uint8_t length)
 {
-//      HAL_GPIO_WritePin(RS485_DIR2_GPIO_Port,RS485_DIR2_Pin,GPIO_PIN_SET);
-//      HAL_UART_Transmit(&huart2,buffer,length,0xff);
-//      HAL_GPIO_WritePin(RS485_DIR2_GPIO_Port,RS485_DIR2_Pin,GPIO_PIN_RESET);
-        Vofa_UART_Receive(buffer,length);
+      Vofa_UART_Receive(buffer,length);
 }
 //UART6中断接收函数
 static void UART6_Receive_Serve(uint8_t *buffer, uint8_t length)

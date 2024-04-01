@@ -39,19 +39,28 @@
 * RPM 表示电机的转速信息
 */
 typedef struct{
-    uint8_t id;          //传感器发送信息
-    uint8_t mode;        //传感器发送信息
-    uint8_t err;         //传感器发送信息
-    int16_t int16_toq;   //传感器发送信息
-    int16_t int16_rpm;   //传感器发送信息
-    uint16_t uint16_pos; //传感器发送信息
+    uint8_t id;          //回传信息
+    uint8_t mode;        //回传信息
+    uint8_t err;         //回传信息
+    int16_t int16_toq;   //回传信息
+    int16_t int16_rpm;   //回传信息
+    uint16_t uint16_pos; //回传信息
 
-    uint16_t uint16_pos_last;
-    int32_t  pos_total;
-    float angle;          //转换值
-    float toq;          //转换值
-    float x;            //里程计
+    uint16_t uint16_pos_last;   //解码信息
+    float angle;                //解码信息
+    float toq;                  //解码信息
+
+    uint8_t wheel_init_flag;    //解码信息 里程计
+    int32_t  pos_total;         //解码信息 里程计
+    float x;                    //解码信息 里程计
 }DDT_measure_t;
+
+typedef enum
+{
+    CURRENT_MODE  = 0x01,
+    VELOCITY_MODE = 0x02,
+    POSITION_MODE = 0x03,
+} DDT_mode_e;
 
 extern DDT_measure_t  DDT_measure[2];
 extern uint8_t send_data[10];       //电机控制数据
@@ -60,5 +69,6 @@ extern uint8_t send_data[10];       //电机控制数据
 extern void get_ddt_motor_measure(uint8_t *Data, uint8_t length);
 extern void DDT_motor_toq_CTRL(UART_HandleTypeDef *huart, uint16_t id, float toq);
 extern void DDT_motor_vel_CTRL(UART_HandleTypeDef *huart, uint16_t id, float vel);
+extern void DDT_motor_mode_CHANGE(UART_HandleTypeDef *huart, uint16_t id, uint8_t mode);
 extern const DDT_measure_t *get_ddt_motor_measure_point(uint8_t i);
 #endif

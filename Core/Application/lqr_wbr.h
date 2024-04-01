@@ -24,10 +24,10 @@
 
 #define CONTROL_LOOP_TIME    0.002f  //lqr计算周期  s
 
-#define WIGHT_GAIN 20.0f   //机体重量/2 前馈 N
+#define WIGHT_GAIN 18.0f   //机体重量/2 前馈 N
 #define WHEEl_D    0.102f  //轮子直径       M
 
-#define LENGTH_P    500.0f  //腿长控制PID参数
+#define LENGTH_P    400.0f  //腿长控制PID参数
 #define LENGTH_I    0.0f    //腿长控制PID参数
 #define LENGTH_D    200.0f  //腿长控制PID参数
 
@@ -57,11 +57,7 @@ typedef struct
     vmc_data_t vmc_data;
     /**LQR 中间过程参数**/
     pid_type_def length_pid;
-    pid_type_def leg_pid;
-    pid_type_def yaw_pid;
-    float speed_now;                //当前速度
     float length_now;               //当前高度
-    float delta_theta;
     /**LQR GAIN MATRIX**/
     float K11;
     float K12;
@@ -83,9 +79,24 @@ typedef struct
     float T_send;  //髋关节扭矩
 }lqr_data_t;
 
+typedef struct
+{
+    pid_type_def leg_pid;
+    pid_type_def yaw_pid;
+    /**中间过程参数**/
+    float delta_theta;
+    /**期望设置参数**/
+    float speed_set;
+    float yaw_speed_set;
+    float height_set;
+    float roll_angel_set;
+}wbr_control_data_t;
+
+
 extern lqr_data_t lqr_data_L;
 extern lqr_data_t lqr_data_R;
+extern wbr_control_data_t wbr_control_data;
 
-extern void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R);
+extern void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *control_data);
 #endif
 
