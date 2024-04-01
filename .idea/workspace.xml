@@ -20,31 +20,21 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="首次下地测试 未添加dx x参数">
+    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="so DDT FXXK YOU">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/UART_DMA.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/UART_DMA.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/ddt_m6_control.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/ddt_m6_control.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/ddt_m6_control.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/ddt_m6_control.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Bsp_for_DM01/BMI088/Attitude.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +188,9 @@
       <workItem from="1711781228086" duration="4667000" />
       <workItem from="1711799002642" duration="728000" />
       <workItem from="1711806544854" duration="12634000" />
-      <workItem from="1711858217033" duration="24367000" />
+      <workItem from="1711858217033" duration="24400000" />
+      <workItem from="1711903985899" duration="4356000" />
+      <workItem from="1711945187081" duration="3033000" />
     </task>
     <task id="LOCAL-00001" summary="代码修改">
       <created>1701602122232</created>
@@ -394,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711482185721</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="so DDT FXXK YOU">
+      <option name="closed" value="true" />
+      <created>1711896319359</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1711896319359</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +482,8 @@
     <MESSAGE value="轮腿测试通信 done" />
     <MESSAGE value="完成驱动轮控制代码编写" />
     <MESSAGE value="首次下地测试 未添加dx x参数" />
-    <option name="LAST_COMMIT_MESSAGE" value="首次下地测试 未添加dx x参数" />
+    <MESSAGE value="so DDT FXXK YOU" />
+    <option name="LAST_COMMIT_MESSAGE" value="so DDT FXXK YOU" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

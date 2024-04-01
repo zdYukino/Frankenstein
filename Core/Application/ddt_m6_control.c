@@ -6,7 +6,7 @@
   * @history
   *  Version    Date            Author          Modification
   *  V1.0.0     Mar-26-2024     ZDYukino        1. done
-  *
+  *  V2.0.0     Apl-01-2024     ZDYukino        1. 速度环 模式选择
   @verbatim
   ===================================================================
   ===================================================================
@@ -21,10 +21,8 @@
 #include "lqr_wbr.h"
 #include "vofa_setting.h"
 
-#define COM_485_PORT RS485_DIR2_GPIO_Port
-#define COM_485_PIN  RS485_DIR2_Pin
-
-uint8_t wheel_init_flag[2] = {0};
+#define COM_485_PORT RS485_DIR2_GPIO_Port   ////RS485 DIR引脚定义
+#define COM_485_PIN  RS485_DIR2_Pin         ////RS485 DIR引脚定义
 
 DDT_measure_t DDT_measure[2];//电机数据结构体定义
 uint8_t send_data[10];       //电机控制数据
@@ -61,19 +59,19 @@ void get_ddt_motor_measure(uint8_t *Data, uint8_t length)
     if(Data[9]!=crc8_MAXIM(Data,9)) return; //CRC校验
     uint8_t ID = Data[0];
     DDT_measure[ID-1].mode = Data[1];
-    DDT_measure[ID-1].int16_toq = Data[2]<<8 | Data[3];
-    DDT_measure[ID-1].int16_rpm = Data[4]<<8 | Data[5];
+    DDT_measure[ID-1].int16_toq = (int16_t)(Data[2]<<8 | Data[3]);
+    DDT_measure[ID-1].int16_rpm = (int16_t)(Data[4]<<8 | Data[5]);
     DDT_measure[ID-1].uint16_pos_last = DDT_measure[ID-1].uint16_pos;
     DDT_measure[ID-1].uint16_pos= Data[6]<<8 | Data[7];
     DDT_measure[ID-1].err = Data[8];
-    DDT_measure[ID-1].toq = (float)DDT_measure[ID-1].int16_toq*8.0f/32767.0f*TORQUE_CONSTANT;
+    DDT_measure[ID-1].toq =   (float)DDT_measure[ID-1].int16_toq*8.0f/32767.0f*TORQUE_CONSTANT;
     DDT_measure[ID-1].angle = (float)DDT_measure[ID-1].uint16_pos*360.0f/32767.0f;
-
-    if( wheel_init_flag[ID-1] == 0)
+    /** 里程计部分 不需要可注释**/    /** 里程计部分 不需要可注释**/    /** 里程计部分 不需要可注释**/
+    if(DDT_measure[ID-1].wheel_init_flag == 0) //首次feedback初始化里程计
     {
         DDT_measure[ID-1].x = 0;
         DDT_measure[ID-1].uint16_pos_last = DDT_measure[ID-1].uint16_pos;
-        wheel_init_flag[ID-1]= 1;
+        DDT_measure[ID-1].wheel_init_flag = 1;
     }
     else
     {
@@ -93,6 +91,7 @@ void get_ddt_motor_measure(uint8_t *Data, uint8_t length)
         }
         DDT_measure[ID-1].x = (float) DDT_measure[ID-1].pos_total / 32767 * (float)M_PI * WHEEl_D;
     }
+    /** 里程计部分 不需要可注释**/    /** 里程计部分 不需要可注释**/    /** 里程计部分 不需要可注释**/
 }
 
 /**
@@ -126,17 +125,15 @@ void DDT_motor_toq_CTRL(UART_HandleTypeDef *huart, uint16_t id, float toq)
 /**
   * @brief          本末电机电流控制
   * @param[in]      huart   :RS485接口
-  * @param[in]      toq   :力矩 -2NM~2NM
+  * @param[in]      toq   :速度 rpm -330rpm~330rpm
   * @retval         none
   */
 void DDT_motor_vel_CTRL(UART_HandleTypeDef *huart, uint16_t id, float vel)
 {
     float max_vel = vel;
-//    if(toq>DDT_T_MAX) max_toq = DDT_T_MAX;
-//    else if(toq<DDT_T_MIN) max_toq = DDT_T_MIN;
-//    else max_toq = toq;
-    int16_t current_tmp = max_vel*330.0f;
-
+    if(vel>DDT_V_MAX) max_vel = DDT_T_MAX;
+    else if(vel<DDT_V_MIN) max_vel = DDT_T_MIN;
+    int16_t current_tmp = (int16_t)(max_vel);
     send_data[0] = id;
     send_data[1] = 0x64;
     send_data[2] = current_tmp>>8;
@@ -147,6 +144,28 @@ void DDT_motor_vel_CTRL(UART_HandleTypeDef *huart, uint16_t id, float vel)
     send_data[7] = 0x00;
     send_data[8] = 0x00;
     send_data[9] = crc8_MAXIM(send_data,9);
+
+    HAL_GPIO_WritePin(COM_485_PORT,COM_485_PIN,GPIO_PIN_SET);
+    HAL_UART_Transmit_DMA(&huart2,send_data,10);
+}
+/**
+  * @brief          本末电机模式切换
+  * @param[in]      huart   :RS485接口
+  * @param[in]      mode    :控制模式 1 电流 2 速度 3 位置 每次上电默认速度环控制
+  * @retval         none
+  */
+void DDT_motor_mode_CHANGE(UART_HandleTypeDef *huart, uint16_t id, uint8_t mode)
+{
+    send_data[0] = id;
+    send_data[1] = 0xA0;
+    send_data[2] = 0x00;
+    send_data[3] = 0x00;
+    send_data[4] = 0x00;
+    send_data[5] = 0x00;
+    send_data[6] = 0x00;
+    send_data[7] = 0x00;
+    send_data[8] = 0x00;
+    send_data[9] = mode;
 
     HAL_GPIO_WritePin(COM_485_PORT,COM_485_PIN,GPIO_PIN_SET);
     HAL_UART_Transmit_DMA(&huart2,send_data,10);
@@ -163,7 +182,7 @@ const DDT_measure_t *get_ddt_motor_measure_point(uint8_t i)
 /**
   * @brief          串口DMA发送完成中断
   * @param[in]      huart: 串口指针
-  * @retval         电机数据指针
+  * @retval         none
   */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {

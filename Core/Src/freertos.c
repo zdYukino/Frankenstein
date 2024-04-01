@@ -170,12 +170,11 @@ void InitBoardTask(void const * argument)
 {
     delay_init();                                                //延时函数初始化
     CAN_Filter_Init(2);                              //CAN初始化
+    HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_SET);
     init_music();                                                //一阵强劲的音乐响起
     /* Infinite loop */
     for(;;)
     {
-        if(DM_Motor_measure[0].id == 1 && DM_Motor_measure[1].id == 2 && DM_Motor_measure[2].id == 3 && DM_Motor_measure[3].id == 4)
-            board_init_flag = 1;                                         //初始化完成
         if(board_init_flag != 1)
         {
             for(uint8_t i=0;i<4;i++)
@@ -183,10 +182,19 @@ void InitBoardTask(void const * argument)
                 start_motor(&hcan1,i+1);
                 osDelay(2);
             }
+            DDT_motor_mode_CHANGE(&huart2,0x01,CURRENT_MODE);
+            osDelay(5);
+            DDT_motor_mode_CHANGE(&huart2,0x02,CURRENT_MODE);
+            osDelay(5);
         }
         else
         {
             osDelay(4);
+        }
+        if(DM_Motor_measure[0].id == 1 && DM_Motor_measure[1].id == 2 && DM_Motor_measure[2].id == 3 && DM_Motor_measure[3].id == 4)
+        {
+                board_init_flag = 1;//初始化检查通过完成
+                HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_RESET);
         }
     }
 }
