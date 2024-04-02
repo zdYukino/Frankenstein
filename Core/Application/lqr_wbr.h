@@ -24,6 +24,7 @@
 #include "user_lib.h"
 
 #define CONTROL_LOOP_TIME    0.004f  //lqr计算周期  s
+#define GRAVITY              9.8f    //重力加速度
 
 #define WIGHT_GAIN 18.0f   //机体重量/2 前馈 N
 #define WHEEl_D    0.102f  //轮子直径       M
@@ -37,9 +38,9 @@
 #define LEG_I    0.0f     //腿长控制PID参数
 #define LEG_D    2.0f     //腿长控制PID参数
 
-#define YAW_P    1.5f     //腿长控制PID参数
+#define YAW_P    2.0f     //腿长控制PID参数
 #define YAW_I    0.0f     //腿长控制PID参数
-#define YAW_D    5.0f     //腿长控制PID参数
+#define YAW_D    1.0f     //腿长控制PID参数
 typedef struct
 {
     /**LQR输入参数**/
@@ -60,7 +61,9 @@ typedef struct
     /**LQR 中间过程参数**/
     pid_type_def length_pid;
     first_order_filter_type_t length_filter;
-    float length_now;               //当前高度
+    float length_now;               //当前腿长
+    float d_length[2];              //当前腿长速度
+    float d_theta_last;             //当前腿长速度
     /**LQR GAIN MATRIX**/
     float K11;
     float K12;
@@ -79,7 +82,8 @@ typedef struct
     float T;    //足端扭矩
     float Tj1;  //髋关节扭矩
     float Tj2;  //髋关节扭矩
-    float T_send;  //髋关节扭矩
+    float T_send;  //足端扭矩发送至电机
+    float FN;      //支持力解算
 }lqr_data_t;
 
 typedef struct

@@ -29,24 +29,24 @@ void VofaOutputTask(void const * argument)
     {
         tempFloat[0] =  lqr_data_L.length_set;
         tempFloat[1] =  lqr_data_L.length_now;
-        tempFloat[2] =  wbr_control_data.yaw_pid.out;
-        tempFloat[3] =  wbr_control_data.yaw_pid.out;
-        tempFloat[4] =  imu_data.gyro_kalman[2];
-        tempFloat[5] =  lqr_data_L.d_theta;
-        tempFloat[6] =  lqr_data_L.x;
-        tempFloat[7] =  lqr_data_L.d_x;
-        tempFloat[8] =  lqr_data_L.phi;
-        tempFloat[9] =  lqr_data_L.d_phi;
+        tempFloat[2] =  lqr_data_L.FN;
+        tempFloat[3] =  lqr_data_R.FN;
+        tempFloat[4] =  lqr_data_L.d_length[0];
+        tempFloat[5] =  lqr_data_R.d_length[0];
+        tempFloat[6] =  lqr_data_L.vmc_data.T[0];
+        tempFloat[7] =  lqr_data_L.vmc_data.joint_l1_data->toq;
+        tempFloat[8] =  wbr_control_data.yaw_pid.out;
+        tempFloat[9] =  lqr_data_L.T_send;
         tempFloat[10] = lqr_data_L.T;
         tempFloat[11] = lqr_data_L.Tp;
         tempFloat[12] = lqr_data_L.Tp;
         tempFloat[13] = lqr_data_R.phi;
         tempFloat[14] = DDT_measure[0].mode;
         tempFloat[15] = DDT_measure[0].err;
-        tempFloat[16] = DDT_measure[0].int16_toq;
-        tempFloat[17] = DDT_measure[0].int16_rpm;
-        tempFloat[18] = DDT_measure[0].toq;
-        tempFloat[19] = VofaData[1];
+        tempFloat[16] = imu_data.accel_kalman[0];
+        tempFloat[17] = imu_data.accel_kalman[1];
+        tempFloat[18] = imu_data.accel_kalman[2];
+        //tempFloat[19] = VofaData[1];
         Vofa_Uart_Transmit(&huart5);
         osDelay(5);
     }
