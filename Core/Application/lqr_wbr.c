@@ -50,15 +50,22 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
     PID_init(&data_R->length_pid,PID_POSITION,length_PID,100,0);   //腿长PID初始化
 
     const float leg_PID[3] = {LEG_P,LEG_I,LEG_D};
-    PID_init(&control_data->leg_pid,PID_POSITION,leg_PID,1,0);   //腿长PID初始化
-    PID_init(&control_data->leg_pid,PID_POSITION,leg_PID,1,0);   //腿长PID初始化
+    PID_init(&control_data->leg_pid,PID_POSITION,leg_PID,1,0);   //双腿协调PID初始化
+    PID_init(&control_data->leg_pid,PID_POSITION,leg_PID,1,0);   //双腿协调PID初始化
 
     const float yaw_PID[3] = {YAW_P,YAW_I,YAW_D};
-    PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //腿长PID初始化
-    PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //腿长PID初始化
+    PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
+    PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
+    /**一阶低通滤波初始化**/
+    const float length_FILTER[1] = {1};
+    first_order_filter_init(&data_L->length_filter, CONTROL_LOOP_TIME, length_FILTER);
+    first_order_filter_init(&data_R->length_filter, CONTROL_LOOP_TIME, length_FILTER);
     /**VMC始化**/
     vmc_init(&data_L->vmc_data, 0);//left
     vmc_init(&data_R->vmc_data, 1);//right
+    /**初始值设定**/
+    data_L->length_filter.out = data_L->vmc_data.L0;
+    data_R->length_filter.out = data_R->vmc_data.L0;
 }
 /**
  * @brief  lqr传感计算数据更新
@@ -79,7 +86,7 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t 
     dk_feedback_update(&data_R->vmc_data, 1);               //更新轮腿正运动学位置
     /**计算后得出数据**/
 
-    data_L->x =  -data_L->wheel_motor_data->x;
+    data_L->x =  -data_L->wheel_motor_data->x;                       //相对地位移
     data_R->x =   data_R->wheel_motor_data->x;                       //相对地位移
 
     data_L->theta =    ((float)M_PI_2 - data_L->vmc_data.phi0 - data_L->phi);   //轮系与连杆倾角
@@ -90,8 +97,8 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t 
     data_L->d_x =   (float)data_L->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f + data_L->vmc_data.L0*data_L->d_theta*cosf(data_L->theta) + (data_L->vmc_data.L0-data_L->length_now)*sinf(data_L->theta);
     data_R->d_x =  -(float)data_R->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f + data_R->vmc_data.L0*data_R->d_theta*cosf(data_R->theta) + (data_R->vmc_data.L0-data_R->length_now)*sinf(data_R->theta);
 
-    data_L->length_now = data_L->vmc_data.L0;
-    data_R->length_now = data_R->vmc_data.L0;
+    data_L->length_now = data_L->vmc_data.L0;                       //腿长更新
+    data_R->length_now = data_R->vmc_data.L0;                       //腿长更新
 
     control_data->delta_theta = data_L->theta - data_R->theta;
 }
@@ -112,7 +119,7 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
     PID_calc(&data_R->length_pid,data_R->length_now,data_R->length_set);    //腿长PID计算
 
     PID_calc(&control_data->leg_pid,control_data->delta_theta,0);    //双腿协调PID
-    PID_calc(&control_data->yaw_pid,imu_data.gyro_kalman[2],0);    //转向PID计算 逆时针为正
+    PID_calc(&control_data->yaw_pid,imu_data.gyro_kalman[2],0);      //转向PID计算 逆时针为正
 
     data_L->vmc_data.F0 = data_L->length_pid.out+WIGHT_GAIN;                        //最终VMC支持力需求计算
     data_R->vmc_data.F0 = data_R->length_pid.out+WIGHT_GAIN;                        //最终VMC支持力需求计算

@@ -21,11 +21,13 @@
 #include "Attitude.h"
 #include "CAN_receive_dm.h"
 #include "ddt_m6_control.h"
+#include "user_lib.h"
 
-#define CONTROL_LOOP_TIME    0.002f  //lqr计算周期  s
+#define CONTROL_LOOP_TIME    0.004f  //lqr计算周期  s
 
 #define WIGHT_GAIN 18.0f   //机体重量/2 前馈 N
 #define WHEEl_D    0.102f  //轮子直径       M
+#define WHEEl_M    0.8f  //轮子质量       Kg
 
 #define LENGTH_P    400.0f  //腿长控制PID参数
 #define LENGTH_I    0.0f    //腿长控制PID参数
@@ -57,6 +59,7 @@ typedef struct
     vmc_data_t vmc_data;
     /**LQR 中间过程参数**/
     pid_type_def length_pid;
+    first_order_filter_type_t length_filter;
     float length_now;               //当前高度
     /**LQR GAIN MATRIX**/
     float K11;
@@ -98,5 +101,6 @@ extern lqr_data_t lqr_data_R;
 extern wbr_control_data_t wbr_control_data;
 
 extern void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *control_data);
+
 #endif
 

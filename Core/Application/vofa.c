@@ -29,8 +29,8 @@ void VofaOutputTask(void const * argument)
     {
         tempFloat[0] =  lqr_data_L.length_set;
         tempFloat[1] =  lqr_data_L.length_now;
-        tempFloat[2] =  lqr_data_L.yaw_pid.out;
-        tempFloat[3] =  lqr_data_L.yaw_pid.out;
+        tempFloat[2] =  wbr_control_data.yaw_pid.out;
+        tempFloat[3] =  wbr_control_data.yaw_pid.out;
         tempFloat[4] =  imu_data.gyro_kalman[2];
         tempFloat[5] =  lqr_data_L.d_theta;
         tempFloat[6] =  lqr_data_L.x;

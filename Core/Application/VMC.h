@@ -58,13 +58,16 @@ typedef struct
     float T[2];      //2x1matrix T1与T2髋关节力矩 N*M
     /**输出参数 虚拟髋点角速度**/
     float d_phi0;    //rad/s
+
+    float F0_reverse; //实时逆解
+    float Tp_reverse; //实时逆解
 }vmc_data_t;
 
 extern vmc_data_t vmc_data[2];
 
 extern void vmc_init(vmc_data_t *data, uint8_t side);
-extern void dk_calc (vmc_data_t *data);
 extern void vmc_calc(vmc_data_t *data);
 extern void dk_feedback_update(vmc_data_t *data, uint8_t side);
+extern void vmc_calc_reverse(vmc_data_t *data, float TJ1, float TJ2);
 #endif
 

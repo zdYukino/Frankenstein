@@ -19,7 +19,8 @@
 
 vmc_data_t vmc_data[2]; //五连杆VMC数据定义
 
-float d_phi0_calc(float phi_1, float phi_4, float d_phi1, float d_phi4);
+static float d_phi0_calc(float phi_1, float phi_4, float d_phi1, float d_phi4);
+static void dk_calc (vmc_data_t *data);
 /**
  * @brief  VMC数据初始化 right
  * @param  data：input VMC结构体
@@ -49,6 +50,7 @@ void vmc_init(vmc_data_t *data, uint8_t side)
         data->d_phi4 = data->joint_l4_data->vel;
     }
     dk_feedback_update(data, side);
+    vmc_calc_reverse(data, 0, 0);
     data->F0 = 0;
     data->Tp = 0;
     vmc_calc(data);
@@ -80,11 +82,41 @@ void dk_feedback_update(vmc_data_t *data, uint8_t side)
     dk_calc(data);
 }
 /**
+ * @brief  VMC数据计算
+ * @param  data：input VMC结构体
+ * @retval none
+ */
+void vmc_calc(vmc_data_t *data)
+{
+//    data->J[0][0] = (L1*sinf(data->phi0-data->phi3)*sinf(data->phi1-data->phi2))/sinf(data->phi3-data->phi2);
+//    data->J[0][1] = (L1*cosf(data->phi0-data->phi3)*sinf(data->phi1-data->phi2))/data->L0*sinf(data->phi3-data->phi2);
+//    data->J[1][0] = (L4*sinf(data->phi0-data->phi2)*sinf(data->phi3-data->phi4))/sinf(data->phi3-data->phi2);
+//    data->J[1][1] = (L4*cosf(data->phi0-data->phi2)*sinf(data->phi3-data->phi4))/data->L0*sinf(data->phi3-data->phi2);
+
+    data->T[0] = data->J[0][0]*data->F0 + data->J[0][1]*data->Tp;
+    data->T[1] = data->J[1][0]*data->F0 + data->J[1][1]*data->Tp;
+}
+/**
+ * @brief  VMC逆向解算
+ * @param  data：input VMC结构体
+ * @retval none
+ */
+void vmc_calc_reverse(vmc_data_t *data, float TJ1, float TJ2)
+{
+    data->J[0][0] = (L1*sinf(data->phi0-data->phi3)*sinf(data->phi1-data->phi2))/sinf(data->phi3-data->phi2);
+    data->J[0][1] = (L1*cosf(data->phi0-data->phi3)*sinf(data->phi1-data->phi2))/data->L0*sinf(data->phi3-data->phi2);
+    data->J[1][0] = (L4*sinf(data->phi0-data->phi2)*sinf(data->phi3-data->phi4))/sinf(data->phi3-data->phi2);
+    data->J[1][1] = (L4*cosf(data->phi0-data->phi2)*sinf(data->phi3-data->phi4))/data->L0*sinf(data->phi3-data->phi2);
+
+    data->Tp_reverse = (TJ2 - TJ1*(data->J[1][0]/data->J[0][0]))*data->J[0][0]/(data->J[0][0]*data->J[1][1]-data->J[1][0]*data->J[0][1]);
+    data->F0_reverse = (TJ1 - data->J[0][1]*data->Tp_reverse)/data->J[0][0];
+}
+/**
  * @brief  正运动学解算
  * @param  data：input VMC结构体
  * @retval none
  */
-void dk_calc(vmc_data_t *data)
+static void dk_calc(vmc_data_t *data)
 {
     data->YD = L4*sinf(data->phi4);
     data->YB = L1*sinf(data->phi1);
@@ -103,27 +135,13 @@ void dk_calc(vmc_data_t *data)
     data->phi0 = atan2f(data->YC,data->XC - L5/2);
     data->d_phi0 = d_phi0_calc(data->phi1, data->phi4, data->d_phi1, data->d_phi4);
 }
-/**
- * @brief  VMC数据计算
- * @param  data：input VMC结构体
- * @retval none
- */
-void vmc_calc(vmc_data_t *data)
-{
-    data->J[0][0] = (L1*sinf(data->phi0-data->phi3)*sinf(data->phi1-data->phi2))/sinf(data->phi3-data->phi2);
-    data->J[0][1] = (L1*cosf(data->phi0-data->phi3)*sinf(data->phi1-data->phi2))/data->L0*sinf(data->phi3-data->phi2);
-    data->J[1][0] = (L4*sinf(data->phi0-data->phi2)*sinf(data->phi3-data->phi4))/sinf(data->phi3-data->phi2);
-    data->J[1][1] = (L4*cosf(data->phi0-data->phi2)*sinf(data->phi3-data->phi4))/data->L0*sinf(data->phi3-data->phi2);
 
-    data->T[0] = data->J[0][0]*data->F0 + data->J[0][1]*data->Tp;
-    data->T[1] = data->J[1][0]*data->F0 + data->J[1][1]*data->Tp;
-}
 /**
  * @brief  正运动学计算 专职d_phi
  * @param  data：input VMC结构体
  * @retval none
  */
-float d_phi0_calc(float phi_1, float phi_4, float d_phi1, float d_phi4)
+static float d_phi0_calc(float phi_1, float phi_4, float d_phi1, float d_phi4)
 {
     float a_tmp;
     float a_tmp_tmp;
