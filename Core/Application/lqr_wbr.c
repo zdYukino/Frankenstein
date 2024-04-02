@@ -101,8 +101,8 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t 
     data_R->d_length[0] = (data_R->vmc_data.L0 - data_R->length_now) / CONTROL_LOOP_TIME;  //求腿长变化速度
 
 
-    data_L->d_x =    (float)data_L->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f + data_L->vmc_data.L0*data_L->d_theta*cosf(data_L->theta) + data_L->d_length[0]*sinf(data_L->theta);
-    data_R->d_x =  - (float)data_R->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f + data_R->vmc_data.L0*data_R->d_theta*cosf(data_R->theta) + data_R->d_length[0]*sinf(data_R->theta);
+    data_L->d_x =  (  (float)data_L->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f) + data_L->vmc_data.L0*data_L->d_theta*cosf(data_L->theta) + data_L->d_length[0]*sinf(data_L->theta);
+    data_R->d_x =  (- (float)data_R->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f) + data_R->vmc_data.L0*data_R->d_theta*cosf(data_R->theta) + data_R->d_length[0]*sinf(data_R->theta);
 
     FN_calc(data_L);                                     //足端支持力解算
     FN_calc(data_R);                                     //足端支持力解算
@@ -137,8 +137,8 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
     PID_calc(&control_data->leg_pid,control_data->delta_theta,0);    //双腿协调PID
     PID_calc(&control_data->yaw_pid,imu_data.gyro_kalman[2],0);      //转向PID计算 逆时针为正
 
-    data_L->vmc_data.F0 = data_L->length_pid.out+WIGHT_GAIN;                        //最终VMC支持力需求计算
-    data_R->vmc_data.F0 = data_R->length_pid.out+WIGHT_GAIN;                        //最终VMC支持力需求计算
+    data_L->vmc_data.F0 = data_L->length_pid.out+WIGHT_GAIN;                     //最终VMC支持力需求计算
+    data_R->vmc_data.F0 = data_R->length_pid.out+WIGHT_GAIN;                     //最终VMC支持力需求计算
 
 
     K_matrix_calc(data_L,VofaData[0]);                                 //K矩阵计算
@@ -180,19 +180,39 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
 static void K_matrix_calc(lqr_data_t *data, float length)
 {
     if(length<0.1||length>0.3) return;
-    data->K11 = (                                48.786f*length*length - 47.345f*length - 0.7115f); //R^2 = 0.9998
-    data->K12 = (                                                      - 5.6196f*length + 0.1218f); //R^2 = 1
-    data->K13 = (-55.064f*length*length*length + 42.892f*length*length - 11.463f*length - 1.1215f); //R^2 = 0.9991
-    data->K14 = (-47.14f *length*length*length + 37.189f*length*length - 11.19f *length - 1.1837f); //R^2 = 0.9998
-    data->K15 = (-180.55f*length*length*length + 159.05f*length*length - 53.184f*length + 8.1325f); //R^2 = 1
-    data->K16 = (-8.0602f*length*length*length + 8.3599f*length*length - 3.4744f*length + 0.7793f); //R^2 = 1
+    if(data->FN>=10)
+    {
+        data->K11 = (                                48.786f*length*length - 47.345f*length - 0.7115f); //R^2 = 0.9998
+        data->K12 = (                                                      - 5.6196f*length + 0.1218f); //R^2 = 1
+        data->K13 = (-55.064f*length*length*length + 42.892f*length*length - 11.463f*length - 1.1215f); //R^2 = 0.9991
+        data->K14 = (-47.14f *length*length*length + 37.189f*length*length - 11.19f *length - 1.1837f); //R^2 = 0.9998
+        data->K15 = (-180.55f*length*length*length + 159.05f*length*length - 53.184f*length + 8.1325f); //R^2 = 1
+        data->K16 = (-8.0602f*length*length*length + 8.3599f*length*length - 3.4744f*length + 0.7793f); //R^2 = 1
 
-    data->K21 = ( 57.724f*length*length*length - 32.781f*length*length + 0.6436f*length + 3.5128f); //R^2 = 0.9998
-    data->K22 = ( 9.2032f*length*length*length - 7.2715f*length*length + 1.7563f*length + 0.236f ); //R^2 = 0.9969
-    data->K23 = (-114.7f *length*length*length + 100.28f*length*length - 33.042f*length + 4.8043f); //R^2 = 1
-    data->K24 = (-117.69f*length*length*length + 100.98f*length*length - 32.567f*length + 4.6866f); //R^2 = 0.9999
-    data->K25 = ( 379.24f*length*length*length - 293.52f*length*length + 78.959f*length + 6.6423f); //R^2 = 0.9992
-    data->K26 = ( 30.996f*length*length*length - 25.034f*length*length + 7.203f *length + 0.0868f); //R^2 = 0.9997
+        data->K21 = ( 57.724f*length*length*length - 32.781f*length*length + 0.6436f*length + 3.5128f); //R^2 = 0.9998
+        data->K22 = ( 9.2032f*length*length*length - 7.2715f*length*length + 1.7563f*length + 0.236f ); //R^2 = 0.9969
+        data->K23 = (-114.7f *length*length*length + 100.28f*length*length - 33.042f*length + 4.8043f); //R^2 = 1
+        data->K24 = (-117.69f*length*length*length + 100.98f*length*length - 32.567f*length + 4.6866f); //R^2 = 0.9999
+        data->K25 = ( 379.24f*length*length*length - 293.52f*length*length + 78.959f*length + 6.6423f); //R^2 = 0.9992
+        data->K26 = ( 30.996f*length*length*length - 25.034f*length*length + 7.203f *length + 0.0868f); //R^2 = 0.9997
+    }
+    else
+    {
+        data->K11 = 0;
+        data->K12 = 0;
+        data->K13 = 0;
+        data->K14 = 0;
+        data->K15 = 0;
+        data->K16 = 0;
+
+        data->K21 = ( 57.724f*length*length*length - 32.781f*length*length + 0.6436f*length + 3.5128f); //R^2 = 0.9998
+        data->K22 = ( 9.2032f*length*length*length - 7.2715f*length*length + 1.7563f*length + 0.236f ); //R^2 = 0.9969
+        data->K23 = 0;
+        data->K24 = 0;
+        data->K25 = 0;
+        data->K26 = 0;
+    }
+
  }
 /**
 * @brief  实时支持力结算
@@ -211,7 +231,7 @@ static void FN_calc(lqr_data_t *data)
                   data->vmc_data.L0 * (data->d_theta)*(data->d_theta)*cos_theta;
     data->FN = P + WHEEl_M * GRAVITY + dd_Zw * WHEEl_M;
 
-    tempFloat[19] = dd_Zw;
+    tempFloat[19] = P;
 }
 /**
   * @brief Function FREERTOS VOFA发送调试信息
