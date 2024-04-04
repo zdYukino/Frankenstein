@@ -89,8 +89,8 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t 
     vmc_calc_reverse(&data_L->vmc_data, -data_L->vmc_data.joint_l1_data->toq, -data_L->vmc_data.joint_l4_data->toq);//VMC逆向解
     vmc_calc_reverse(&data_R->vmc_data,  data_R->vmc_data.joint_l1_data->toq,  data_R->vmc_data.joint_l4_data->toq);//VMC逆向解
 
-    data_L->x = (-data_L->wheel_motor_data->x + data_R->wheel_motor_data->x)*0.3f;    //相对地位移 左右相同
-    data_R->x = ( data_R->wheel_motor_data->x - data_L->wheel_motor_data->x)*0.3f;    //相对地位移 左右相同
+    data_L->x = (-data_L->wheel_motor_data->x + data_R->wheel_motor_data->x)*0.4f;    //相对地位移 左右相同
+    data_R->x = ( data_R->wheel_motor_data->x - data_L->wheel_motor_data->x)*0.4f;    //相对地位移 左右相同
 
     data_L->theta =    ((float)M_PI_2 - data_L->vmc_data.phi0 - data_L->phi);   //轮系与连杆倾角
     data_L->d_theta =  (- data_L->vmc_data.d_phi0-data_L->d_phi)            ;   //轮系与连杆倾角速度
@@ -182,19 +182,19 @@ static void K_matrix_calc(lqr_data_t *data, float length)
     if(length<0.1||length>0.3) return;
     if(data->FN>=10)
     {
-        data->K11 = (                                48.786f*length*length - 47.345f*length - 0.7115f); //R^2 = 0.9998
-        data->K12 = (                                                      - 5.6196f*length + 0.1218f); //R^2 = 1
-        data->K13 = (-55.064f*length*length*length + 42.892f*length*length - 11.463f*length - 1.1215f); //R^2 = 0.9991
-        data->K14 = (-47.14f *length*length*length + 37.189f*length*length - 11.19f *length - 1.1837f); //R^2 = 0.9998
-        data->K15 = (-180.55f*length*length*length + 159.05f*length*length - 53.184f*length + 8.1325f); //R^2 = 1
-        data->K16 = (-8.0602f*length*length*length + 8.3599f*length*length - 3.4744f*length + 0.7793f); //R^2 = 1
+        data->K11 = -5.3345f;//(                                48.786f*length*length - 47.345f*length - 0.7115f); //R^2 = 0.9998
+        data->K12 = -0.4248f;//(                                                      - 5.6196f*length + 0.1218f); //R^2 = 1
+        data->K13 = -1.0347f;//(-55.064f*length*length*length + 42.892f*length*length - 11.463f*length - 1.1215f); //R^2 = 0.9991
+        data->K14 = -1.4571f;//(-47.14f *length*length*length + 37.189f*length*length - 11.19f *length - 1.1837f); //R^2 = 0.9998
+        data->K15 =  2.9006f;//(-180.55f*length*length*length + 159.05f*length*length - 53.184f*length + 8.1325f); //R^2 = 1
+        data->K16 =  0.3481f;//(-8.0602f*length*length*length + 8.3599f*length*length - 3.4744f*length + 0.7793f); //R^2 = 1
 
-        data->K21 = ( 57.724f*length*length*length - 32.781f*length*length + 0.6436f*length + 3.5128f); //R^2 = 0.9998
-        data->K22 = ( 9.2032f*length*length*length - 7.2715f*length*length + 1.7563f*length + 0.236f ); //R^2 = 0.9969
-        data->K23 = (-114.7f *length*length*length + 100.28f*length*length - 33.042f*length + 4.8043f); //R^2 = 1
-        data->K24 = (-117.69f*length*length*length + 100.98f*length*length - 32.567f*length + 4.6866f); //R^2 = 0.9999
-        data->K25 = ( 379.24f*length*length*length - 293.52f*length*length + 78.959f*length + 6.6423f); //R^2 = 0.9992
-        data->K26 = ( 30.996f*length*length*length - 25.034f*length*length + 7.203f *length + 0.0868f); //R^2 = 0.9997
+        data->K21 = 3.3431f;//( 57.724f*length*length*length - 32.781f*length*length + 0.6436f*length + 3.5128f); //R^2 = 0.9998
+        data->K22 = 0.3199f;//( 9.2032f*length*length*length - 7.2715f*length*length + 1.7563f*length + 0.236f ); //R^2 = 0.9969
+        data->K23 = 1.3105f;//(-114.7f *length*length*length + 100.28f*length*length - 33.042f*length + 4.8043f); //R^2 = 1
+        data->K24 = 1.7616f;//(-117.69f*length*length*length + 100.98f*length*length - 32.567f*length + 4.6866f); //R^2 = 0.9999
+        data->K25 =10.7028f;//( 379.24f*length*length*length - 293.52f*length*length + 78.959f*length + 6.6423f); //R^2 = 0.9992
+        data->K26 = 0.5660f;//( 30.996f*length*length*length - 25.034f*length*length + 7.203f *length + 0.0868f); //R^2 = 0.9997
     }
     else
     {
