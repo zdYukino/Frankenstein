@@ -36,11 +36,11 @@ void VofaOutputTask(void const * argument)
         tempFloat[4] =  sbus_channel[4];
         tempFloat[5] =  sbus_channel[5];
         tempFloat[6] =  sbus_channel[6];
-        tempFloat[7] =  lqr_data_L.vmc_data.joint_l1_data->toq;
-        tempFloat[8] =  wbr_control_data.yaw_pid.out;
-        tempFloat[9] =  lqr_data_L.T_send;
-        tempFloat[10] = lqr_data_L.T;
-        tempFloat[11] = lqr_data_L.Tp;
+        tempFloat[7] =  sbus_channel[7];
+        tempFloat[8] =  sbus_channel[8];
+        tempFloat[9] =  sbus_channel[9];
+        tempFloat[10] = lqr_data_L.FN;
+        tempFloat[11] = lqr_data_R.FN;
         tempFloat[12] = lqr_data_L.Tp;
         tempFloat[13] = lqr_data_R.phi;
         tempFloat[14] = DDT_measure[0].mode;

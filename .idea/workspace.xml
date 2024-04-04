@@ -20,12 +20,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="sbus 遥控器信号接收">
+    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="找到一个合适的参数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Bsp_for_DM01/bsp_sbus.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/bsp_sbus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Bsp_for_DM01/bsp_sbus.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/bsp_sbus.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
@@ -105,12 +110,12 @@
     <option name="rtosType" value="FreeRTOS" />
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.Frankenstein.elf">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="Frankenstein.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Frankenstein" TARGET_NAME="Frankenstein.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Frankenstein" RUN_TARGET_NAME="Frankenstein.elf">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Frankenstein.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Frankenstein" TARGET_NAME="Frankenstein.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Frankenstein" RUN_TARGET_NAME="Frankenstein.elf">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -198,7 +203,8 @@
       <workItem from="1712050479761" duration="4023000" />
       <workItem from="1712074812385" duration="6639000" />
       <workItem from="1712141630861" duration="270000" />
-      <workItem from="1712215605890" duration="6992000" />
+      <workItem from="1712215605890" duration="8699000" />
+      <workItem from="1712242864592" duration="4163000" />
     </task>
     <task id="LOCAL-00001" summary="代码修改">
       <created>1701602122232</created>
@@ -458,7 +464,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712219270595</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="找到一个合适的参数">
+      <option name="closed" value="true" />
+      <created>1712227565392</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1712227565392</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +537,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="init BMI088" />
     <MESSAGE value="attitude calculation" />
     <MESSAGE value="imu temperature control" />
     <MESSAGE value="年后第一次修改&#10;更改了文件架构" />
@@ -548,7 +561,8 @@
     <MESSAGE value="支持力逆向解 completed" />
     <MESSAGE value="障碍飞跃 finished" />
     <MESSAGE value="sbus 遥控器信号接收" />
-    <option name="LAST_COMMIT_MESSAGE" value="sbus 遥控器信号接收" />
+    <MESSAGE value="找到一个合适的参数" />
+    <option name="LAST_COMMIT_MESSAGE" value="找到一个合适的参数" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

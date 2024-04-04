@@ -33,6 +33,7 @@
 #include "vofa_setting.h"
 #include "usart.h"
 #include "ddt_m6_control.h"
+#include "bsp_sbus.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -194,7 +195,33 @@ void InitBoardTask(void const * argument)
         }
         else
         {
-            osDelay(4);
+                if(sbus_channel[7] >= 1500)
+                {
+                    MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, -lqr_data_L.Tj1);//lqr_data_L.Tj1
+                    osDelay(1);
+                    MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, -lqr_data_L.Tj2);//lqr_data_L.Tj2
+                    osDelay(1);
+                    DDT_motor_toq_CTRL(&huart2, 0x01,  lqr_data_L.T_send);
+                    osDelay(1);
+                    MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0,  lqr_data_R.Tj2);
+                    osDelay(1);
+                    MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
+                    osDelay(1);
+                    DDT_motor_toq_CTRL(&huart2, 0x02,  lqr_data_R.T_send);
+                }
+                else {
+                    MIT_motor_CTRL(&hcan1, 1, 0, 0, 0, 0, 0);
+                    osDelay(1);
+                    MIT_motor_CTRL(&hcan1, 2, 0, 0, 0, 0, 0);
+                    osDelay(1);
+                    DDT_motor_toq_CTRL(&huart2, 0x01, 0);
+                    osDelay(1);
+                    MIT_motor_CTRL(&hcan1, 3, 0, 0, 0, 0, 0);
+                    osDelay(1);
+                    MIT_motor_CTRL(&hcan1, 4, 0, 0, 0, 0, 0);
+                    osDelay(1);
+                    DDT_motor_toq_CTRL(&huart2, 0x02, 0);
+                }
         }
     }
 }

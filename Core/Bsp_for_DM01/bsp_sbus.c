@@ -17,6 +17,16 @@
 #include "main.h"
 
 uint16_t sbus_channel[16];
+
+//死区消除小函数
+float rc_dead_band_limit(float input, float dead_line)       \
+{                                                            \
+    if ((input > dead_line) || (input < -dead_line))         \
+        return input;                                        \
+    else                                                     \
+        return 0;                                            \
+}
+
 /**
   * @brief          SUBS解码
   * @param[out]     校验后原始数据
