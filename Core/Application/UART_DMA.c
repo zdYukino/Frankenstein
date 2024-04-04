@@ -20,6 +20,7 @@
 #include "string.h"
 #include "vofa.h"
 #include "ddt_m6_control.h"
+#include "bsp_sbus.h"
 
 /*缓存数组预定义*/
 uint8_t buffer_receive_1[buffer_receive_1_length];
@@ -79,8 +80,8 @@ void UART_DMA_Receive_IT(UART_HandleTypeDef *usart, DMA_HandleTypeDef *DMA, uint
 
 //     if(usart == &huart1)      UART1_Receive_Serve(buffer, real_length);//选择解码程序
      if(usart == &huart2) UART2_Receive_Serve(buffer, real_length);//选择解码程序
-//     else if(usart == &huart3) UART3_Receive_Serve(buffer, real_length);//选择解码程序
-     else if(usart == &huart4) UART4_Receive_Serve(buffer, real_length);//选择解码程序
+     else if(usart == &huart3) UART3_Receive_Serve(buffer, real_length);//选择解码程序
+//     else if(usart == &huart4) UART4_Receive_Serve(buffer, real_length);//选择解码程序
      else if(usart == &huart5) UART5_Receive_Serve(buffer, real_length);//选择解码程序
 //   else if(usart == &huart6) UART6_Receive_Serve(buffer, real_length);//选择解码程序
      memset(buffer,0,real_length);
@@ -118,11 +119,12 @@ static void UART2_Receive_Serve(uint8_t *buffer, uint8_t length)
 //UART3中断接收函数
 static void UART3_Receive_Serve(uint8_t *buffer, uint8_t length)
 {
+//    HAL_UART_Transmit(&huart5,buffer,length,0xff);
+      SBUS_trans(buffer, length);
 }
 //UART4中断接收函数
 static void UART4_Receive_Serve(uint8_t *buffer, uint8_t length)
 {
-    HAL_UART_Transmit(&huart4,buffer,length,0xff);
 }
 //UART5中断接收函数
 static void UART5_Receive_Serve(uint8_t *buffer, uint8_t length)

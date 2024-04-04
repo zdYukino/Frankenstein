@@ -20,16 +20,43 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="支持力逆向解 completed">
+    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="障碍飞跃 finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/UART_DMA.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/UART_DMA.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Inc/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Inc/stm32f4xx_it.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/stm32f4xx_it.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Inc/usart.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/usart.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/can.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/can.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/dma.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/dma.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/gpio.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/gpio.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/stm32f4xx_it.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/stm32f4xx_it.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/usart.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/usart.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frankenstein.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/Frankenstein.ioc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/UART_DMA.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/can.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/dma.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/gpio.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/main.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/stm32f4xx_it.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/usart.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +132,11 @@
     <option name="rtosType" value="FreeRTOS" />
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.Frankenstein.elf">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Frankenstein.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Frankenstein" TARGET_NAME="Frankenstein.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Frankenstein" RUN_TARGET_NAME="Frankenstein.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -191,7 +223,9 @@
       <workItem from="1711982321798" duration="3315000" />
       <workItem from="1712046399296" duration="4009000" />
       <workItem from="1712050479761" duration="4023000" />
-      <workItem from="1712074812385" duration="6379000" />
+      <workItem from="1712074812385" duration="6639000" />
+      <workItem from="1712141630861" duration="270000" />
+      <workItem from="1712215605890" duration="2645000" />
     </task>
     <task id="LOCAL-00001" summary="代码修改">
       <created>1701602122232</created>
@@ -435,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712079861482</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="障碍飞跃 finished">
+      <option name="closed" value="true" />
+      <created>1712081331275</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1712081331275</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,7 +542,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="FreeRTOS init" />
     <MESSAGE value="init music finish" />
     <MESSAGE value="init BMI088" />
     <MESSAGE value="attitude calculation" />
@@ -525,7 +566,8 @@
     <MESSAGE value="综合控制代码 begin" />
     <MESSAGE value="支持力逆向解" />
     <MESSAGE value="支持力逆向解 completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="支持力逆向解 completed" />
+    <MESSAGE value="障碍飞跃 finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="障碍飞跃 finished" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -230,8 +230,6 @@ static void FN_calc(lqr_data_t *data)
                   data->vmc_data.L0 * (data->d_theta-data->d_theta_last)/CONTROL_LOOP_TIME*sin_theta +
                   data->vmc_data.L0 * (data->d_theta)*(data->d_theta)*cos_theta;
     data->FN = P + WHEEl_M * GRAVITY + dd_Zw * WHEEl_M;
-
-    tempFloat[19] = P;
 }
 /**
   * @brief Function FREERTOS VOFA发送调试信息
@@ -286,3 +284,7 @@ void LqrControlTask(void const * argument)
         }
     }
 }
+//TODO 参数改进
+//TODO 前进环
+//TODO 转向环
+//TODO ROLL自动平衡

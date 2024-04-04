@@ -7,6 +7,7 @@
 #include "lqr_wbr.h"
 #include "UART_DMA.h"
 #include "ddt_m6_control.h"
+#include "bsp_sbus.h"
 
 float  VofaData[16] = {0}; //定义控件变量
 
@@ -23,17 +24,18 @@ VOFA_RxTypedef Vofa_RX;
 void VofaOutputTask(void const * argument)
 {
     UART_DMA_Receive_init(&huart2, buffer_receive_2, buffer_receive_2_length);
+    UART_DMA_Receive_init(&huart3, buffer_receive_3, buffer_receive_3_length);
     UART_DMA_Receive_init(&huart5, buffer_receive_5, buffer_receive_5_length);
     /* Infinite loop */
     for(;;)
     {
-        tempFloat[0] =  lqr_data_L.length_set;
-        tempFloat[1] =  lqr_data_L.length_now;
-        tempFloat[2] =  lqr_data_L.FN;
-        tempFloat[3] =  lqr_data_R.FN;
-        tempFloat[4] =  lqr_data_L.d_length[0];
-        tempFloat[5] =  lqr_data_R.d_length[0];
-        tempFloat[6] =  lqr_data_L.vmc_data.T[0];
+        tempFloat[0] =  sbus_channel[0];
+        tempFloat[1] =  sbus_channel[1];
+        tempFloat[2] =  sbus_channel[2];
+        tempFloat[3] =  sbus_channel[3];
+        tempFloat[4] =  sbus_channel[4];
+        tempFloat[5] =  sbus_channel[5];
+        tempFloat[6] =  sbus_channel[6];
         tempFloat[7] =  lqr_data_L.vmc_data.joint_l1_data->toq;
         tempFloat[8] =  wbr_control_data.yaw_pid.out;
         tempFloat[9] =  lqr_data_L.T_send;
