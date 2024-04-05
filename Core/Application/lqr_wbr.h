@@ -23,7 +23,7 @@
 #include "ddt_m6_control.h"
 #include "user_lib.h"
 
-#define CONTROL_LOOP_TIME    0.002f  //lqr计算周期  s
+#define CONTROL_LOOP_TIME    0.004f  //lqr计算周期  s
 #define GRAVITY              9.8f    //重力加速度
 
 #define WIGHT_GAIN 18.0f   //机体重量/2 前馈 N
@@ -34,13 +34,13 @@
 #define LENGTH_I    0.0f    //腿长控制PID参数
 #define LENGTH_D    200.0f  //腿长控制PID参数
 
-#define LEG_P    1.0f     //腿长控制PID参数
-#define LEG_I    0.0f     //腿长控制PID参数
-#define LEG_D    2.0f     //腿长控制PID参数
+#define LEG_P    2.0f     //腿协调控制PID参数
+#define LEG_I    0.0f     //腿协调控制PID参数
+#define LEG_D    1.0f     //腿协调控制PID参数
 
-#define YAW_P    2.0f     //腿长控制PID参数
-#define YAW_I    0.0f     //腿长控制PID参数
-#define YAW_D    1.0f     //腿长控制PID参数
+#define YAW_P    2.5f     //YAW控制PID参数
+#define YAW_I    0.0f     //YAW控制PID参数
+#define YAW_D    1.0f     //YAW控制PID参数
 typedef struct
 {
     /**LQR输入参数**/

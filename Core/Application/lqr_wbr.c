@@ -61,7 +61,7 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
     PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
     PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
     /**一阶低通滤波初始化**/
-    const float length_FILTER[1] = {0.8f};
+    const float length_FILTER[1] = {0.5f};
     first_order_filter_init(&data_L->length_filter, CONTROL_LOOP_TIME, length_FILTER);
     first_order_filter_init(&data_R->length_filter, CONTROL_LOOP_TIME, length_FILTER);
     /**VMC始化**/
@@ -92,8 +92,6 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t 
     vmc_calc_reverse(&data_L->vmc_data, -data_L->vmc_data.joint_l1_data->toq, -data_L->vmc_data.joint_l4_data->toq);//VMC逆向解
     vmc_calc_reverse(&data_R->vmc_data,  data_R->vmc_data.joint_l1_data->toq,  data_R->vmc_data.joint_l4_data->toq);//VMC逆向解
 
-    data_L->x = (-data_L->wheel_motor_data->x + data_R->wheel_motor_data->x);    //相对地位移 左右相同
-    data_R->x = ( data_R->wheel_motor_data->x - data_L->wheel_motor_data->x);    //相对地位移 左右相同
 
     data_L->theta =    ((float)M_PI_2 - data_L->vmc_data.phi0 - data_L->phi);   //轮系与连杆倾角
     data_L->d_theta =  (- data_L->vmc_data.d_phi0-data_L->d_phi)            ;   //轮系与连杆倾角速度
@@ -106,6 +104,9 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t 
 
     data_L->d_x =  (  (float)data_L->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f) + data_L->vmc_data.L0*data_L->d_theta*cosf(data_L->theta) + data_L->d_length[0]*sinf(data_L->theta);
     data_R->d_x =  (- (float)data_R->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f) + data_R->vmc_data.L0*data_R->d_theta*cosf(data_R->theta) + data_R->d_length[0]*sinf(data_R->theta);
+
+    data_L->x = (-data_L->wheel_motor_data->x + data_R->wheel_motor_data->x)*0.4f;    //相对地位移 左右相同
+    data_R->x = ( data_R->wheel_motor_data->x - data_L->wheel_motor_data->x)*0.4f;    //相对地位移 左右相同
 
     FN_calc(data_L);                                     //足端支持力解算
     FN_calc(data_R);                                     //足端支持力解算
@@ -133,12 +134,11 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
 
     remote_control(&wbr_control_data,sbus_channel);
 
-//    data_L->x += control_data->delta_x;
-//    data_R->x += control_data->delta_x;
+    data_L->x += control_data->delta_x;
+    data_R->x += control_data->delta_x;
 
-
-    first_order_filter_cali(&data_L->length_filter, VofaData[0]);               //设置腿长参数
-    first_order_filter_cali(&data_R->length_filter, VofaData[0]);               //设置腿长参数
+    first_order_filter_cali(&data_L->length_filter, control_data->height_set);               //设置腿长参数
+    first_order_filter_cali(&data_R->length_filter, control_data->height_set);               //设置腿长参数
 
     data_L->length_set = data_L->length_filter.out;
     data_R->length_set = data_R->length_filter.out;
@@ -147,7 +147,7 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
     PID_calc(&data_R->length_pid,data_R->length_now,data_R->length_set);    //腿长PID计算
 
     PID_calc(&control_data->leg_pid,control_data->delta_theta,0);    //双腿协调PID
-    PID_calc(&control_data->yaw_pid,imu_data.gyro_kalman[2],0);      //转向PID计算 逆时针为正
+    PID_calc(&control_data->yaw_pid,imu_data.gyro_kalman[2],control_data->yaw_speed_set);      //转向PID计算 逆时针为正
 
     data_L->vmc_data.F0 = data_L->length_pid.out+WIGHT_GAIN;                     //最终VMC支持力需求计算
     data_R->vmc_data.F0 = data_R->length_pid.out+WIGHT_GAIN;                     //最终VMC支持力需求计算
@@ -191,15 +191,14 @@ static void K_matrix_calc(lqr_data_t *data, float length)
     if(length<0.1||length>0.3) return;
     if(data->FN>=15)
     {
-        data->K11 = (                                53.556f*length*length - 47.980f*length - 1.1697f); //R^2 = 0.9998
+        data->K11 = (                                53.556f*length*length - 47.980f*length - 1.1697f); //R^2 = 0.9998  [350 1 100 50 4000 1]
         data->K12 = (                                                      - 5.4229f*length + 0.1148f); //R^2 = 0.9999
         data->K13 = (-31.422f*length*length*length + 23.651f*length*length - 6.0912f*length - 0.4418f); //R^2 = 0.9983
         data->K14 = (-38.838f*length*length*length + 29.266f*length*length - 7.9398f*length - 0.8633f); //R^2 = 0.9991
         data->K15 = (-220.48f*length*length*length + 183.60f*length*length - 55.846f*length + 6.8803f); //R^2 = 0.9999
         data->K16 = (-11.691f*length*length*length + 10.948f*length*length - 3.9904f*length + 0.6494f); //R^2 = 1
-
         data->K21 = (-36.344f*length*length*length + 43.495f*length*length - 21.317f*length + 5.1736f); //R^2 = 1
-        data->K22 = ( 7.1820f*length*length*length - 5.4533f*length*length + 1.1580f*length + 0.2539f ); //R^2 = 0.9986
+        data->K22 = ( 7.1820f*length*length*length - 5.4533f*length*length + 1.1580f*length + 0.2539f); //R^2 = 0.9986
         data->K23 = (-70.012f*length*length*length + 58.724f*length*length - 18.142f*length + 2.3715f); //R^2 = 0.9999
         data->K24 = (-129.69f*length*length*length + 105.90f*length*length - 31.528f*length + 3.9371f); //R^2 = 0.9998
         data->K25 = ( 355.69f*length*length*length - 266.69f*length*length + 68.177f*length + 6.2127f); //R^2 = 0.998
@@ -207,9 +206,6 @@ static void K_matrix_calc(lqr_data_t *data, float length)
     }
     else
     {
-        DDT_measure[0].x = 0;
-        DDT_measure[1].x = 0;
-
         data->K11 = 0;
         data->K12 = 0;
         data->K13 = 0;
@@ -250,9 +246,15 @@ static void FN_calc(lqr_data_t *data)
 void remote_control(wbr_control_data_t *control_Data, uint16_t sbus[])
 {
     control_Data->speed_set = rc_dead_band_limit(((float)sbus[2]-1000),20) * 0.001f;
-    control_Data->delta_x += wbr_control_data.speed_set*CONTROL_LOOP_TIME;
-    control_Data->delta_x += wbr_control_data.speed_set*CONTROL_LOOP_TIME;
+    control_Data->delta_x -= wbr_control_data.speed_set*CONTROL_LOOP_TIME;
+    control_Data->delta_x -= wbr_control_data.speed_set*CONTROL_LOOP_TIME;
 
+
+    control_Data->height_set = ((float)sbus[9]-150)/1600*0.2f+0.1f;
+    if(control_Data->height_set<=0.1) control_Data->height_set = 0.1f;
+    else if(control_Data->height_set>=0.3) control_Data->height_set = 0.3f;
+
+    control_Data->yaw_speed_set =-rc_dead_band_limit(((float)sbus[3]-1000),20) * 0.001f;
 }
 /**
   * @brief Function lqr实时计算
@@ -279,34 +281,31 @@ void LqrControlTask(void const * argument)
             if(sbus_channel[7] >= 1500)
             {
                 MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, -lqr_data_L.Tj1);//lqr_data_L.Tj1
-                delay_us(250);
+                osDelay(1);
                 MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, -lqr_data_L.Tj2);//lqr_data_L.Tj2
                 DDT_motor_toq_CTRL(&huart2, 0x01,  lqr_data_L.T_send);
-                delay_us(250);
+                osDelay(1);
                 MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0,  lqr_data_R.Tj2);
-                delay_us(250);
+                osDelay(1);
                 MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
                 DDT_motor_toq_CTRL(&huart2, 0x02,  lqr_data_R.T_send);
-                delay_us(250);
                 osDelay(1);
             }
             else {
                 MIT_motor_CTRL(&hcan1, 1, 0, 0, 0, 0, 0);
-                delay_us(250);
+                osDelay(1);
                 MIT_motor_CTRL(&hcan1, 2, 0, 0, 0, 0, 0);
                 DDT_motor_toq_CTRL(&huart2, 0x01, 0);
-                delay_us(250);
+                osDelay(1);
                 MIT_motor_CTRL(&hcan1, 3, 0, 0, 0, 0, 0);
-                delay_us(250);
+                osDelay(1);
                 MIT_motor_CTRL(&hcan1, 4, 0, 0, 0, 0, 0);
                 DDT_motor_toq_CTRL(&huart2, 0x02, 0);
-                delay_us(250);
                 osDelay(1);
-
             }
         }
         else
-        osDelay(2);
+        osDelay(4);
     }
 }
 //TODO 前进环

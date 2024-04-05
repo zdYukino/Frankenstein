@@ -46,8 +46,8 @@ void VofaOutputTask(void const * argument)
         tempFloat[14] = wbr_control_data.speed_set;
         tempFloat[15] = lqr_data_L.d_x;
         tempFloat[16] = lqr_data_L.x;
-        tempFloat[17] = lqr_data_R.x;
-        tempFloat[18] = wbr_control_data.delta_x;
+        tempFloat[17] = wbr_control_data.height_set;
+        tempFloat[18] = sbus_channel[3];
         //tempFloat[19] = VofaData[1];
         Vofa_Uart_Transmit(&huart5);
         osDelay(5);
