@@ -23,7 +23,7 @@
 #include "ddt_m6_control.h"
 #include "user_lib.h"
 
-#define CONTROL_LOOP_TIME    0.004f  //lqr计算周期  s
+#define CONTROL_LOOP_TIME    0.002f  //lqr计算周期  s
 #define GRAVITY              9.8f    //重力加速度
 
 #define WIGHT_GAIN 18.0f   //机体重量/2 前馈 N
@@ -92,6 +92,7 @@ typedef struct
     pid_type_def yaw_pid;
     /**中间过程参数**/
     float delta_theta;
+    float delta_x;
     /**期望设置参数**/
     float speed_set;
     float yaw_speed_set;

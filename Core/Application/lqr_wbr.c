@@ -21,6 +21,7 @@
 #include "usart.h"
 #include "can.h"
 #include "bsp_sbus.h"
+#include "bsp_delay.h"
 
 lqr_data_t lqr_data_L;
 lqr_data_t lqr_data_R;
@@ -30,6 +31,7 @@ uint8_t lqr_init_flag = 0;
 extern uint8_t board_init_flag;
 
 void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *control_data);
+void remote_control(wbr_control_data_t *control_Data, uint16_t sbus[]);
 static void K_matrix_calc(lqr_data_t *data, float length);
 static void FN_calc(lqr_data_t *data);
 
@@ -59,7 +61,7 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
     PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
     PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
     /**一阶低通滤波初始化**/
-    const float length_FILTER[1] = {1};
+    const float length_FILTER[1] = {0.8f};
     first_order_filter_init(&data_L->length_filter, CONTROL_LOOP_TIME, length_FILTER);
     first_order_filter_init(&data_R->length_filter, CONTROL_LOOP_TIME, length_FILTER);
     /**VMC始化**/
@@ -129,8 +131,17 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
 {
     lqr_data_update(data_L, data_R, control_data);                //更新机体参数
 
-    data_L->length_set = VofaData[0];               //设置腿长参数
-    data_R->length_set = VofaData[0];               //设置腿长参数
+    remote_control(&wbr_control_data,sbus_channel);
+
+//    data_L->x += control_data->delta_x;
+//    data_R->x += control_data->delta_x;
+
+
+    first_order_filter_cali(&data_L->length_filter, VofaData[0]);               //设置腿长参数
+    first_order_filter_cali(&data_R->length_filter, VofaData[0]);               //设置腿长参数
+
+    data_L->length_set = data_L->length_filter.out;
+    data_R->length_set = data_R->length_filter.out;
 
     PID_calc(&data_L->length_pid,data_L->length_now,data_L->length_set);    //腿长PID计算
     PID_calc(&data_R->length_pid,data_R->length_now,data_R->length_set);    //腿长PID计算
@@ -157,16 +168,12 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
                 data_R->K23*data_R->x     + data_R->K24*data_R->d_x     +
                 data_R->K25*data_R->phi   + data_R->K26*data_R->d_phi   ;
 
-        data_L->vmc_data.Tp = (data_L->Tp - control_data->leg_pid.out);         //计算最终髋关节扭矩
-        data_R->vmc_data.Tp = (data_R->Tp + control_data->leg_pid.out);         //计算最终髋关节扭矩
-
-        data_L->T_send =  -(data_L->T + control_data->yaw_pid.out);             //计算最终驱动轮力矩
-        data_R->T_send =   (data_R->T - control_data->yaw_pid.out);             //计算最终驱动轮力矩
-
-
+    data_L->vmc_data.Tp = (data_L->Tp - control_data->leg_pid.out);         //计算最终髋关节扭矩
+    data_R->vmc_data.Tp = (data_R->Tp + control_data->leg_pid.out);         //计算最终髋关节扭矩
+    data_L->T_send      =-(data_L->T + control_data->yaw_pid.out);             //计算最终驱动轮力矩
+    data_R->T_send      = (data_R->T - control_data->yaw_pid.out);             //计算最终驱动轮力矩
     vmc_calc(&data_L->vmc_data);                                       //VMC计算关节力矩
     vmc_calc(&data_R->vmc_data);                                       //VMC计算关节力矩
-
     data_L->Tj1 = data_L->vmc_data.T[0];
     data_L->Tj2 = data_L->vmc_data.T[1];
     data_R->Tj1 = data_R->vmc_data.T[0];
@@ -184,31 +191,33 @@ static void K_matrix_calc(lqr_data_t *data, float length)
     if(length<0.1||length>0.3) return;
     if(data->FN>=15)
     {
-        data->K11 = -5.3756f;//(                                48.786f*length*length - 47.345f*length - 0.7115f); //R^2 = 0.9998
-        data->K12 = -0.4237f;//(                                                      - 5.6196f*length + 0.1218f); //R^2 = 1
-        data->K13 = -0.8419f;//(-55.064f*length*length*length + 42.892f*length*length - 11.463f*length - 1.1215f); //R^2 = 0.9991
-        data->K14 = -1.3985f;//(-47.14f *length*length*length + 37.189f*length*length - 11.19f *length - 1.1837f); //R^2 = 0.9998
-        data->K15 =  2.9261f;//(-180.55f*length*length*length + 159.05f*length*length - 53.184f*length + 8.1325f); //R^2 = 1
-        data->K16 =  0.3484f;//(-8.0602f*length*length*length + 8.3599f*length*length - 3.4744f*length + 0.7793f); //R^2 = 1
+        data->K11 = (                                53.556f*length*length - 47.980f*length - 1.1697f); //R^2 = 0.9998
+        data->K12 = (                                                      - 5.4229f*length + 0.1148f); //R^2 = 0.9999
+        data->K13 = (-31.422f*length*length*length + 23.651f*length*length - 6.0912f*length - 0.4418f); //R^2 = 0.9983
+        data->K14 = (-38.838f*length*length*length + 29.266f*length*length - 7.9398f*length - 0.8633f); //R^2 = 0.9991
+        data->K15 = (-220.48f*length*length*length + 183.60f*length*length - 55.846f*length + 6.8803f); //R^2 = 0.9999
+        data->K16 = (-11.691f*length*length*length + 10.948f*length*length - 3.9904f*length + 0.6494f); //R^2 = 1
 
-        data->K21 = 3.4378f;//( 57.724f*length*length*length - 32.781f*length*length + 0.6436f*length + 3.5128f); //R^2 = 0.9998
-        data->K22 = 0.3217f;//( 9.2032f*length*length*length - 7.2715f*length*length + 1.7563f*length + 0.236f ); //R^2 = 0.9969
-        data->K23 = 1.0792f;//(-114.7f *length*length*length + 100.28f*length*length - 33.042f*length + 4.8043f); //R^2 = 1
-        data->K24 = 1.7245f;//(-117.69f*length*length*length + 100.98f*length*length - 32.567f*length + 4.6866f); //R^2 = 0.9999
-        data->K25 =10.6750f;//( 379.24f*length*length*length - 293.52f*length*length + 78.959f*length + 6.6423f); //R^2 = 0.9992
-        data->K26 = 0.5656f;//( 30.996f*length*length*length - 25.034f*length*length + 7.203f *length + 0.0868f); //R^2 = 0.9997
+        data->K21 = (-36.344f*length*length*length + 43.495f*length*length - 21.317f*length + 5.1736f); //R^2 = 1
+        data->K22 = ( 7.1820f*length*length*length - 5.4533f*length*length + 1.1580f*length + 0.2539f ); //R^2 = 0.9986
+        data->K23 = (-70.012f*length*length*length + 58.724f*length*length - 18.142f*length + 2.3715f); //R^2 = 0.9999
+        data->K24 = (-129.69f*length*length*length + 105.90f*length*length - 31.528f*length + 3.9371f); //R^2 = 0.9998
+        data->K25 = ( 355.69f*length*length*length - 266.69f*length*length + 68.177f*length + 6.2127f); //R^2 = 0.998
+        data->K26 = ( 27.440f*length*length*length - 21.278f*length*length + 5.7068f*length + 0.1829f); //R^2 = 0.9992
     }
     else
     {
+        DDT_measure[0].x = 0;
+        DDT_measure[1].x = 0;
+
         data->K11 = 0;
         data->K12 = 0;
         data->K13 = 0;
         data->K14 = 0;
         data->K15 = 0;
         data->K16 = 0;
-
-        data->K21 = ( 57.724f*length*length*length - 32.781f*length*length + 0.6436f*length + 3.5128f); //R^2 = 0.9998
-        data->K22 = ( 9.2032f*length*length*length - 7.2715f*length*length + 1.7563f*length + 0.236f ); //R^2 = 0.9969
+        data->K21 = (-36.344f*length*length*length + 43.495f*length*length - 21.317f*length + 5.1736f); //R^2 = 1
+        data->K22 = ( 7.1820f*length*length*length - 5.4533f*length*length + 1.1580f*length + 0.2539f ); //R^2 = 0.9986
         data->K23 = 0;
         data->K24 = 0;
         data->K25 = 0;
@@ -234,7 +243,19 @@ static void FN_calc(lqr_data_t *data)
     data->FN = P + WHEEl_M * GRAVITY + dd_Zw * WHEEl_M;
 }
 /**
-  * @brief Function FREERTOS VOFA发送调试信息
+* @brief  实时支持力结算
+* @param  data：input
+* @retval none
+*/
+void remote_control(wbr_control_data_t *control_Data, uint16_t sbus[])
+{
+    control_Data->speed_set = rc_dead_band_limit(((float)sbus[2]-1000),20) * 0.001f;
+    control_Data->delta_x += wbr_control_data.speed_set*CONTROL_LOOP_TIME;
+    control_Data->delta_x += wbr_control_data.speed_set*CONTROL_LOOP_TIME;
+
+}
+/**
+  * @brief Function lqr实时计算
   * @param argument: Not used
   * @retval none
   */
@@ -252,10 +273,42 @@ void LqrControlTask(void const * argument)
         {
             lqr_calc(&lqr_data_L, &lqr_data_R, &wbr_control_data);
         }
-        osDelay(4);
+
+        if(board_init_flag == 1)
+        {
+            if(sbus_channel[7] >= 1500)
+            {
+                MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, -lqr_data_L.Tj1);//lqr_data_L.Tj1
+                delay_us(250);
+                MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, -lqr_data_L.Tj2);//lqr_data_L.Tj2
+                DDT_motor_toq_CTRL(&huart2, 0x01,  lqr_data_L.T_send);
+                delay_us(250);
+                MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0,  lqr_data_R.Tj2);
+                delay_us(250);
+                MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
+                DDT_motor_toq_CTRL(&huart2, 0x02,  lqr_data_R.T_send);
+                delay_us(250);
+                osDelay(1);
+            }
+            else {
+                MIT_motor_CTRL(&hcan1, 1, 0, 0, 0, 0, 0);
+                delay_us(250);
+                MIT_motor_CTRL(&hcan1, 2, 0, 0, 0, 0, 0);
+                DDT_motor_toq_CTRL(&huart2, 0x01, 0);
+                delay_us(250);
+                MIT_motor_CTRL(&hcan1, 3, 0, 0, 0, 0, 0);
+                delay_us(250);
+                MIT_motor_CTRL(&hcan1, 4, 0, 0, 0, 0, 0);
+                DDT_motor_toq_CTRL(&huart2, 0x02, 0);
+                delay_us(250);
+                osDelay(1);
+
+            }
+        }
+        else
+        osDelay(2);
     }
 }
-//TODO 参数拟合
 //TODO 前进环
 //TODO 转向环
 //TODO ROLL自动平衡

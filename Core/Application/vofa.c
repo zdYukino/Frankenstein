@@ -29,25 +29,25 @@ void VofaOutputTask(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-        tempFloat[0] =  sbus_channel[0];
-        tempFloat[1] =  sbus_channel[1];
-        tempFloat[2] =  sbus_channel[2];
-        tempFloat[3] =  sbus_channel[3];
-        tempFloat[4] =  sbus_channel[4];
-        tempFloat[5] =  sbus_channel[5];
-        tempFloat[6] =  sbus_channel[6];
-        tempFloat[7] =  sbus_channel[7];
-        tempFloat[8] =  sbus_channel[8];
-        tempFloat[9] =  sbus_channel[9];
-        tempFloat[10] = lqr_data_L.FN;
-        tempFloat[11] = lqr_data_R.FN;
-        tempFloat[12] = lqr_data_L.Tp;
-        tempFloat[13] = lqr_data_R.phi;
-        tempFloat[14] = DDT_measure[0].mode;
-        tempFloat[15] = DDT_measure[0].err;
-        tempFloat[16] = imu_data.accel_kalman[0];
-        tempFloat[17] = imu_data.accel_kalman[1];
-        tempFloat[18] = imu_data.accel_kalman[2];
+        tempFloat[0] =  lqr_data_L.vmc_data.phi1;
+        tempFloat[1] =  lqr_data_L.vmc_data.phi4;
+        tempFloat[2] =  lqr_data_R.vmc_data.phi1;
+        tempFloat[3] =  lqr_data_R.vmc_data.phi4;
+        tempFloat[4] =  lqr_data_L.K15;
+        tempFloat[5] =  lqr_data_L.K16;
+        tempFloat[6] =  lqr_data_L.K21;
+        tempFloat[7] =  lqr_data_L.K22;
+        tempFloat[8] =  lqr_data_L.K23;
+        tempFloat[9] =  lqr_data_L.K24;
+        tempFloat[10] = lqr_data_L.K25;
+        tempFloat[11] = lqr_data_L.K26;
+        tempFloat[12] = lqr_data_L.length_set;
+        tempFloat[13] = lqr_data_L.length_now;
+        tempFloat[14] = wbr_control_data.speed_set;
+        tempFloat[15] = lqr_data_L.d_x;
+        tempFloat[16] = lqr_data_L.x;
+        tempFloat[17] = lqr_data_R.x;
+        tempFloat[18] = wbr_control_data.delta_x;
         //tempFloat[19] = VofaData[1];
         Vofa_Uart_Transmit(&huart5);
         osDelay(5);
