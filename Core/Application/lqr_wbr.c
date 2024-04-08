@@ -61,7 +61,7 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
     PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
     PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
     /**一阶低通滤波初始化**/
-    const float length_FILTER[1] = {0.5f};
+    const float length_FILTER[1] = {0.3f};
     first_order_filter_init(&data_L->length_filter, CONTROL_LOOP_TIME, length_FILTER);
     first_order_filter_init(&data_R->length_filter, CONTROL_LOOP_TIME, length_FILTER);
     /**VMC始化**/
@@ -70,6 +70,10 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
     /**初始值设定**/
     data_L->length_filter.out = data_L->vmc_data.L0;
     data_R->length_filter.out = data_R->vmc_data.L0;
+
+    DDT_measure[0].pos_total = 0;
+    DDT_measure[1].pos_total = 0;
+    control_data->delta_x = 0;
 }
 /**
  * @brief  lqr传感计算数据更新
@@ -245,7 +249,8 @@ static void FN_calc(lqr_data_t *data)
 */
 void remote_control(wbr_control_data_t *control_Data, uint16_t sbus[])
 {
-    control_Data->speed_set = rc_dead_band_limit(((float)sbus[2]-1000),20) * 0.001f;
+    if(sbus[2]>0) control_Data->speed_set = rc_dead_band_limit(((float)sbus[2]-1000),20) * 0.001f;
+    else          control_Data->speed_set = 0;
     control_Data->delta_x -= wbr_control_data.speed_set*CONTROL_LOOP_TIME;
     control_Data->delta_x -= wbr_control_data.speed_set*CONTROL_LOOP_TIME;
 
@@ -302,6 +307,7 @@ void LqrControlTask(void const * argument)
                 MIT_motor_CTRL(&hcan1, 4, 0, 0, 0, 0, 0);
                 DDT_motor_toq_CTRL(&huart2, 0x02, 0);
                 osDelay(1);
+
             }
         }
         else
