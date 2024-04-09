@@ -50,8 +50,8 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
     data_R->wheel_motor_data = get_ddt_motor_measure_point(1);
     /**PID控制初始化**/
     const float length_PID[3] = {LENGTH_P,LENGTH_I,LENGTH_D};
-    PID_init(&data_L->length_pid,PID_POSITION,length_PID,100,0);   //腿长PID初始化
-    PID_init(&data_R->length_pid,PID_POSITION,length_PID,100,0);   //腿长PID初始化
+    PID_init(&data_L->length_pid,PID_POSITION,length_PID,100,2);   //腿长PID初始化
+    PID_init(&data_R->length_pid,PID_POSITION,length_PID,100,2);   //腿长PID初始化
 
     const float leg_PID[3] = {LEG_P,LEG_I,LEG_D};
     PID_init(&control_data->leg_pid,PID_POSITION,leg_PID,1,0);   //双腿协调PID初始化
@@ -259,7 +259,7 @@ void remote_control(wbr_control_data_t *control_Data, uint16_t sbus[])
     if(control_Data->height_set<=0.1) control_Data->height_set = 0.1f;
     else if(control_Data->height_set>=0.3) control_Data->height_set = 0.3f;
 
-    control_Data->yaw_speed_set =-rc_dead_band_limit(((float)sbus[3]-1000),20) * 0.001f;
+    if(sbus[3]>0) control_Data->yaw_speed_set =-rc_dead_band_limit(((float)sbus[3]-1000),20) * 0.002f;
 }
 /**
   * @brief Function lqr实时计算
@@ -285,26 +285,27 @@ void LqrControlTask(void const * argument)
         {
             if(sbus_channel[7] >= 1500)
             {
-                MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, -lqr_data_L.Tj1);//lqr_data_L.Tj1
+                MIT_motor_CTRL(&hcan1,1, 0, 0, 0, 0, -lqr_data_L.Tj1);
                 osDelay(1);
-                MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, -lqr_data_L.Tj2);//lqr_data_L.Tj2
+                MIT_motor_CTRL(&hcan2,3, 0, 0, 0, 0,  lqr_data_R.Tj2);
                 DDT_motor_toq_CTRL(&huart2, 0x01,  lqr_data_L.T_send);
                 osDelay(1);
-                MIT_motor_CTRL(&hcan1,3, 0, 0, 0, 0,  lqr_data_R.Tj2);
+                MIT_motor_CTRL(&hcan1,2, 0, 0, 0, 0, -lqr_data_L.Tj2);
                 osDelay(1);
-                MIT_motor_CTRL(&hcan1,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
+                MIT_motor_CTRL(&hcan2,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
                 DDT_motor_toq_CTRL(&huart2, 0x02,  lqr_data_R.T_send);
                 osDelay(1);
+
             }
             else {
                 MIT_motor_CTRL(&hcan1, 1, 0, 0, 0, 0, 0);
                 osDelay(1);
-                MIT_motor_CTRL(&hcan1, 2, 0, 0, 0, 0, 0);
+                MIT_motor_CTRL(&hcan2, 3, 0, 0, 0, 0, 0);
                 DDT_motor_toq_CTRL(&huart2, 0x01, 0);
                 osDelay(1);
-                MIT_motor_CTRL(&hcan1, 3, 0, 0, 0, 0, 0);
+                MIT_motor_CTRL(&hcan1, 2, 0, 0, 0, 0, 0);
                 osDelay(1);
-                MIT_motor_CTRL(&hcan1, 4, 0, 0, 0, 0, 0);
+                MIT_motor_CTRL(&hcan2, 4, 0, 0, 0, 0, 0);
                 DDT_motor_toq_CTRL(&huart2, 0x02, 0);
                 osDelay(1);
 
@@ -314,6 +315,5 @@ void LqrControlTask(void const * argument)
         osDelay(4);
     }
 }
-//TODO 前进环
-//TODO 转向环
-//TODO ROLL自动平衡
+//TODO
+//ROLL自动平衡

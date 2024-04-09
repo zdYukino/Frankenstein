@@ -178,11 +178,14 @@ void InitBoardTask(void const * argument)
     {
         if(board_init_flag != 1)
         {
-            for(uint8_t i=0;i<4;i++)
-            {
-                start_motor(&hcan1,i+1);
-                osDelay(2);
-            }
+                start_motor(&hcan1,1);
+                osDelay(5);
+                start_motor(&hcan1,2);
+                osDelay(5);
+                start_motor(&hcan2,3);
+                osDelay(5);
+                start_motor(&hcan2,4);
+                osDelay(5);
             DDT_motor_mode_CHANGE(&huart2,0x01,CURRENT_MODE);
             osDelay(5);
             DDT_motor_mode_CHANGE(&huart2,0x02,CURRENT_MODE);
@@ -195,7 +198,7 @@ void InitBoardTask(void const * argument)
         }
         else
         {
-            osDelay(5);
+            osDelay(4);
         }
     }
 }

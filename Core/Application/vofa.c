@@ -29,8 +29,8 @@ void VofaOutputTask(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-        tempFloat[0] =  lqr_data_L.vmc_data.phi1;
-        tempFloat[1] =  lqr_data_L.vmc_data.phi4;
+        tempFloat[0] =  lqr_data_L.FN;
+        tempFloat[1] =  lqr_data_R.FN;
         tempFloat[2] =  lqr_data_R.vmc_data.phi1;
         tempFloat[3] =  lqr_data_R.vmc_data.phi4;
         tempFloat[4] =  lqr_data_L.theta;

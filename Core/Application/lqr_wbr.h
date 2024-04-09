@@ -31,7 +31,7 @@
 #define WHEEl_M    0.8f  //轮子质量       Kg
 
 #define LENGTH_P    400.0f  //腿长控制PID参数
-#define LENGTH_I    0.0f    //腿长控制PID参数
+#define LENGTH_I    1.0f    //腿长控制PID参数
 #define LENGTH_D    200.0f  //腿长控制PID参数
 
 #define LEG_P    2.0f     //腿协调控制PID参数
