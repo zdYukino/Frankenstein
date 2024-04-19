@@ -74,6 +74,8 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
     DDT_measure[0].pos_total = 0;
     DDT_measure[1].pos_total = 0;
     control_data->delta_x = 0;
+    control_data->wbr_state = FALL_STATE;
+    control_data->wbr_state_last = FALL_STATE;
 }
 /**
  * @brief  lqr传感计算数据更新
@@ -178,10 +180,15 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
     data_R->T_send      = (data_R->T - control_data->yaw_pid.out);             //计算最终驱动轮力矩
     vmc_calc(&data_L->vmc_data);                                       //VMC计算关节力矩
     vmc_calc(&data_R->vmc_data);                                       //VMC计算关节力矩
-    data_L->Tj1 = data_L->vmc_data.T[0];
-    data_L->Tj2 = data_L->vmc_data.T[1];
-    data_R->Tj1 = data_R->vmc_data.T[0];
-    data_R->Tj2 = data_R->vmc_data.T[1];
+
+    if(data_L->vmc_data.T[0]<4&&data_L->vmc_data.T[0]>-4)
+        data_L->Tj1 = data_L->vmc_data.T[0];
+    if(data_L->vmc_data.T[1]<4&&data_L->vmc_data.T[1]>-4)
+        data_L->Tj2 = data_L->vmc_data.T[1];
+    if(data_R->vmc_data.T[0]<4&&data_R->vmc_data.T[0]>-4)
+        data_R->Tj1 = data_R->vmc_data.T[0];
+    if(data_R->vmc_data.T[1]<4&&data_R->vmc_data.T[1]>-4)
+        data_R->Tj2 = data_R->vmc_data.T[1];
     //确定力矩大小 位置限制 力矩限制
 }
 /**
@@ -243,7 +250,7 @@ static void FN_calc(lqr_data_t *data)
     data->FN = P + WHEEl_M * GRAVITY + dd_Zw * WHEEl_M;
 }
 /**
-* @brief  实时支持力结算
+* @brief  遥控器控制
 * @param  data：input
 * @retval none
 */
@@ -259,7 +266,17 @@ void remote_control(wbr_control_data_t *control_Data, uint16_t sbus[])
     if(control_Data->height_set<=0.1) control_Data->height_set = 0.1f;
     else if(control_Data->height_set>=0.3) control_Data->height_set = 0.3f;
 
-    if(sbus[3]>0) control_Data->yaw_speed_set =-rc_dead_band_limit(((float)sbus[3]-1000),20) * 0.002f;
+    if(sbus[3]>0) control_Data->yaw_speed_set =-rc_dead_band_limit(((float)sbus[3]-1000),20) * 0.004f;
+}
+/**
+* @brief  WBR状态解算
+* @param  data：input
+* @retval none
+*/
+void wbr_state_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *control_data)
+{
+    if(control_data->wbr_state != control_data->wbr_state_last) return;////状态转换中，跳过状态监测
+    
 }
 /**
   * @brief Function lqr实时计算

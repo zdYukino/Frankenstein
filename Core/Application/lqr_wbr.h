@@ -98,8 +98,18 @@ typedef struct
     float yaw_speed_set;
     float height_set;
     float roll_angel_set;
+
+    uint8_t wbr_state;
+    uint8_t wbr_state_last;
 }wbr_control_data_t;
 
+typedef enum
+{
+    FALL_STATE  = 0x01,
+    STAND_STATE = 0x02,
+    FLY_STATE   = 0x03,
+    JUMP_STATE  = 0x04,
+} wbr_state_e;
 
 extern lqr_data_t lqr_data_L;
 extern lqr_data_t lqr_data_R;

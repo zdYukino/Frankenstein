@@ -31,24 +31,24 @@ void VofaOutputTask(void const * argument)
     {
         tempFloat[0] =  lqr_data_L.FN;
         tempFloat[1] =  lqr_data_R.FN;
-        tempFloat[2] =  lqr_data_R.vmc_data.phi1;
+        tempFloat[2] =  wbr_control_data.delta_theta;
         tempFloat[3] =  lqr_data_R.vmc_data.phi4;
-        tempFloat[4] =  lqr_data_L.theta;
-        tempFloat[5] =  lqr_data_L.d_theta;
-        tempFloat[6] =  lqr_data_L.x;
-        tempFloat[7] =  lqr_data_L.d_x;
-        tempFloat[8] =  lqr_data_L.phi;
-        tempFloat[9] =  lqr_data_L.d_phi;
-        tempFloat[10] = lqr_data_L.wheel_motor_data->x;
-        tempFloat[11] = lqr_data_R.wheel_motor_data->x;
+        tempFloat[4] =  lqr_data_L.vmc_data.phi1;
+        tempFloat[5] =  lqr_data_L.vmc_data.phi4;
+        tempFloat[6] =  lqr_data_L.Tj1;
+        tempFloat[7] =  lqr_data_L.Tj2;
+        tempFloat[8] =  lqr_data_R.Tj1;
+        tempFloat[9] =  lqr_data_R.Tj2;
+        tempFloat[10] = DM_Motor_measure[0].pos;
+        tempFloat[11] = DM_Motor_measure[1].pos;
         tempFloat[12] = lqr_data_L.length_set;
         tempFloat[13] = lqr_data_L.length_now;
         tempFloat[14] = wbr_control_data.speed_set;
         tempFloat[15] = lqr_data_L.d_x;
         tempFloat[16] = lqr_data_L.x;
         tempFloat[17] = wbr_control_data.height_set;
-        tempFloat[18] = sbus_channel[3];
-        //tempFloat[19] = VofaData[1];
+        tempFloat[18] = imu_data.attitude_correct[0];
+        tempFloat[19] = imu_data.attitude_correct[1];
         Vofa_Uart_Transmit(&huart5);
         osDelay(5);
     }

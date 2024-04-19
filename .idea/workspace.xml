@@ -20,17 +20,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="上电启动正常">
+    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="稳定版本for中期">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/CAN_receive_dm.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/CAN_receive_dm.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/CAN_receive_dm.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
@@ -205,7 +206,19 @@
       <workItem from="1712504904631" duration="656000" />
       <workItem from="1712593671384" duration="33000" />
       <workItem from="1712593721703" duration="1453000" />
-      <workItem from="1712666205082" duration="3680000" />
+      <workItem from="1712666205082" duration="3718000" />
+      <workItem from="1713029143123" duration="678000" />
+      <workItem from="1713032128822" duration="1212000" />
+      <workItem from="1713037327957" duration="10000" />
+      <workItem from="1713075857029" duration="49000" />
+      <workItem from="1713084464548" duration="1125000" />
+      <workItem from="1713095565273" duration="297000" />
+      <workItem from="1713107411563" duration="599000" />
+      <workItem from="1713114531483" duration="159000" />
+      <workItem from="1713189039907" duration="188000" />
+      <workItem from="1713199953740" duration="470000" />
+      <workItem from="1713507958165" duration="3851000" />
+      <workItem from="1713511860098" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="代码修改">
       <created>1701602122232</created>
@@ -505,7 +518,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712596743873</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="稳定版本for中期">
+      <option name="closed" value="true" />
+      <created>1712673200757</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1712673200757</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +591,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="add DWT_delay module" />
     <MESSAGE value="rename" />
     <MESSAGE value="rename wrong task name2" />
     <MESSAGE value="add imu kalman filter" />
@@ -595,7 +615,8 @@
     <MESSAGE value="拟合完成 更改控制频率 500Hz" />
     <MESSAGE value="改回控制频率 简单完成前进转向环" />
     <MESSAGE value="上电启动正常" />
-    <option name="LAST_COMMIT_MESSAGE" value="上电启动正常" />
+    <MESSAGE value="稳定版本for中期" />
+    <option name="LAST_COMMIT_MESSAGE" value="稳定版本for中期" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
