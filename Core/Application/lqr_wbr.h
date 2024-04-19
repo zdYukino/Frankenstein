@@ -28,7 +28,7 @@
 
 #define WIGHT_GAIN 18.0f   //机体重量/2 前馈 N
 #define WHEEl_D    0.102f  //轮子直径       M
-#define WHEEl_M    0.8f  //轮子质量       Kg
+#define WHEEl_M    0.8f    //轮子质量       Kg
 
 #define LENGTH_P    400.0f  //腿长控制PID参数
 #define LENGTH_I    1.0f    //腿长控制PID参数
@@ -41,6 +41,10 @@
 #define YAW_P    2.5f     //YAW控制PID参数
 #define YAW_I    0.0f     //YAW控制PID参数
 #define YAW_D    1.0f     //YAW控制PID参数
+
+#define ROLL_P    0.005f   //ROLL控制PID参数
+#define ROLL_I    0.0f     //ROLL控制PID参数
+#define ROLL_D    0.1f     //ROLL控制PID参数
 typedef struct
 {
     /**LQR输入参数**/
@@ -90,9 +94,11 @@ typedef struct
 {
     pid_type_def leg_pid;
     pid_type_def yaw_pid;
+    pid_type_def roll_pid;
     /**中间过程参数**/
     float delta_theta;
     float delta_x;
+    float roll_angle;   //机体横滚角度 逆时针为正
     /**期望设置参数**/
     float speed_set;
     float yaw_speed_set;

@@ -60,6 +60,10 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
     const float yaw_PID[3] = {YAW_P,YAW_I,YAW_D};
     PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
     PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
+
+    const float roll_PID[3] = {ROLL_P,ROLL_I,ROLL_D};
+    PID_init(&control_data->roll_pid,PID_POSITION,roll_PID,0.2f,0);   //转向环PID初始化
+    PID_init(&control_data->roll_pid,PID_POSITION,roll_PID,0.2f,0);   //转向环PID初始化
     /**一阶低通滤波初始化**/
     const float length_FILTER[1] = {0.3f};
     first_order_filter_init(&data_L->length_filter, CONTROL_LOOP_TIME, length_FILTER);
@@ -86,6 +90,8 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
 void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *control_data)
 {
     /**传感器直出数据**/
+    control_data->roll_angle = data_L->imu_data->attitude_correct[0];
+
     data_L->phi   = (-data_L->imu_data->attitude_correct[1]*(float)M_PI/180.0f);     //机体与水平倾角
     data_L->d_phi =  -imu_data.gyro_kalman[0];
 
@@ -106,7 +112,6 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t 
 
     data_L->d_length[0] = (data_L->vmc_data.L0 - data_L->length_now) / CONTROL_LOOP_TIME;  //求腿长变化速度
     data_R->d_length[0] = (data_R->vmc_data.L0 - data_R->length_now) / CONTROL_LOOP_TIME;  //求腿长变化速度
-
 
     data_L->d_x =  (  (float)data_L->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f) + data_L->vmc_data.L0*data_L->d_theta*cosf(data_L->theta) + data_L->d_length[0]*sinf(data_L->theta);
     data_R->d_x =  (- (float)data_R->wheel_motor_data->int16_rpm*(float)M_PI*WHEEl_D/60.0f) + data_R->vmc_data.L0*data_R->d_theta*cosf(data_R->theta) + data_R->d_length[0]*sinf(data_R->theta);
@@ -136,18 +141,20 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t 
  */
 void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *control_data)
 {
-    lqr_data_update(data_L, data_R, control_data);                //更新机体参数
+    lqr_data_update(data_L, data_R, control_data);                    ////更新机体参数
 
-    remote_control(&wbr_control_data,sbus_channel);
+    remote_control(&wbr_control_data,sbus_channel);  ////遥控WBR
 
-    data_L->x += control_data->delta_x;
-    data_R->x += control_data->delta_x;
+    data_L->x += control_data->delta_x;                               //前后运动跟踪
+    data_R->x += control_data->delta_x;                               //前后运动跟踪
+
+    PID_calc(&control_data->roll_pid,control_data->roll_angle,control_data->roll_angel_set);
 
     first_order_filter_cali(&data_L->length_filter, control_data->height_set);               //设置腿长参数
     first_order_filter_cali(&data_R->length_filter, control_data->height_set);               //设置腿长参数
 
-    data_L->length_set = data_L->length_filter.out;
-    data_R->length_set = data_R->length_filter.out;
+    data_L->length_set = data_L->length_filter.out - control_data->roll_pid.out;
+    data_R->length_set = data_R->length_filter.out + control_data->roll_pid.out;
 
     PID_calc(&data_L->length_pid,data_L->length_now,data_L->length_set);    //腿长PID计算
     PID_calc(&data_R->length_pid,data_R->length_now,data_R->length_set);    //腿长PID计算
@@ -256,17 +263,28 @@ static void FN_calc(lqr_data_t *data)
 */
 void remote_control(wbr_control_data_t *control_Data, uint16_t sbus[])
 {
+    /** 位移环 **/
     if(sbus[2]>0) control_Data->speed_set = rc_dead_band_limit(((float)sbus[2]-1000),20) * 0.001f;
     else          control_Data->speed_set = 0;
     control_Data->delta_x -= wbr_control_data.speed_set*CONTROL_LOOP_TIME;
     control_Data->delta_x -= wbr_control_data.speed_set*CONTROL_LOOP_TIME;
-
-
+    /** 高度环 **/
     control_Data->height_set = ((float)sbus[9]-150)/1600*0.2f+0.1f;
     if(control_Data->height_set<=0.1) control_Data->height_set = 0.1f;
     else if(control_Data->height_set>=0.3) control_Data->height_set = 0.3f;
-
+    /** 转向环 **/
     if(sbus[3]>0) control_Data->yaw_speed_set =-rc_dead_band_limit(((float)sbus[3]-1000),20) * 0.004f;
+    /** 横滚环 **/
+    control_Data->roll_angel_set = 0;
+}
+/**
+* @brief  横滚控制
+* @param  data：input
+* @retval none
+*/
+void roll_control(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *control_data)
+{
+
 }
 /**
 * @brief  WBR状态解算

@@ -31,11 +31,11 @@ void VofaOutputTask(void const * argument)
     {
         tempFloat[0] =  lqr_data_L.FN;
         tempFloat[1] =  lqr_data_R.FN;
-        tempFloat[2] =  wbr_control_data.delta_theta;
-        tempFloat[3] =  lqr_data_R.vmc_data.phi4;
-        tempFloat[4] =  lqr_data_L.vmc_data.phi1;
-        tempFloat[5] =  lqr_data_L.vmc_data.phi4;
-        tempFloat[6] =  lqr_data_L.Tj1;
+        tempFloat[2] =  lqr_data_L.length_set;
+        tempFloat[3] =  lqr_data_L.length_now;
+        tempFloat[4] =  lqr_data_R.length_set;
+        tempFloat[5] =  lqr_data_R.length_now;
+        tempFloat[6] =  wbr_control_data.roll_pid.out;
         tempFloat[7] =  lqr_data_L.Tj2;
         tempFloat[8] =  lqr_data_R.Tj1;
         tempFloat[9] =  lqr_data_R.Tj2;
