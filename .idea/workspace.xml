@@ -20,17 +20,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="简单解决轮腿抽动问题（lqr计算有误）">
+    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="roll自动平衡beta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +207,11 @@
       <workItem from="1713199953740" duration="470000" />
       <workItem from="1713507958165" duration="3851000" />
       <workItem from="1713511860098" duration="66000" />
-      <workItem from="1713544072014" duration="2459000" />
+      <workItem from="1713544072014" duration="3898000" />
+      <workItem from="1714487605839" duration="38000" />
+      <workItem from="1714745517362" duration="609000" />
+      <workItem from="1715115160474" duration="313000" />
+      <workItem from="1715540558004" duration="325000" />
     </task>
     <task id="LOCAL-00001" summary="代码修改">
       <created>1701602122232</created>
@@ -530,7 +527,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713511913042</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="roll自动平衡beta">
+      <option name="closed" value="true" />
+      <created>1713551976821</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1713551976821</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,8 +600,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="rename wrong task name2" />
-    <MESSAGE value="add imu kalman filter" />
     <MESSAGE value="finish VMC control and test pass&#10;ready to write lqr control" />
     <MESSAGE value="program lqr" />
     <MESSAGE value="complete uart dma transmit test tool" />
@@ -620,7 +623,9 @@
     <MESSAGE value="上电启动正常" />
     <MESSAGE value="稳定版本for中期" />
     <MESSAGE value="简单解决轮腿抽动问题（lqr计算有误）" />
-    <option name="LAST_COMMIT_MESSAGE" value="简单解决轮腿抽动问题（lqr计算有误）" />
+    <MESSAGE value="roll自动平衡 beta" />
+    <MESSAGE value="roll自动平衡beta" />
+    <option name="LAST_COMMIT_MESSAGE" value="roll自动平衡beta" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
