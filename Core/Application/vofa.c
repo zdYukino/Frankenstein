@@ -43,12 +43,12 @@ void VofaOutputTask(void const * argument)
         tempFloat[11] = DM_Motor_measure[1].pos;
         tempFloat[12] = lqr_data_L.length_set;
         tempFloat[13] = lqr_data_L.length_now;
-        tempFloat[14] = wbr_control_data.speed_set;
-        tempFloat[15] = lqr_data_L.d_x;
-        tempFloat[16] = lqr_data_L.x;
-        tempFloat[17] = wbr_control_data.height_set;
-        tempFloat[18] = imu_data.attitude_correct[0];
-        tempFloat[19] = imu_data.attitude_correct[1];
+        tempFloat[14] = imu_data.accel[0];
+        tempFloat[15] = imu_data.accel[1];
+        tempFloat[16] = imu_data.accel[2];
+        tempFloat[17] = imu_data.accel_kalman[0];
+        tempFloat[18] = imu_data.accel_kalman[1];
+        tempFloat[19] = imu_data.accel_kalman[2];
         Vofa_Uart_Transmit(&huart5);
         osDelay(5);
     }

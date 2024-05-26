@@ -42,9 +42,9 @@
 #define YAW_I    0.0f     //YAW控制PID参数
 #define YAW_D    1.0f     //YAW控制PID参数
 
-#define ROLL_P    0.005f   //ROLL控制PID参数
+#define ROLL_P    1.0f    //ROLL控制PID参数
 #define ROLL_I    0.0f     //ROLL控制PID参数
-#define ROLL_D    0.1f     //ROLL控制PID参数
+#define ROLL_D    1.0f     //ROLL控制PID参数
 typedef struct
 {
     /**LQR输入参数**/

@@ -20,10 +20,20 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="roll自动平衡beta">
+    <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="5.13可用代码存档">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +221,14 @@
       <workItem from="1714487605839" duration="38000" />
       <workItem from="1714745517362" duration="609000" />
       <workItem from="1715115160474" duration="313000" />
-      <workItem from="1715540558004" duration="325000" />
+      <workItem from="1715540558004" duration="2023000" />
+      <workItem from="1715595179311" duration="6000000" />
+      <workItem from="1715694318255" duration="57000" />
+      <workItem from="1715694952260" duration="250000" />
+      <workItem from="1715696507499" duration="604000" />
+      <workItem from="1715697995348" duration="239000" />
+      <workItem from="1715776824108" duration="3484000" />
+      <workItem from="1716742149851" duration="788000" />
     </task>
     <task id="LOCAL-00001" summary="代码修改">
       <created>1701602122232</created>
@@ -535,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713551976821</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="5.13可用代码存档">
+      <option name="closed" value="true" />
+      <created>1715541916756</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1715541916756</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,7 +625,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="finish VMC control and test pass&#10;ready to write lqr control" />
     <MESSAGE value="program lqr" />
     <MESSAGE value="complete uart dma transmit test tool" />
     <MESSAGE value="continue lqr test code" />
@@ -625,7 +649,8 @@
     <MESSAGE value="简单解决轮腿抽动问题（lqr计算有误）" />
     <MESSAGE value="roll自动平衡 beta" />
     <MESSAGE value="roll自动平衡beta" />
-    <option name="LAST_COMMIT_MESSAGE" value="roll自动平衡beta" />
+    <MESSAGE value="5.13可用代码存档" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.13可用代码存档" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

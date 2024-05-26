@@ -21,7 +21,6 @@
 #include "usart.h"
 #include "can.h"
 #include "bsp_sbus.h"
-#include "bsp_delay.h"
 
 lqr_data_t lqr_data_L;
 lqr_data_t lqr_data_R;
@@ -55,15 +54,12 @@ void lqr_data_init(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *c
 
     const float leg_PID[3] = {LEG_P,LEG_I,LEG_D};
     PID_init(&control_data->leg_pid,PID_POSITION,leg_PID,1,0);   //双腿协调PID初始化
-    PID_init(&control_data->leg_pid,PID_POSITION,leg_PID,1,0);   //双腿协调PID初始化
 
     const float yaw_PID[3] = {YAW_P,YAW_I,YAW_D};
     PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
-    PID_init(&control_data->yaw_pid,PID_POSITION,yaw_PID,1,0);   //转向环PID初始化
 
     const float roll_PID[3] = {ROLL_P,ROLL_I,ROLL_D};
-    PID_init(&control_data->roll_pid,PID_POSITION,roll_PID,0.2f,0);   //转向环PID初始化
-    PID_init(&control_data->roll_pid,PID_POSITION,roll_PID,0.2f,0);   //转向环PID初始化
+    PID_init(&control_data->roll_pid,PID_POSITION,roll_PID,5.0f,0);   //转向环PID初始化
     /**一阶低通滤波初始化**/
     const float length_FILTER[1] = {0.3f};
     first_order_filter_init(&data_L->length_filter, CONTROL_LOOP_TIME, length_FILTER);
@@ -153,8 +149,8 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
     first_order_filter_cali(&data_L->length_filter, control_data->height_set);               //设置腿长参数
     first_order_filter_cali(&data_R->length_filter, control_data->height_set);               //设置腿长参数
 
-    data_L->length_set = data_L->length_filter.out - control_data->roll_pid.out;
-    data_R->length_set = data_R->length_filter.out + control_data->roll_pid.out;
+    data_L->length_set = data_L->length_filter.out;
+    data_R->length_set = data_R->length_filter.out;
 
     PID_calc(&data_L->length_pid,data_L->length_now,data_L->length_set);    //腿长PID计算
     PID_calc(&data_R->length_pid,data_R->length_now,data_R->length_set);    //腿长PID计算
@@ -162,8 +158,8 @@ void lqr_calc(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t *contro
     PID_calc(&control_data->leg_pid,control_data->delta_theta,0);    //双腿协调PID
     PID_calc(&control_data->yaw_pid,imu_data.gyro_kalman[2],control_data->yaw_speed_set);      //转向PID计算 逆时针为正
 
-    data_L->vmc_data.F0 = data_L->length_pid.out+WIGHT_GAIN;                     //最终VMC支持力需求计算
-    data_R->vmc_data.F0 = data_R->length_pid.out+WIGHT_GAIN;                     //最终VMC支持力需求计算
+    data_L->vmc_data.F0 = data_L->length_pid.out+WIGHT_GAIN - (control_data->roll_pid.out/*横滚叠加*/); //最终VMC支持力需求计算
+    data_R->vmc_data.F0 = data_R->length_pid.out+WIGHT_GAIN + (control_data->roll_pid.out/*横滚叠加*/); //最终VMC支持力需求计算
 
 
     K_matrix_calc(data_L,data_L->length_now);                                 //K矩阵计算
@@ -209,18 +205,18 @@ static void K_matrix_calc(lqr_data_t *data, float length)
     if(length<0.1||length>0.3) return;
     if(data->FN>=15)
     {
-        data->K11 = (                                53.556f*length*length - 47.980f*length - 1.1697f); //R^2 = 0.9998  [350 1 100 50 4000 1]
-        data->K12 = (                                                      - 5.4229f*length + 0.1148f); //R^2 = 0.9999
-        data->K13 = (-31.422f*length*length*length + 23.651f*length*length - 6.0912f*length - 0.4418f); //R^2 = 0.9983
-        data->K14 = (-38.838f*length*length*length + 29.266f*length*length - 7.9398f*length - 0.8633f); //R^2 = 0.9991
-        data->K15 = (-220.48f*length*length*length + 183.60f*length*length - 55.846f*length + 6.8803f); //R^2 = 0.9999
-        data->K16 = (-11.691f*length*length*length + 10.948f*length*length - 3.9904f*length + 0.6494f); //R^2 = 1
-        data->K21 = (-36.344f*length*length*length + 43.495f*length*length - 21.317f*length + 5.1736f); //R^2 = 1
-        data->K22 = ( 7.1820f*length*length*length - 5.4533f*length*length + 1.1580f*length + 0.2539f); //R^2 = 0.9986
-        data->K23 = (-70.012f*length*length*length + 58.724f*length*length - 18.142f*length + 2.3715f); //R^2 = 0.9999
-        data->K24 = (-129.69f*length*length*length + 105.90f*length*length - 31.528f*length + 3.9371f); //R^2 = 0.9998
-        data->K25 = ( 355.69f*length*length*length - 266.69f*length*length + 68.177f*length + 6.2127f); //R^2 = 0.998
-        data->K26 = ( 27.440f*length*length*length - 21.278f*length*length + 5.7068f*length + 0.1829f); //R^2 = 0.9992
+        data->K11 =  (                                38.255f*length*length - 33.933f*length - 3.4464f);// -6.40093977819123f;//-
+        data->K12 =  (                                                      - 4.2489f*length - 0.4564f);//-0.876714614073215f;//
+        data->K13 =  (-37.786f*length*length*length + 29.919f*length*length - 8.1727f*length - 1.6559f);// -2.20934993393156f;//-
+        data->K14 =  (-8.8170f*length*length*length + 6.0337f*length*length - 2.1238f*length - 2.0974f);// -2.25778401636481f;//-
+        data->K15 =  (-164.08f*length*length*length + 159.91f*length*length - 58.171f*length + 8.8291f);//  4.44639273770525f;// 3
+        data->K16 =  (-8.4338f*length*length*length + 8.5915f*length*length - 3.4069f*length + 0.6692f);// 0.406057674473306f;//
+        data->K21 =  (-26.305f*length*length*length + 47.445f*length*length - 25.738f*length + 5.5108f);//  3.37538596501877f;// 4
+        data->K22 =  (                                5.5640f*length*length - 3.9674f*length + 0.9059f);// 0.568495569283904f;//
+        data->K23 =  (-55.784f*length*length*length + 55.322f*length*length - 20.365f*length + 3.0359f);//  1.49584281890620f;// 1
+        data->K24 =  (-86.517f*length*length*length + 76.759f*length*length - 25.079f*length + 3.3132f);//  1.49005195338826f;// 1
+        data->K25 =  ( 238.14f*length*length*length - 188.14f*length*length + 51.375f*length + 7.9253f);//  11.4027963927910f;// 1
+        data->K26 =  ( 13.531f*length*length*length - 11.009f*length*length + 3.1650f*length + 0.3989f);// 0.617919874664229f;//
     }
     else
     {
@@ -230,8 +226,8 @@ static void K_matrix_calc(lqr_data_t *data, float length)
         data->K14 = 0;
         data->K15 = 0;
         data->K16 = 0;
-        data->K21 = (-36.344f*length*length*length + 43.495f*length*length - 21.317f*length + 5.1736f); //R^2 = 1
-        data->K22 = ( 7.1820f*length*length*length - 5.4533f*length*length + 1.1580f*length + 0.2539f ); //R^2 = 0.9986
+        data->K21 =  (-26.305f*length*length*length + 47.445f*length*length - 25.738f*length + 5.5108f);//  3.37538596501877f;// 4
+        data->K22 =  (                                5.5640f*length*length - 3.9674f*length + 0.9059f);// 0.568495569283904f;//
         data->K23 = 0;
         data->K24 = 0;
         data->K25 = 0;
@@ -330,7 +326,6 @@ void LqrControlTask(void const * argument)
                 MIT_motor_CTRL(&hcan2,4, 0, 0, 0, 0,  lqr_data_R.Tj1);
                 DDT_motor_toq_CTRL(&huart2, 0x02,  lqr_data_R.T_send);
                 osDelay(1);
-
             }
             else {
                 MIT_motor_CTRL(&hcan1, 1, 0, 0, 0, 0, 0);

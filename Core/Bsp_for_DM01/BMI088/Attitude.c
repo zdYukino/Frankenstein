@@ -94,8 +94,8 @@ void StartImuTask(void const * argument)
         BMI088_read(imu_data.gyro, imu_data.accel, &imu_data.temperature);              //BMI088数据读取
         for(uint8_t i=0;i<3;i++)
         {
-            imu_data.gyro_kalman[i]  = KalmanFilter( &imu_data.kalman_gyro[i],  imu_data.gyro[i]);
-            imu_data.accel_kalman[i] = KalmanFilter(&imu_data.kalman_accel[i], imu_data.accel[i]);
+            imu_data.gyro_kalman[i]  = KalmanFilter( &imu_data.kalman_gyro[i],  imu_data.gyro[i] );
+            imu_data.accel_kalman[i] = KalmanFilter(&imu_data.kalman_accel[i],  imu_data.accel[i]);
         }
         Attitude_Calculate(imu_data.gyro_kalman, imu_data.accel_kalman);                //BMI088欧拉角解算
         Temperature_Control(CONSTANT_temperature);                                          //IMU恒温计算
