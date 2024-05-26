@@ -78,3 +78,10 @@
 193	525	7374830184767280	Frankenstein.elf	a472b8846f469794
 4	332	7374830855878037	CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj	179880d2f3245566
 332	699	7374830858196778	Frankenstein.elf	a472b8846f469794
+3	249	7384615548967252	CMakeFiles/Frankenstein.elf.dir/Core/Application/ddt_m6_control.c.obj	d6b4781f6a28af35
+11	250	7384615548957243	CMakeFiles/Frankenstein.elf.dir/Core/Src/freertos.c.obj	bca6abbf30dee3af
+8	260	7384615549037316	CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj	22d03ba46852b0a2
+6	271	7384615549207470	CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj	179880d2f3245566
+271	595	7384615551029126	Frankenstein.elf	a472b8846f469794
+5	179	7384620084616754	CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj	179880d2f3245566
+179	460	7384620086548510	Frankenstein.elf	a472b8846f469794

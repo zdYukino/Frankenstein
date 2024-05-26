@@ -88,10 +88,10 @@ void lqr_data_update(lqr_data_t *data_L, lqr_data_t *data_R, wbr_control_data_t 
     /**传感器直出数据**/
     control_data->roll_angle = data_L->imu_data->attitude_correct[0];
 
-    data_L->phi   = (-data_L->imu_data->attitude_correct[1]*(float)M_PI/180.0f);     //机体与水平倾角
+    data_L->phi   = (-data_L->imu_data->attitude_correct[1]*(float)M_PI/180.0f)*0.8f;     //机体与水平倾角
     data_L->d_phi =  -imu_data.gyro_kalman[0];
 
-    data_R->phi   = (-data_R->imu_data->attitude_correct[1]*(float)M_PI/180.0f);     //机体与水平倾角
+    data_R->phi   = (-data_R->imu_data->attitude_correct[1]*(float)M_PI/180.0f)*0.8f;     //机体与水平倾角
     data_R->d_phi = -imu_data.gyro_kalman[0];
 
     dk_feedback_update(&data_L->vmc_data, 0);               //更新轮腿正运动学位置

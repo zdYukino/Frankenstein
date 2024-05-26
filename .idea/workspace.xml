@@ -23,17 +23,8 @@
     <list default="true" id="19e8aa94-273f-4ba4-a43e-0e4837e57f92" name="更改" comment="5.13可用代码存档">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/lqr_wbr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Application/vofa.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Application/vofa.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Bsp_for_DM01/BMI088/Attitude.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/lqr_wbr.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Frankenstein.elf.dir/Core/Application/vofa.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.elf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.hex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Frankenstein.map" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
